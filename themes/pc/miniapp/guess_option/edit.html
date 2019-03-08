@@ -1,0 +1,79 @@
+{extend name="common/base" /}
+{block name="body"}
+<form class="layui-form" action="" style="padding-right: 10px;">
+    <input type="hidden" name="id" value="{if isset($data)}{$data['id']}{/if}">
+    <input type="hidden" name="q_id" value="{if isset($q_id)}{$q_id}{/if}">
+    <div class="layui-form-item">
+        <label class="layui-form-label">选项名称</label>
+        <div class="layui-input-block">
+            <input type="text"
+                   name="name"
+                   required
+                   lay-verify="required"
+                   placeholder="请输入选项名称"
+                   autocomplete="off"
+                   value="{if isset($data)}{$data['name']}{/if}"
+                   class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="ADM">立即提交</button>
+            <a href="{:url('guess_option/index',['q_id'=>$q_id])}" class="layui-btn layui-btn-primary">返回</a>
+        </div>
+    </div>
+</form>
+
+<script>
+    layui.use('laydate', function() {
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#time1'
+            ,type: 'datetime'
+            ,format: 'yyyy-MM-dd HH:mm:ss'
+        });
+        laydate.render({
+            elem: '#time2'
+            ,type: 'datetime'
+            ,format: 'yyyy-MM-dd HH:mm:ss'
+        });
+    })
+    layui.use('form', function(){
+        var form = layui.form;
+        var $ = layui.jquery;
+        form.on('submit(ADM)', function(data){
+            $.post("{:url('guess_option/save')}",data.field,function (res) {
+                if(res.status=='0'){
+                    layer.msg(res.msg);
+                }
+                if(res.status=='1'){
+                    layer.msg(res.msg,{time:1000},function () {
+                        location.href="{:url('guess_option/index',['q_id'=>$q_id])}";
+                    });
+                }
+            })
+            return false;
+        });
+    });
+    function addOption()
+    {
+        layer.prompt(function(value, index, elem){
+            var input = "<div class='option'><input type='radio' name='right_option' value='"+value+"' title='"+value+"'><input type='hidden' name='option[]' value='"+value+"'><i class='layui-icon-close layui-icon' style='cursor:pointer;' onclick='del(this)'></i></div>"
+            $('#last').before(input);
+            renderForm();
+            layer.close(index);
+        });
+    }
+    function renderForm(){
+        layui.use('form', function(){
+            var form = layui.form;//高版本建议把括号去掉，有的低版本，需要加()
+            form.render();
+        });
+    }
+    function del(el)
+    {
+        $(el).parent().remove();
+    }
+</script>
+{/block}

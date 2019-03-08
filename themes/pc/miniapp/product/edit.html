@@ -1,0 +1,169 @@
+{extend name="common/base" /}
+{block name="jscss"}
+{CSS href="__STATIC__/admin/css/media_news.css" /}
+{js href='__STATIC__/admin/ueditor/ueditor.config.js' /}
+{js href='__STATIC__/admin/ueditor/ueditor.all.js' /}
+{js href='__STATIC__/js/ajax_file_upload.js' /}
+<style>
+    #edui1_iframeholder img{ width: 100%;}
+    #edui1_iframeholder{
+        height: 450px !important;}
+</style>
+{/block}
+{block name="body"}
+<form class="layui-form" action="" style="padding-right: 10px;">
+    <input type="hidden" name="id" value="{if isset($data)}{$data['id']}{/if}">
+    <div class="layui-form-item">
+        <label class="layui-form-label">商品名称</label>
+        <div class="layui-input-block">
+            <input type="text"
+                   name="name"
+                   required
+                   lay-verify="required"
+                   placeholder="请输入商品名称"
+                   autocomplete="off"
+                   value="{if isset($data)}{$data['name']}{/if}"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">描述</label>
+        <div class="layui-input-block">
+            <textarea
+                   name="description"
+                   placeholder="请输入商品描述"
+                   autocomplete="off"
+                      class="layui-input">{if isset($data)}{$data['description']}{/if}</textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">封面图片</label>
+        <div class="layui-input-block">
+            {:hook('Upload',['type'=>'image','name'=>'pic','value'=>isset($data.pic) ? $data.pic : ''])}
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">原价</label>
+        <div class="layui-input-inline">
+            <input name="h_price"
+                   min="0"
+                   required
+                   lay-verify="required"
+                   placeholder="请输入原价"
+                   autocomplete="off"
+                   class="layui-input"
+                   value="{if isset($data)}{$data['h_price']}{/if}"
+                   type="number">
+        </div>
+    </div>
+    <!--<div class="layui-form-item">
+        <label class="layui-form-label">响豆价</label>
+        <div class="layui-input-inline">
+            <input name="n_price"
+                   min="0"
+                   required
+                   lay-verify="required"
+                   placeholder="请输入响豆价"
+                   autocomplete="off"
+                   class="layui-input"
+                   value="{if isset($data)}{$data['n_price']}{/if}"
+                   type="number">
+        </div>
+    </div>-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">所需响豆数</label>
+        <div class="layui-input-inline">
+            <input name="d_price"
+                   min="0"
+                   required
+                   lay-verify="required"
+                   placeholder="请输入所需响豆数"
+                   autocomplete="off"
+                   class="layui-input"
+                   value="{if isset($data)}{$data['d_price']}{/if}"
+                   type="number">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">内容</label>
+        <div class="layui-input-inline" style="width:380px;">
+            <div class="controls" id="discripContainer">
+                <textarea id="tareaProductDiscrip" name="content" style=" width: 100%; display: none;">{if isset($data)}{$data['content']|raw}{/if}</textarea>
+                <script id="editor1" type="text/plain">{if isset($data)}{$data['content']|raw}{/if}</script>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="ADM">立即提交</button>
+            <a href="{:url('product/index')}" class="layui-btn layui-btn-primary">返回</a>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+    UE.getEditor('editor1').addListener("selectionchange", function () {
+        changeElement('content');
+    });
+    function changeElement(name) {
+        if (name == 'content') {
+            var content = UE.getEditor('editor1').getContent();
+            $("#" + name).val(content);
+        }
+    }
+    layui.use('laydate', function() {
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#time1'
+            ,type: 'datetime'
+            ,format: 'yyyy-MM-dd HH:mm:ss'
+        });
+        laydate.render({
+            elem: '#time2'
+            ,type: 'datetime'
+            ,format: 'yyyy-MM-dd HH:mm:ss'
+        });
+    })
+    layui.use('form', function(){
+        var form = layui.form;
+        var $ = layui.jquery;
+        form.on('submit(ADM)', function(data){
+            $.post("{:url('product/save')}",data.field,function (res) {
+                if(res.status=='0'){
+                    layer.msg(res.msg);
+                }
+                if(res.status=='1'){
+                    layer.msg(res.msg,{time:1000},function () {
+                        location.href="{:url('product/index')}";
+                    });
+                }
+            })
+            return false;
+        });
+    });
+    function addOption()
+    {
+        layer.prompt(function(value, index, elem){
+            var input = "<div class='option'><input type='radio' name='right_option' value='"+value+"' title='"+value+"'><input type='hidden' name='option[]' value='"+value+"'><i class='layui-icon-close layui-icon' style='cursor:pointer;' onclick='del(this)'></i></div>"
+            $('#last').before(input);
+            renderForm();
+            layer.close(index);
+        });
+    }
+    function renderForm(){
+        layui.use('form', function(){
+            var form = layui.form;//高版本建议把括号去掉，有的低版本，需要加()
+            form.render();
+        });
+    }
+    function del(el)
+    {
+        $(el).parent().remove();
+    }
+</script>
+{/block}

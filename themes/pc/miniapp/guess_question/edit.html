@@ -1,0 +1,197 @@
+{extend name="common/base" /}
+{block name="jscss"}
+{CSS href="__STATIC__/admin/css/media_news.css" /}
+{js href='__STATIC__/admin/ueditor/ueditor.config.js' /}
+{js href='__STATIC__/admin/ueditor/ueditor.all.js' /}
+{js href='__STATIC__/js/ajax_file_upload.js' /}
+<style>
+    #edui1_iframeholder img{ width: 100%;}
+    #edui1_iframeholder{
+        height: 450px !important;}
+</style>
+{/block}
+{block name="body"}
+<form class="layui-form" action="" style="padding-right: 10px;">
+    <input type="hidden" name="id" value="{if isset($data)}{$data['id']}{/if}">
+    <div class="layui-form-item">
+        <label class="layui-form-label">标题</label>
+        <div class="layui-input-block">
+            <input type="text"
+                   name="title"
+                   required
+                   lay-verify="required"
+                   placeholder="请输入标题"
+                   autocomplete="off"
+                   value="{if isset($data)}{$data['title']}{/if}"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">焦点图片</label>
+        <div class="layui-input-block">
+            {:hook('Upload',['type'=>'image','name'=>'pic','value'=>isset($data.pic) ? $data.pic : ''])}
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">金币池</label>
+        <div class="layui-input-inline">
+            <input name="coin_pool"
+                   min="0"
+                   required
+                   lay-verify="required"
+                   placeholder="请输入金币池"
+                   autocomplete="off"
+                   class="layui-input"
+                   value="{if isset($data)}{$data['coin_pool']}{/if}"
+                   type="number">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">预测时间</label>
+        <div class="layui-input-inline">
+            <input name="start_time"
+                   id="time1"
+                   value="{if isset($data)}{$data['start_time']|date='Y-m-d H:i:s'}{/if}"
+                   class="layui-input"
+                   placeholder="请输入预测时间"
+                   lay-key="17" type="text">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">开奖时间</label>
+        <div class="layui-input-inline">
+            <input name="stop_time" id="time2"
+                   value="{if isset($data)}{$data['stop_time']|date='Y-m-d H:i:s'}{/if}"
+                   class="layui-input" placeholder="请输入预测时间" lay-key="18" type="text">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">广告类型</label>
+        <div class="layui-input-block">
+            <input type="radio" name="ad_type" value="1" title="图文链接"
+                   lay-filter="ad_type"
+                   {if empty($data['ad_type']) || $data['ad_type'] == 1}checked{/if}>
+            <input type="radio" name="ad_type" value="2" title="富态文本"
+                   lay-filter="ad_type"
+                   {if isset($data) && $data['ad_type'] == 2}checked{/if}>
+        </div>
+    </div>
+    <div class="ad_type_div1" {if isset($data) && $data['ad_type'] == 2}style="display:none;"{/if}>
+        <div class="layui-form-item">
+            <label class="layui-form-label">广告标题</label>
+            <div class="layui-input-block">
+                <input name="ad_title" value="{if isset($data)}{$data['ad_title']}{/if}"
+                       class="layui-input" placeholder="请输入广告标题" type="text">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">广告图片</label>
+            <div class="layui-input-block">
+                {:hook('Upload',['type'=>'image','name'=>'ad_pic','value'=>isset($data.ad_pic) ? $data.ad_pic : ''])}
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">广告链接</label>
+            <div class="layui-input-block">
+                <input name="ad_link" value="{if isset($data)}{$data['ad_link']}{/if}"
+                       class="layui-input" placeholder="请输入广告链接" type="text">
+            </div>
+        </div>
+    </div>
+
+    <div class="ad_type_div2" {if empty($data['ad_type']) || $data['ad_type'] == 1}style="display:none;"{/if}>
+        <div class="layui-form-item">
+            <label class="layui-form-label">广告富态文本</label>
+            <div class="layui-input-block" style="width:380px;">
+                <textarea id="tareaProductDiscrip" name="ad_content" style=" width: 100%; display: none;">{if isset($data)}{$data['ad_content']|raw}{/if}</textarea>
+                <script id="editor1" type="text/plain">{if isset($data)}{$data['ad_content']|raw}{/if}</script>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="ADM">立即提交</button>
+            <a href="{:url('guess_question/index')}" class="layui-btn layui-btn-primary">返回</a>
+        </div>
+    </div>
+</form>
+
+<script>
+    function typeChange(type){
+        console.log(type)
+    }
+    UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+    UE.getEditor('editor1').addListener("selectionchange", function () {
+        changeElement('content');
+    });
+    function changeElement(name) {
+        if (name == 'content') {
+            var content = UE.getEditor('editor1').getContent();
+            $("#" + name).val(content);
+        }
+    }
+    layui.use('laydate', function() {
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#time1'
+            ,type: 'datetime'
+            ,format: 'yyyy-MM-dd HH:mm:ss'
+        });
+        laydate.render({
+            elem: '#time2'
+            ,type: 'datetime'
+            ,format: 'yyyy-MM-dd HH:mm:ss'
+        });
+    })
+    layui.use('form', function(){
+        var form = layui.form;
+        var $ = layui.jquery;
+        form.on('radio(ad_type)', function (data) {
+            if (data.value == 1) {
+                $(".ad_type_div1").show();
+                $(".ad_type_div2").hide();
+            } else {
+                $(".ad_type_div2").show();
+                $(".ad_type_div1").hide();
+            }
+        });
+        form.on('submit(ADM)', function(data){
+            $.post("{:url('guess_question/save')}",data.field,function (res) {
+                if(res.status=='0'){
+                    layer.msg(res.msg);
+                }
+                if(res.status=='1'){
+                    layer.msg(res.msg,{time:1000},function () {
+                        location.href="{:url('guess_question/index')}";
+                    });
+                }
+            })
+            return false;
+        });
+    });
+    function addOption()
+    {
+        layer.prompt(function(value, index, elem){
+            var input = "<div class='option'><input type='radio' name='right_option' value='"+value+"' title='"+value+"'><input type='hidden' name='option[]' value='"+value+"'><i class='layui-icon-close layui-icon' style='cursor:pointer;' onclick='del(this)'></i></div>"
+            $('#last').before(input);
+            renderForm();
+            layer.close(index);
+        });
+    }
+    function renderForm(){
+        layui.use('form', function(){
+            var form = layui.form;//高版本建议把括号去掉，有的低版本，需要加()
+            form.render();
+        });
+    }
+    function del(el)
+    {
+        $(el).parent().remove();
+    }
+</script>
+{/block}

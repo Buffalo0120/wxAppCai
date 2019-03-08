@@ -1,0 +1,3230 @@
+---------------------------------------------------------------
+[ 2019-03-06T20:46:50+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/
+[运行时间：4.949283s] [吞吐率：0.20req/s] [内存消耗：3,428.80kb] [文件加载：103]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => '',
+  'route' => 'miniapp/miniapp/userlist',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+    'complete_match' => true,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/miniapp\userlist.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'users',
+  15 => 'post',
+  16 => 'page',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:1.103063s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.776044s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.146009s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.042002s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.057003s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/miniapp/userlist' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.024001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.029002s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.075004s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.036003s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.041002s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_user` [ RunTime:0.029001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `be_miniapp_user` `mu` LEFT JOIN `be_miniapp_user` `u` ON `u`.`id`=`mu`.`u_id` WHERE  `mu`.`mpid` = '1' LIMIT 1 [ RunTime:0.154009s ]
+[ sql ] [ SQL ] SELECT `mu`.*,u.nickname u_nickname FROM `be_miniapp_user` `mu` LEFT JOIN `be_miniapp_user` `u` ON `u`.`id`=`mu`.`u_id` WHERE  `mu`.`mpid` = '1' LIMIT 0,15 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:46:55+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/index.html
+[运行时间：0.685039s] [吞吐率：1.46req/s] [内存消耗：3,402.13kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\list.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+  15 => 'post',
+  16 => 'page',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.022001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.080005s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 0,15 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:46:59+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_option/index/q_id/1.html
+[运行时间：0.514029s] [吞吐率：1.95req/s] [内存消耗：3,404.47kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'q_id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_option\list.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+  15 => 'page',
+  16 => 'q_id',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessoption/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_option` [ RunTime:0.052003s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `be_guess_option` WHERE  `status` <> 1  AND `q_id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_option` WHERE  `status` <> 1  AND `q_id` = 1 LIMIT 0,15 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.108007s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001001s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:47:01+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/index.html
+[运行时间：0.175010s] [吞吐率：5.71req/s] [内存消耗：3,402.18kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_option/index/q_id/1.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\list.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+  15 => 'post',
+  16 => 'page',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 0,15 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:47:07+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.320018s] [吞吐率：3.12req/s] [内存消耗：3,338.68kb] [文件加载：101]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.039002s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:54:31+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/mp/mp/index.html
+[运行时间：9.065519s] [吞吐率：0.11req/s] [内存消耗：3,673.18kb] [文件加载：102]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/mp/mp\index.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'menu_app',
+  13 => 'menu_app_title',
+  14 => 'mid',
+  15 => 'app_by_api',
+  16 => 'data_by_api',
+  17 => 'report',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.027002s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'mp/mp/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = 'mp/mp/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_addons` [ RunTime:1.030059s ]
+[ sql ] [ SQL ] SELECT * FROM `be_addons` WHERE  `menu_show` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp_friends` [ RunTime:0.619035s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 1  AND `subscribe_time` BETWEEN 1551801600 AND 1551888000 LIMIT 1 [ RunTime:0.066004s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 1  AND `subscribe_time` BETWEEN 1551715200 AND 1551801600 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 1  AND `subscribe_time` BETWEEN 1551628800 AND 1552233600 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 1  AND `subscribe_time` BETWEEN 1551024000 AND 1551628800 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 1  AND `subscribe_time` BETWEEN 1551369600 AND 1554048000 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 1  AND `subscribe_time` BETWEEN 1548950400 AND 1551369600 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 1  AND `subscribe_time` BETWEEN 1546272000 AND 1577808000 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 1  AND `subscribe_time` BETWEEN 1514736000 AND 1546272000 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 0  AND `unsubscribe_time` BETWEEN 1551801600 AND 1551888000 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 0  AND `unsubscribe_time` BETWEEN 1551715200 AND 1551801600 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 0  AND `unsubscribe_time` BETWEEN 1551628800 AND 1552233600 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 0  AND `unsubscribe_time` BETWEEN 1551024000 AND 1551628800 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 0  AND `unsubscribe_time` BETWEEN 1551369600 AND 1554048000 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 0  AND `unsubscribe_time` BETWEEN 1548950400 AND 1551369600 LIMIT 1 [ RunTime:0.028002s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 0  AND `unsubscribe_time` BETWEEN 1546272000 AND 1577808000 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 0  AND `unsubscribe_time` BETWEEN 1514736000 AND 1546272000 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(`id`) AS tp_count FROM `be_mp_friends` WHERE  `mpid` = 1  AND `subscribe` = 0 LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:54:35+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/mp/material/index.html
+[运行时间：0.687039s] [吞吐率：1.46req/s] [内存消耗：3,364.39kb] [文件加载：100]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/mp/mp/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'mp/material/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = 'mp/mp/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_addons` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_addons` WHERE  `menu_show` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:54:36+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/mp/material/index/type/image/from_type/1.html
+[运行时间：1.563089s] [吞吐率：0.64req/s] [内存消耗：3,462.87kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/mp/mp/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'type' => 'image',
+  'from_type' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/mp/material\index.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'menu_app',
+  13 => 'menu_app_title',
+  14 => 'mid',
+  15 => 'data',
+  16 => 'type',
+  17 => 'fron_type',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'mp/material/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = 'mp/mp/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_addons` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_addons` WHERE  `menu_show` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_material` [ RunTime:1.024059s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `be_material` WHERE  `type` = 'image'  AND `mpid` = 1  AND `from_type` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_material` WHERE  `type` = 'image'  AND `mpid` = 1  AND `from_type` = 1 ORDER BY `create_time` DESC LIMIT 0,20 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:54:39+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/mp/mp/newslist.html
+[运行时间：0.720041s] [吞吐率：1.39req/s] [内存消耗：3,653.99kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/mp/material/index/type/image/from_type/1.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/mp/mp\newslist.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'menu_app',
+  13 => 'menu_app_title',
+  14 => 'mid',
+  15 => 'intype',
+  16 => 'data',
+  17 => 'page',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'mp/mp/newslist' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = 'mp/mp/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.019001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_addons` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_addons` WHERE  `menu_show` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_media_news` [ RunTime:0.172010s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `be_media_news` WHERE  `mid` = 1  AND `type` = 3 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_media_news` WHERE  `mid` = 1  AND `type` = 3 ORDER BY `news_id` DESC LIMIT 0,6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_media_news_list` [ RunTime:0.116006s ]
+[ sql ] [ SQL ] SELECT * FROM `be_media_news_list` WHERE  `news_id` IN (0)  AND `title` <> '' [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:54:41+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/mp/mp/qrcode.html
+[运行时间：0.706040s] [吞吐率：1.42req/s] [内存消耗：3,645.75kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/mp/mp/newslist.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/mp/mp\qrcode.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'menu_app',
+  13 => 'menu_app_title',
+  14 => 'mid',
+  15 => 'data',
+  16 => 'type',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001001s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.015000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.018002s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'mp/mp/qrcode' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = 'mp/mp/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_addons` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_addons` WHERE  `menu_show` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_qrcode` [ RunTime:0.311018s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `be_qrcode` WHERE  `mpid` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_qrcode` WHERE  `mpid` = 1 ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:54:43+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/mp/mp/mpsetting.html
+[运行时间：1.111064s] [吞吐率：0.90req/s] [内存消耗：3,597.80kb] [文件加载：101]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/mp/mp/qrcode.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/mp/mp\mpsetting.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'menu_app',
+  13 => 'menu_app_title',
+  14 => 'mid',
+  15 => 'payUrl',
+  16 => 'config',
+  17 => 'type',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001001s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'mp/mp/mpsetting' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = 'mp/mp/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_addons` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_addons` WHERE  `menu_show` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.023001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_setting` WHERE  `name` = 'wxpay'  AND `mpid` = 1  AND `cate` = 'mp' LIMIT 1 [ RunTime:0.013001s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:54:45+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/mp/mp/menu.html
+[运行时间：0.765043s] [吞吐率：1.31req/s] [内存消耗：3,627.63kb] [文件加载：101]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/mp/mp/mpsetting.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/mp/mp\menu.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'menu_app',
+  13 => 'menu_app_title',
+  14 => 'mid',
+  15 => 'list',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'mp/mp/menu' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = 'mp/mp/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_addons` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_addons` WHERE  `menu_show` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp_menu` [ RunTime:0.595034s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp_menu` WHERE  `mp_id` = 1  AND `pindex` = 0 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:54:48+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/mp/message/messagelist.html
+[运行时间：1.916109s] [吞吐率：0.52req/s] [内存消耗：3,413.08kb] [文件加载：105]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/mp/mp/menu.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/mp/message\messagelist.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'menu_app',
+  13 => 'menu_app_title',
+  14 => 'mid',
+  15 => 'msgList',
+  16 => 'status',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'mp/message/messagelist' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = 'mp/mp/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_addons` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_addons` WHERE  `menu_show` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp_msg` [ RunTime:0.127007s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM ( SELECT count(*) AS think_count FROM `be_mp_msg` WHERE  `status` = 0  AND `mpid` = 1 GROUP BY `openid` ) `_group_count_` LIMIT 1 [ RunTime:0.209012s ]
+[ sql ] [ SQL ] SELECT openid,count(msg_id) as msg_total FROM `be_mp_msg` WHERE  `status` = 0  AND `mpid` = 1 GROUP BY `openid` ORDER BY `msg_id` DESC LIMIT 0,15 [ RunTime:0.008001s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:54:49+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/mp/mp/menu.html
+[运行时间：0.188011s] [吞吐率：5.32req/s] [内存消耗：3,627.63kb] [文件加载：101]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/mp/message/messagelist.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/mp/mp\menu.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'menu_app',
+  13 => 'menu_app_title',
+  14 => 'mid',
+  15 => 'list',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'mp/mp/menu' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = 'mp/mp/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_addons` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_addons` WHERE  `menu_show` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp_menu` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp_menu` WHERE  `mp_id` = 1  AND `pindex` = 0 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:56:08+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/
+[运行时间：0.185011s] [吞吐率：5.41req/s] [内存消耗：3,432.70kb] [文件加载：103]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => '',
+  'route' => 'miniapp/miniapp/userlist',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+    'complete_match' => true,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/mp/mp/menu.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/miniapp\userlist.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'users',
+  15 => 'post',
+  16 => 'page',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/miniapp/userlist' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_user` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `be_miniapp_user` `mu` LEFT JOIN `be_miniapp_user` `u` ON `u`.`id`=`mu`.`u_id` WHERE  `mu`.`mpid` = '1' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `mu`.*,u.nickname u_nickname FROM `be_miniapp_user` `mu` LEFT JOIN `be_miniapp_user` `u` ON `u`.`id`=`mu`.`u_id` WHERE  `mu`.`mpid` = '1' LIMIT 0,15 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:56:10+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/index.html
+[运行时间：0.195011s] [吞吐率：5.13req/s] [内存消耗：3,404.98kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\list.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+  15 => 'post',
+  16 => 'page',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 0,15 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:56:11+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.287017s] [吞吐率：3.48req/s] [内存消耗：3,503.09kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.018001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:57:26+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.286016s] [吞吐率：3.50req/s] [内存消耗：3,503.15kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.019001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.033002s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:58:03+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.319019s] [吞吐率：3.13req/s] [内存消耗：3,503.27kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.133008s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:58:08+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.258014s] [吞吐率：3.88req/s] [内存消耗：3,503.27kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.018001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.019001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T20:59:02+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.272016s] [吞吐率：3.68req/s] [内存消耗：3,544.19kb] [文件加载：109]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.025001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [8]未定义数组索引: ad_title[D:\project\erha\runtime\temp\bc3746dd2c834a071451c78a109b70ef.php:162]
+---------------------------------------------------------------
+[ 2019-03-06T20:59:03+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/favicon.ico
+[运行时间：0.077004s] [吞吐率：12.99req/s] [内存消耗：1,610.52kb] [文件加载：64]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+---------------------------------------------------------------
+[ 2019-03-06T20:59:33+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.195011s] [吞吐率：5.13req/s] [内存消耗：3,392.13kb] [文件加载：107]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+[ error ] [8]未定义数组索引: ad_title[D:\project\erha\runtime\temp\bc3746dd2c834a071451c78a109b70ef.php:162]
+---------------------------------------------------------------
+[ 2019-03-06T20:59:33+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/favicon.ico
+[运行时间：0.051003s] [吞吐率：19.61req/s] [内存消耗：1,610.52kb] [文件加载：64]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+---------------------------------------------------------------
+[ 2019-03-06T20:59:47+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.213012s] [吞吐率：4.69req/s] [内存消耗：3,392.08kb] [文件加载：107]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.015000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+[ error ] [8]未定义数组索引: ad_title[D:\project\erha\runtime\temp\bc3746dd2c834a071451c78a109b70ef.php:162]
+---------------------------------------------------------------
+[ 2019-03-06T21:00:05+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.183010s] [吞吐率：5.46req/s] [内存消耗：3,392.19kb] [文件加载：107]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [8]未定义数组索引: ad_title[D:\project\erha\runtime\temp\bc3746dd2c834a071451c78a109b70ef.php:162]
+---------------------------------------------------------------
+[ 2019-03-06T21:00:40+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.243014s] [吞吐率：4.11req/s] [内存消耗：3,352.20kb] [文件加载：102]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:01:36+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.206011s] [吞吐率：4.85req/s] [内存消耗：3,525.23kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:03:26+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.234014s] [吞吐率：4.27req/s] [内存消耗：3,527.14kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003001s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.015000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.015000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:03:34+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.194011s] [吞吐率：5.15req/s] [内存消耗：3,531.52kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001001s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:03:59+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.227013s] [吞吐率：4.41req/s] [内存消耗：3,531.58kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.022001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:04:08+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.212012s] [吞吐率：4.72req/s] [内存消耗：3,531.33kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002001s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:04:14+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.171010s] [吞吐率：5.85req/s] [内存消耗：3,531.63kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:04:15+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/favicon.ico
+[运行时间：0.049003s] [吞吐率：20.41req/s] [内存消耗：1,610.52kb] [文件加载：64]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+---------------------------------------------------------------
+[ 2019-03-06T21:04:30+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.166009s] [吞吐率：6.02req/s] [内存消耗：3,370.40kb] [文件加载：102]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:06:29+08:00 ] 127.0.0.1 POST www.buffalo_erha.com/mp/upload/uploadimg.html
+[运行时间：0.343020s] [吞吐率：2.92req/s] [内存消耗：3,197.84kb] [文件加载：89]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryvpj8MjljLiMa7A4p',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.buffalo_erha.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '12465',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_picture` [ RunTime:0.087005s ]
+[ sql ] [ SQL ] SELECT * FROM `be_picture` WHERE  `name` = 'ed2a1226cf8efc2180504bba876e58.jpg' LIMIT 1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:06:41+08:00 ] 127.0.0.1 POST www.buffalo_erha.com/miniapp/guess_question/save.html
+[运行时间：0.376021s] [吞吐率：2.66req/s] [内存消耗：3,193.02kb] [文件加载：94]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.buffalo_erha.com',
+  'accept' => '*/*',
+  'content-length' => '417',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+  'title' => '第一个猜测题',
+  'pic' => 'http://www.buffalo_erha.com/uploads/6b/ed2a1226cf8efc2180504bba876e58.jpg',
+  'image' => '',
+  'coin_pool' => '500',
+  'start_time' => '2019-03-14 22:38:15',
+  'stop_time' => '2019-03-29 22:38:17',
+  'ad_type' => '2',
+  'ad_title' => '1',
+  'ad_pic' => 'http://www.buffalo_erha.com/uploads/6b/ed2a1226cf8efc2180504bba876e58.jpg',
+  'ad_link' => '111',
+  'ad_content' => '',
+  'editorValue' => '<p>2223</p>',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.018001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.019001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/save' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.020001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:07:58+08:00 ] 127.0.0.1 POST www.buffalo_erha.com/miniapp/guess_question/save.html
+[运行时间：0.263015s] [吞吐率：3.80req/s] [内存消耗：3,256.05kb] [文件加载：99]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.buffalo_erha.com',
+  'accept' => '*/*',
+  'content-length' => '417',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+  'title' => '第一个猜测题',
+  'pic' => 'http://www.buffalo_erha.com/uploads/6b/ed2a1226cf8efc2180504bba876e58.jpg',
+  'image' => '',
+  'coin_pool' => '500',
+  'start_time' => '2019-03-14 22:38:15',
+  'stop_time' => '2019-03-29 22:38:17',
+  'ad_type' => '2',
+  'ad_title' => '1',
+  'ad_pic' => 'http://www.buffalo_erha.com/uploads/6b/ed2a1226cf8efc2180504bba876e58.jpg',
+  'ad_link' => '111',
+  'ad_content' => '',
+  'editorValue' => '<p>2223</p>',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.034002s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/save' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.018001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.021001s ]
+[ error ] [0]数据表字段不存在:[content][D:\project\erha\thinkphp\library\think\db\Builder.php:138]
+---------------------------------------------------------------
+[ 2019-03-06T21:08:22+08:00 ] 127.0.0.1 POST www.buffalo_erha.com/miniapp/guess_question/save.html
+[运行时间：0.337019s] [吞吐率：2.97req/s] [内存消耗：3,169.18kb] [文件加载：94]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.buffalo_erha.com',
+  'accept' => '*/*',
+  'content-length' => '417',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+  'title' => '第一个猜测题',
+  'pic' => 'http://www.buffalo_erha.com/uploads/6b/ed2a1226cf8efc2180504bba876e58.jpg',
+  'image' => '',
+  'coin_pool' => '500',
+  'start_time' => '2019-03-14 22:38:15',
+  'stop_time' => '2019-03-29 22:38:17',
+  'ad_type' => '2',
+  'ad_title' => '1',
+  'ad_pic' => 'http://www.buffalo_erha.com/uploads/6b/ed2a1226cf8efc2180504bba876e58.jpg',
+  'ad_link' => '111',
+  'ad_content' => '',
+  'editorValue' => '<p>2223</p>',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002001s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/save' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] UPDATE `be_guess_question`  SET `title` = '第一个猜测题' , `pic` = 'http://www.buffalo_erha.com/uploads/6b/ed2a1226cf8efc2180504bba876e58.jpg' , `coin_pool` = 500 , `start_time` = 1552574295 , `stop_time` = 1553870297 , `ad_type` = 2 , `ad_title` = '1' , `ad_pic` = 'http://www.buffalo_erha.com/uploads/6b/ed2a1226cf8efc2180504bba876e58.jpg' , `ad_link` = '111' , `ad_content` = '<p>2223</p>'  WHERE  `id` = 1 [ RunTime:0.134008s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:08:24+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/index.html
+[运行时间：0.299017s] [吞吐率：3.34req/s] [内存消耗：3,407.72kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\list.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+  15 => 'post',
+  16 => 'page',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 0,15 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:08:26+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.201011s] [吞吐率：4.97req/s] [内存消耗：3,370.14kb] [文件加载：102]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:09:28+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.240013s] [吞吐率：4.17req/s] [内存消耗：3,531.59kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.015000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:10:05+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.172009s] [吞吐率：5.81req/s] [内存消耗：3,511.15kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:12:26+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.239014s] [吞吐率：4.18req/s] [内存消耗：3,532.14kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003001s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001001s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:25:18+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.240013s] [吞吐率：4.17req/s] [内存消耗：3,532.85kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.022002s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:27:44+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.256015s] [吞吐率：3.91req/s] [内存消耗：3,532.59kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:27:59+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.221013s] [吞吐率：4.52req/s] [内存消耗：3,532.59kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001001s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.016000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:28:11+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/index.html
+[运行时间：0.198012s] [吞吐率：5.05req/s] [内存消耗：3,407.72kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\list.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+  15 => 'post',
+  16 => 'page',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 0,15 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:28:13+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html
+[运行时间：0.230013s] [吞吐率：4.35req/s] [内存消耗：3,371.10kb] [文件加载：102]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.019001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-03-06T21:28:18+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/index.html
+[运行时间：0.193011s] [吞吐率：5.18req/s] [内存消耗：3,407.72kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/edit/id/1.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\list.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+  15 => 'post',
+  16 => 'page',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 0,15 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-03-06T22:00:17+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/2.html
+[运行时间：1.529087s] [吞吐率：0.65req/s] [内存消耗：3,371.34kb] [文件加载：102]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.057004s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.018001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.024001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T22:00:58+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/2.html
+[运行时间：0.265015s] [吞吐率：3.77req/s] [内存消耗：3,532.46kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T22:01:18+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/2.html
+[运行时间：0.193011s] [吞吐率：5.18req/s] [内存消耗：3,532.45kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-03-06T22:01:47+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/2.html
+[运行时间：0.220012s] [吞吐率：4.55req/s] [内存消耗：3,532.40kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-03-06T22:01:51+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/2.html
+[运行时间：0.189011s] [吞吐率：5.29req/s] [内存消耗：3,371.33kb] [文件加载：102]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-03-06T22:02:02+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/2.html
+[运行时间：0.239014s] [吞吐率：4.18req/s] [内存消耗：3,532.45kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T22:02:40+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/edit/id/2.html
+[运行时间：0.225013s] [吞吐率：4.44req/s] [内存消耗：3,532.45kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/edit' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.015000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-03-06T22:02:44+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/index.html
+[运行时间：0.334019s] [吞吐率：2.99req/s] [内存消耗：3,407.72kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/edit/id/2.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\list.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+  15 => 'post',
+  16 => 'page',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.015000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.018001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 0,15 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-03-06T22:02:47+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/add.html
+[运行时间：0.193011s] [吞吐率：5.18req/s] [内存消耗：3,365.94kb] [文件加载：102]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\edit.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/add' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_setting` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `be_setting` WHERE  `mpid` = 1  AND `name` = 'cloud'  AND `cate` = 'miniapp' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-03-06T22:03:38+08:00 ] 127.0.0.1 GET www.buffalo_erha.com/miniapp/guess_question/index.html
+[运行时间：0.210012s] [吞吐率：4.76req/s] [内存消耗：3,407.70kb] [文件加载：104]
+[ info ] [ LANG ] D:\project\erha\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'think_admin=think%3A%7B%22id%22%3A%221%22%2C%22admin_name%22%3A%22buffalo%22%2C%22password%22%3A%2220ce77b2f9a805ccf59eed5e92d2b3fc%22%2C%22status%22%3A%221%22%2C%22ip%22%3A%22127.0.0.1%22%2C%22last_time%22%3A%221551442595%22%2C%22rand_str%22%3A%22joPvLK%22%2C%22admin_id%22%3A%221%22%7D; PHPSESSID=q8i7stcofmg1jl0kkqvh4c769h',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.buffalo_erha.com/miniapp/guess_question/add.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.buffalo_erha.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\project\erha\themes/pc/miniapp/guess_question\list.html [ array (
+  0 => 'mpByMenu',
+  1 => 't_menu',
+  2 => 'topNode',
+  3 => 'menu_title',
+  4 => 'node',
+  5 => 'menu',
+  6 => 'controller_name',
+  7 => 'action_name',
+  8 => 'admin',
+  9 => 'mpInfo',
+  10 => 'copy',
+  11 => 'setScreen',
+  12 => 'miniappInfo',
+  13 => '_mid',
+  14 => 'data',
+  15 => 'post',
+  16 => 'page',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=buffalo_erha;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_admin` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT `password` FROM `be_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_menu` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0 ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` ORDER BY `sort` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `url` = 'miniapp/guessquestion/index' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_menu` WHERE  `pid` = 0  AND `url` = '/' ORDER BY `sort` ASC LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_mp` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_mp` WHERE  `user_id` = 1  AND `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `be_miniapp` WHERE  `user_id` = 1  AND `is_use` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_miniapp_addon` [ RunTime:0.018001s ]
+[ sql ] [ SQL ] SELECT `name` FROM `be_miniapp_addon` WHERE  `addon` = '' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `be_guess_question` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `be_guess_question` WHERE  `status` <> 1 LIMIT 0,15 [ RunTime:0.000000s ]

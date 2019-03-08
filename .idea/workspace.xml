@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7b483e1a-4542-4a2a-a92e-12a975da4327" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/pc/miniapp/product/edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="89" column="47" selection-start-line="89" selection-start-column="47" selection-end-line="89" selection-end-column="47" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#5;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#5;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/pc/mp/mp/menu.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="254">
+              <caret line="81" column="24" selection-start-line="81" selection-start-column="24" selection-end-line="83" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/pc/miniapp/guess_question/edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1984">
+              <caret line="102" column="56" selection-start-line="102" selection-start-column="56" selection-end-line="102" selection-end-column="56" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#7;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#7;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/miniapp/controller/GuessQuestion.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="85" column="92" selection-start-line="85" selection-start-column="92" selection-end-line="85" selection-end-column="92" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/miniapp/controller/Product.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="82" column="41" selection-start-line="81" selection-start-column="12" selection-end-line="82" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>insert</find>
+      <find>update</find>
+      <find>error</find>
+      <find>title</find>
+      <find>guess_question</find>
+      <find>editor</find>
+      <find>addNew</find>
+      <find>uploadFile</find>
+      <find>imgUpload</find>
+      <find>discripContainer</find>
+      <find>changeElement</find>
+      <find>edit</find>
+      <find>edit(</find>
+      <find>getHostDomain</find>
+      <find>tareaProductDiscrip</find>
+      <find>tareaProductDiscrip1</find>
+      <find>id=&quot;editor&quot;</find>
+      <find>id=&quot;editor</find>
+      <find>setting</find>
+      <find>字段</find>
+      <find>radio</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/themes/pc/miniapp/common/base.html" />
+        <option value="$PROJECT_DIR$/application/common/model/GuessOption.php" />
+        <option value="$PROJECT_DIR$/application/common/model/GuessQuestion.php" />
+        <option value="$PROJECT_DIR$/themes/pc/miniapp/miniapp/guess_question.html" />
+        <option value="$PROJECT_DIR$/themes/pc/miniapp/guess_question/guess_question.html" />
+        <option value="$PROJECT_DIR$/themes/pc/miniapp/guess_question/list.html" />
+        <option value="$PROJECT_DIR$/themes/pc/miniapp/guess_option/edit.html" />
+        <option value="$PROJECT_DIR$/themes/pc/miniapp/guess_option/list.html" />
+        <option value="$PROJECT_DIR$/application/miniapp/controller/GuessOption.php" />
+        <option value="$PROJECT_DIR$/application/common/model/Product.php" />
+        <option value="$PROJECT_DIR$/application/miniapp/controller/Product.php" />
+        <option value="$PROJECT_DIR$/themes/pc/miniapp/miniapp/setting.html" />
+        <option value="$PROJECT_DIR$/themes/pc/miniapp/product/edit.html" />
+        <option value="$PROJECT_DIR$/themes/pc/miniapp/product/list.html" />
+        <option value="$PROJECT_DIR$/themes/pc/miniapp/miniapp/userlist.html" />
+        <option value="$PROJECT_DIR$/application/miniapp/controller/Miniapp.php" />
+        <option value="$PROJECT_DIR$/application/api/controller/Base.php" />
+        <option value="$PROJECT_DIR$/application/api/controller/Api.php" />
+        <option value="$PROJECT_DIR$/themes/pc/miniapp/guess_question/edit.html" />
+        <option value="$PROJECT_DIR$/application/miniapp/controller/GuessQuestion.php" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/topthink/think-image" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-installer" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-swoole" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-queue" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-mongo" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-helper" />
+      <path value="$PROJECT_DIR$/vendor/workerman/workerman" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-captcha" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-worker" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="erha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erha" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erha" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erha" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erha" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erha" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erha" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="miniapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erha" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="miniapp" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erha" type="462c0819:PsiDirectoryNode" />
+              <item name="themes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erha" type="462c0819:PsiDirectoryNode" />
+              <item name="themes" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erha" type="462c0819:PsiDirectoryNode" />
+              <item name="themes" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="miniapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erha" type="462c0819:PsiDirectoryNode" />
+              <item name="themes" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="miniapp" type="462c0819:PsiDirectoryNode" />
+              <item name="guess_question" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erha" type="462c0819:PsiDirectoryNode" />
+              <item name="themes" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="miniapp" type="462c0819:PsiDirectoryNode" />
+              <item name="miniapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erha" type="462c0819:PsiDirectoryNode" />
+              <item name="themes" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="miniapp" type="462c0819:PsiDirectoryNode" />
+              <item name="product" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erha" type="462c0819:PsiDirectoryNode" />
+              <item name="themes" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="mp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erha" type="462c0819:PsiDirectoryNode" />
+              <item name="themes" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="mp" type="462c0819:PsiDirectoryNode" />
+              <item name="mp" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project\erha\themes\pc\miniapp\guess_question" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project\erha\application\api\controller" />
+      <recent name="D:\project\erha\themes\pc\miniapp" />
+      <recent name="D:\project\erha\application\common\model" />
+      <recent name="D:\project\erha\application\miniapp\controller" />
+      <recent name="D:\project\erha\themes\pc\miniapp\guess_question" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7b483e1a-4542-4a2a-a92e-12a975da4327" name="Default Changelist" comment="" />
+      <created>1551445908917</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1551445908917</updated>
+      <workItem from="1551445910354" duration="10033000" />
+      <workItem from="1551512896843" duration="10169000" />
+      <workItem from="1551529237173" duration="9362000" />
+      <workItem from="1551604021931" duration="35000" />
+      <workItem from="1551876558937" duration="4104000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="33703000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16187595" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/application/common/model/GuessOption.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkphp/library/think/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding>
+            <element signature="e#613#642#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/common/model/Addons.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-50">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+          <folding>
+            <element signature="e#492#505#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/common/model/Miniapp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding>
+            <element signature="e#6#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/pc/miniapp/miniapp/getmsglist.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkphp/library/think/Db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3430">
+          <caret line="44" column="25" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/common/model/GuessQuestion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#492#508#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/pc/mp/index/upminiapp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="925">
+          <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/System.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkphp/helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="387" column="13" selection-start-line="387" selection-start-column="13" selection-end-line="387" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/pc/miniapp/guess_question/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-141">
+          <caret line="55" column="21" lean-forward="true" selection-start-line="55" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/pc/miniapp/guess_option/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="51" column="81" selection-start-line="51" selection-start-column="81" selection-end-line="51" selection-end-column="81" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/pc/miniapp/guess_option/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="25" column="74" lean-forward="true" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
+          <folding>
+            <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/common/model/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/pc/miniapp/common/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1225">
+          <caret line="61" column="125" selection-start-line="61" selection-start-column="125" selection-end-line="61" selection-end-column="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/pc/admin/common/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2380" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/mp/controller/Mp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39550">
+          <caret line="1601" column="32" selection-start-line="1601" selection-start-column="32" selection-end-line="1601" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/pc/mp/mp/addnews.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11425">
+          <caret line="457" selection-start-line="457" selection-end-line="457" />
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#script#0;n#div#1;n#div#1;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/pc/mp/mp/editnews.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2500">
+          <caret line="100" column="105" selection-start-line="100" selection-start-column="101" selection-end-line="100" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/pc/miniapp/product/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/miniapp/controller/Miniapp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
+          <folding>
+            <element signature="e#503#535#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkphp/library/think/db/Query.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="971" column="13" selection-start-line="971" selection-start-column="11" selection-end-line="971" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/pc/miniapp/miniapp/userlist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="63" column="30" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/pc/miniapp/miniapp/setting.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="24" column="78" selection-start-line="24" selection-start-column="78" selection-end-line="24" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/miniapp/controller/GuessOption.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="118" column="54" selection-end-line="120" selection-end-column="1" />
+          <folding>
+            <element signature="e#503#560#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/miniapp/controller/Base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding>
+            <element signature="e#502#536#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/api/controller/Base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/api/controller/Api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="164" column="7" selection-start-line="164" selection-start-column="7" selection-end-line="164" selection-end-column="7" />
+          <folding>
+            <element signature="e#6#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/pc/miniapp/product/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="89" column="47" selection-start-line="89" selection-start-column="47" selection-end-line="89" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#5;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#5;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/miniapp/controller/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="82" column="41" selection-start-line="81" selection-start-column="12" selection-end-line="82" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/pc/mp/mp/menu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="81" column="24" selection-start-line="81" selection-start-column="24" selection-end-line="83" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/pc/miniapp/guess_question/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1984">
+          <caret line="102" column="56" selection-start-line="102" selection-start-column="56" selection-end-line="102" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#7;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#7;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/miniapp/controller/GuessQuestion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="85" column="92" selection-start-line="85" selection-start-column="92" selection-end-line="85" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

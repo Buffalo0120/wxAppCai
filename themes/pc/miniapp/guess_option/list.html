@@ -1,0 +1,74 @@
+{extend name="common/base" /}
+{block name="body"}
+<form action="" class="layui-form" method="get">
+    <label class="layui-form-label">
+        <a href="{:url('guess_option/add',['q_id' => $q_id])}" class="layui-btn layui-btn-sm layui-btn-normal"  >添加</a>
+    </label>
+</form>
+<div>
+    <form class="layui-form" action="" style="padding: 0px 10px 0px 10px;">
+        <table class="layui-table" lay-skin="line">
+            <thead>
+            <tr>
+                <th>选项名称</th>
+                <th>是否为正确答案</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {volist name="data" id="v"}
+                <tr>
+                    <td>{$v.name}</td>
+                    <td>
+                        {if $v.right_option == $v.id}
+                        是
+                        {else}
+                        <a class="layui-btn layui-btn-sm layui-btn-normal"
+                            href="{:url('guess_option/set',['id'=>$v.id,'q_id'=>$q_id])}">设为正确答案</a>
+                        {/if}
+                    </td>
+                    <td>
+                        <a href="{:url('guess_option/edit',['id'=>$v.id,'q_id'=>$q_id])}"
+                           class="layui-btn layui-btn-sm layui-btn-normal">修改</a>
+                        <a href="javascript:;"
+                           class="layui-btn layui-btn-sm layui-btn-danger" onclick="aa('{$v.id}')">删除</a>
+                    </td>
+                </tr>
+            {/volist}
+            </tbody>
+        </table>
+    </form>
+    {$page|raw}
+</div>
+<script>
+    layui.use('laydate', function() {
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#rhaphp-time1'
+            ,type: 'datetime'
+            ,range: '到'
+            ,format: 'yyyy-M-d'
+        });
+    })
+    layui.use('form', function(){
+        var $ = layui.jquery, form = layui.form;
+    });
+    function aa(id)
+    {
+        layer.confirm('确定删除吗？',{btn:['确定','取消']},function(res){
+            $.post("{:url('guess_option/del')}",{id:id},function (res) {
+                if(res.status=='0'){
+                    layer.msg(res.msg);
+                }
+                if(res.status=='1'){
+                    layer.msg(res.msg,{time:1000},function () {
+                        location.href="{:url('guess_option/index',['q_id'=>$q_id])}";
+                    });
+                }
+            })
+        })
+
+    }
+    //删除
+</script>
+{/block}

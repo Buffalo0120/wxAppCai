@@ -1,0 +1,4 @@
+<?php
+//000000001800
+ exit();?>
+think_serialize:a:17:{s:2:"id";i:1;s:7:"user_id";i:1;s:4:"name";s:6:"猜响";s:5:"appid";s:1:"1";s:9:"appsecret";s:1:"1";s:9:"origin_id";s:1:"1";s:4:"type";i:1;s:6:"status";i:1;s:5:"token";s:32:"uzEtmZ7nHKywCRwURZJ979SkBT106FO8";s:14:"encodingaeskey";s:43:"7oW7ZWTmEebS1IfzquFiHlGEWnx3od8g7TRqsDZzgIn";s:5:"addon";s:0:"";s:4:"desc";s:15:"猜响小程序";s:4:"logo";s:73:"http://www.buffalo_erha.com/uploads/6b/ed2a1226cf8efc2180504bba876e58.jpg";s:6:"qrcode";s:73:"http://www.buffalo_erha.com/uploads/6b/ed2a1226cf8efc2180504bba876e58.jpg";s:11:"create_time";i:1551443028;s:6:"is_use";i:1;s:9:"close_msg";s:21:"小程序已经关闭";}
