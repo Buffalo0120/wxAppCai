@@ -36,7 +36,7 @@
         <ul>
             <li>你好，<a class="name" href="" id="username">{$admin.admin_name}</a>
                 {notempty name="miniappInfo"}
-                <span class="quit">当前小程序：<a href="{:url('miniapp/index/index',['mid'=>$mpInfo['id']])}">{$miniappInfo.name}</a><i style="font-size: 9px; margin-left: 5px;">{if $miniappInfo.type==1}已认证{else/}普通{/if}</i>
+                <span class="quit">当前小程序：{$miniappInfo.name}<i style="font-size: 9px; margin-left: 5px;">{if $miniappInfo.type==1}已认证{else/}普通{/if}</i>
                 </span>
                 <!--<a class="quit" href="{:url('mp/index/miniapplists')}">切换小程序</a>-->
                 <!-- <a href="{:url('mp/Message/messagelist')}"><i class="layui-icon">&#xe645;</i>用户消息<span class="num-feed rhaphp-msg-user show" style="display: none;">0</span></a>
