@@ -1,0 +1,62 @@
+{extend name="common/base" /}
+{block name="body"}
+<form action="" class="layui-form" method="get">
+    <label class="layui-form-label">
+        <a href="{:url('/')}"
+           class="layui-btn layui-btn-sm layui-btn-normal">返回会员列表</a>
+    </label>
+</form>
+<div>
+    <form class="layui-form" action="" style="padding: 0px 10px 0px 10px;">
+    <table class="layui-table" lay-skin="line">
+        <thead>
+        <tr>
+            <th>用户</th>
+            <th>支出/收入</th>
+            <th>响豆数量</th>
+            <th>类型</th>
+            <th>时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="data" id="v"}
+        <tr>
+            <td>{$v.nickname}</td>
+            <td>{if $v.type == 1}支出{elseif $v.type==2}收入{else/}未知{/if}</td>
+            <td>{$v.d_price}</td>
+            <td>{if $v.status == 1}参与猜测
+                {elseif $v.status==2}预测成功奖励
+                {elseif $v.status==3}商品兑换
+                {else/}活动奖励{/if}</td>
+            <td>{$v.add_time|date="Y-m-d H:i:s"}</td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+</form>
+{$page|raw}
+</div>
+<script>
+    layui.use('laydate', function() {
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#rhaphp-time1'
+            ,type: 'datetime'
+            ,range: '到'
+            ,format: 'yyyy-M-d'
+        });
+    })
+    layui.use('form', function(){
+        var $ = layui.jquery, form = layui.form;
+
+        //全选
+        form.on('checkbox(allChoose)', function(data){
+            var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+            child.each(function(index, item){
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+        });
+    });
+</script>
+{/block}

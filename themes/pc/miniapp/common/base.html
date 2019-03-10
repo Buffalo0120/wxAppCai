@@ -58,8 +58,8 @@
             <ul>
                 {volist name="t_menu" id="t"}
                 {if $t.name eq '小程序'}
-                {/if}
                 <li class="{eq name="topNode" value="$t['url']"}selected{/eq}"><a href="{:url($t['url'])}">{$t.name}</a></li>
+                {/if}
                 {/volist}
             </ul>
         </div>

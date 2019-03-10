@@ -12,6 +12,7 @@ namespace app\miniapp\controller;
 
 use app\common\model\MiniappMsg;
 use app\common\model\MiniappUser;
+use app\common\model\BeanLogs;
 use think\Db;
 use think\facade\Request;
 use think\facade\Url;
@@ -358,5 +359,21 @@ class Miniapp extends Base
         $this->redirect('userlist');
     }
 
+    public function scoreDetail()
+    {
+        $uid = input('id');
+        $model = new Beanlogs();
+        $data = $model
+            ->alias('b')
+            ->field('b.*,u.nickname')
+            ->leftJoin('be_miniapp_user u','u.id = b.u_id')
+            ->where('b.u_id',$uid)
+            ->paginate(15);
+        $page = $data->render();
+        $this->assign('page', $page);
+        $this->assign('menu_title', '响豆记录');
+        $this->assign('data',$data);
+        return view('score_detail');
+    }
 
 }

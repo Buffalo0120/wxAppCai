@@ -1,0 +1,89 @@
+{extend name="common/base" /}
+{block name="body"}
+<form action="" class="layui-form" method="get">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">产品名称：</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" value="{$post.p_name}" placeholder="请输入产品名称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <div class="layui-input-block">
+                <button type="submit" class="layui-btn layui-btn-sm layui-btn-normal">
+                    <i class="layui-icon">&#xe615;</i>
+                    搜索</button>
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+    <form class="layui-form" action="" style="padding: 0px 10px 0px 10px;">
+        <table class="layui-table" lay-skin="line">
+            <thead>
+            <tr>
+                <th>用户</th>
+                <th>产品名称</th>
+                <th>图片</th>
+                <th>价格</th>
+                <th>需要充值的账号</th>
+                <th>状态</th>
+                <th>下单时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            {volist name="data" id="v"}
+            <tr>
+                <td>{$v.nickname}</td>
+                <td>{$v.p_name}</td>
+                <td>
+                    <div  style="padding: 1px; border: #e6e6e6 solid 1px; width:35px; float: left; ">
+                        <img class="form_logo" src="{$v.p_pic}" width="35" height="35">
+                    </div>
+                </td>
+                <td>{$v.p_price}</td>
+                <td>{$v.mem_account}</td>
+                <td>{$v.status == 0 ? '购物车' :
+                    ($v.status == 1 ? '待支付' :
+                    ($v.status == 2 ? '已取消' :
+                    ($v.status == 3 ? '发货中' : '已完成')))}</td>
+                <td>{$v.add_time|date="Y-m-d H:i:s"}</td>
+            </tr>
+            {/volist}
+            </tbody>
+        </table>
+    </form>
+    {$page|raw}
+</div>
+<script>
+    layui.use('laydate', function() {
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#rhaphp-time1'
+            ,type: 'datetime'
+            ,range: '到'
+            ,format: 'yyyy-M-d'
+        });
+    })
+    layui.use('form', function(){
+        var $ = layui.jquery, form = layui.form;
+    });
+    function aa(id)
+    {
+        layer.confirm('确定删除吗？',{btn:['确定','取消']},function(res){
+            $.post("{:url('guess_question/del')}",{id:id},function (res) {
+                if(res.status=='0'){
+                    layer.msg(res.msg);
+                }
+                if(res.status=='1'){
+                    layer.msg(res.msg,{time:1000},function () {
+                        location.href="{:url('guess_question/index')}";
+                    });
+                }
+            })
+        })
+
+    }
+    //删除
+</script>
+{/block}
