@@ -28,17 +28,17 @@ class Captcha
         // 中文验证码字符串
         'useImgBg' => false,
         // 使用背景图片
-        'fontSize' => 25,
+        'fontSize' => 30,
         // 验证码字体大小(px)
-        'useCurve' => true,
+        'useCurve' => false,
         // 是否画混淆曲线
-        'useNoise' => true,
+        'useNoise' => false,
         // 是否添加杂点
         'imageH'   => 0,
         // 验证码图片高度
         'imageW'   => 0,
         // 验证码图片宽度
-        'length'   => 5,
+        'length'   => 4,
         // 验证码位数
         'fontttf'  => '',
         // 验证码字体，不设置随机获取
@@ -177,7 +177,7 @@ class Captcha
 
         // 绘验证码
         $code   = []; // 验证码
-        $codeNX = 0; // 验证码第N个字符的左边距
+        $codeNX = 10; // 验证码第N个字符的左边距
         if ($this->useZh) {
             // 中文验证码
             for ($i = 0; $i < $this->length; $i++) {
