@@ -79,8 +79,11 @@ class Product extends Base
             if (isset($_data['image'])) {
                 unset($_data['image']);
             }
-            $_data['content'] = $_data['editorValue'];
-            unset($_data['editorValue']);
+            if (isset($_data['editorValue'])) {
+                $_data['content'] = $_data['editorValue'];
+                unset($_data['editorValue']);
+            }
+
             if ($id) {
                 if (Db::name('product')->where(['id'=>$id])->update($_data)) {
                     ajaxMsg(1, '修改成功');
