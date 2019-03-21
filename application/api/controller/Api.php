@@ -177,20 +177,19 @@ class Api extends Base
 
     public function pay()
     {
-        echo 1;die;
-        if (I("post.code")) {   //用code获取openid
-            $code = I("post.code");
-            $WX_APPID = '';//appid
-            $WX_SECRET = '';//AppSecret
+        if (input('code')) {   //用code获取openid
+            $code = input('code');
+            $WX_APPID = 'wx28676bd439d7943c';//appid
+            $WX_SECRET = 'ba00da09293d6ccdd3aa2a177ad2bcdf';//AppSecret
             $url = "https://api.weixin.qq.com/sns/jscode2session?appid=" . $WX_APPID . "&secret=" . $WX_SECRET . "&js_code=" . $code . "&grant_type=authorization_code";
             $infos = json_decode(file_get_contents($url));
             $openid = $infos->openid;
         }
         //$fee = I("post.total_fee");
         $fee = 0.01;//举例支付0.01
-        $appid = '';//appid.如果是公众号 就是公众号的appid
+        $appid = 'wx28676bd439d7943c';//appid.如果是公众号 就是公众号的appid
         $body = '标题';
-        $mch_id = ''; //商户号
+        $mch_id = '1529263091'; //商户号
         $nonce_str = $this->nonce_str();//随机字符串
         $notify_url = ''; //回调的url【自己填写】
         $openid = $openid;
@@ -282,6 +281,7 @@ class Api extends Base
 //生成订单号
     private function order_number($openid)
     {
+        $openid = empty($openid) ? date('Ymd') : $openid;
         //date('Ymd',time()).time().rand(10,99);//18位
         return md5($openid . time() . rand(10, 99));//32位
     }
