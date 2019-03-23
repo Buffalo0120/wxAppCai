@@ -182,8 +182,8 @@ class Api extends Base
             $WX_APPID = 'wx28676bd439d7943c';//appid
             $WX_SECRET = 'ba00da09293d6ccdd3aa2a177ad2bcdf';//AppSecret
             $url = "https://api.weixin.qq.com/sns/jscode2session?appid=" . $WX_APPID . "&secret=" . $WX_SECRET . "&js_code=" . $code . "&grant_type=authorization_code";
-            $infos = json_decode(file_get_contents($url));
-            $openid = $infos->openid;
+            $infos = json_decode(file_get_contents($url), true);
+            $openid = $infos['openid'];
         }
         //$fee = I("post.total_fee");
         $fee = 0.01;//举例支付0.01
@@ -191,10 +191,11 @@ class Api extends Base
         $body = '标题';
         $mch_id = '1529263091'; //商户号
         $nonce_str = $this->nonce_str();//随机字符串
-        $notify_url = ''; //回调的url【自己填写】
+        $notify_url = 'https://shop.hzjudao.cn/api/api/payReturn'; //回调的url【自己填写】
         $openid = $openid;
-        $out_trade_no = $this->order_number();//商户订单号
-        $spbill_create_ip = '';//服务器的ip【自己填写】;
+        //$out_trade_no = $this->order_number();//商户订单号
+        $out_trade_no = 'test001';//商户订单号
+        $spbill_create_ip = '47.99.160.245';//服务器的ip【自己填写】;
         $total_fee = $fee * 100;// 微信支付单位是分，所以这里需要*100
         $trade_type = 'JSAPI';//交易类型 默认
 
@@ -235,10 +236,10 @@ class Api extends Base
         $array = $this->xml($xml);//全要大写
 
 
-        //print_r($array);
+        //print_r($array);die;
         if ($array['RETURN_CODE'] == 'SUCCESS' && $array['RESULT_CODE'] == 'SUCCESS') {
             $time = time();
-            $tmp = '';//临时数组用于签名
+            $tmp = array();//临时数组用于签名
             $tmp['appId'] = $appid;
             $tmp['nonceStr'] = $nonce_str;
             $tmp['package'] = 'prepay_id=' . $array['PREPAY_ID'];
@@ -253,6 +254,7 @@ class Api extends Base
             $data['package'] = 'prepay_id=' . $array['PREPAY_ID'];//统一下单接口返回的 prepay_id 参数值，提交格式如：prepay_id=*
             $data['paySign'] = $this->sign($tmp);//签名,具体签名方案参见微信公众号支付帮助文档;
             $data['out_trade_no'] = $out_trade_no;
+            // 将数据存一份
 
 
         } else {
@@ -279,7 +281,7 @@ class Api extends Base
 
 
 //生成订单号
-    private function order_number($openid)
+    private function order_number($openid = '')
     {
         $openid = empty($openid) ? date('Ymd') : $openid;
         //date('Ymd',time()).time().rand(10,99);//18位
@@ -296,7 +298,7 @@ class Api extends Base
             if ($stringA) $stringA .= '&' . $key . "=" . $value;
             else $stringA = $key . "=" . $value;
         }
-        $wx_key = '';//申请支付后有给予一个商户账号和密码，登陆后自己设置的key
+        $wx_key = 'qazecvfdrgscbnopuejrgnnccjkh2019';//申请支付后有给予一个商户账号和密码，登陆后自己设置的key
         $stringSignTemp = $stringA . '&key=' . $wx_key;
         return strtoupper(md5($stringSignTemp));
     }
@@ -333,13 +335,66 @@ class Api extends Base
         $p = xml_parser_create();
         xml_parse_into_struct($p, $xml, $vals, $index);
         xml_parser_free($p);
-        $data = "";
+        $data = array();
+        //echo json_encode($index);die;
         foreach ($index as $key => $value) {
             if ($key == 'xml' || $key == 'XML') continue;
             $tag = $vals[$value[0]]['tag'];
             $value = $vals[$value[0]]['value'];
+
             $data[$tag] = $value;
         }
+        //var_dump($data);die;
         return $data;
+    }
+
+    public function payReturn()
+    {
+        $data = file_get_contents('php://input');
+        $arr = $this->xmlToArray($data);
+        DB::table('test')->insert(array('content' => json_encode($arr)));die;
+        $sign = $this->getSign($arr);
+        if ($sign == $arr['sign']) {
+            //判断返回状态
+            if ($arr['return_code'] == 'SUCCESS' || $arr['result_code'] == 'SUCCESS') {
+                $data = DB::table('mobai_order')->where('rtime', $arr['out_trade_no'])->where('status', 1)->first();
+                //判断订单金额
+                if ($data->money == $arr['total_fee']) {
+                    //修改订单状态
+                    $res = DB::table('mobai_order')->where('rtime', $arr['out_trade_no'])->where('status', 1)->update(['status' => 2]);
+                    if ($res) {
+                        $redis = new \Redis();
+                        $redis->connect('127.0.0.1', 6379);
+                        $prepay_id = $redis->get($arr['out_trade_no']);  //prepay_id要在统一下单的时候做保存
+                        $money = $arr['total_fee'] / 100;
+                        $this->sendTemplateMessage($prepay_id, $arr['out_trade_no'], $money, $arr['openid']); //发送模板消息
+                        echo '<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>';//给微信正常相应（如果没有正常相应微信会根据自己的机制多次请求）
+                    }
+                }
+            }
+        }
+    }
+
+    public function arrayToXml($arr)
+    {
+        $xml = "<xml>";
+        foreach ($arr as $key=>$val)
+        {
+            if (is_numeric($val)){
+                $xml.="<".$key.">".$val."</".$key.">";
+            }else{
+                $xml.="<".$key."><![CDATA[".$val."]]></".$key.">";
+            }
+        }
+        $xml.="</xml>";
+        return $xml;
+    }
+
+    public function xmlToArray($xml)
+    {
+        //禁止引用外部xml实体
+        libxml_disable_entity_loader(true);
+        $values = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+        return $values;
     }
 }
