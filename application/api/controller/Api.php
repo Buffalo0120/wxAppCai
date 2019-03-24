@@ -395,11 +395,15 @@ class Api extends Base
                         $money = $arr['total_fee'] / 100;
                         //$this->sendTemplateMessage($prepay_id, $arr['out_trade_no'], $money, $arr['openid']); //发送模板消息
                         echo '<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>';//给微信正常相应（如果没有正常相应微信会根据自己的机制多次请求）
+                    }else {
+                        Db::name('test')->insert(array('content'=>json_encode($arr),'status' => 1));
                     }
+                }else {
+                    Db::name('test')->insert(array('content'=>json_encode($arr),'status' => 2));
                 }
             }
         }else {
-            Db::name('test')->insert(array('content'=>json_encode($arr)));
+            Db::name('test')->insert(array('content'=>json_encode($arr),'status' => 3));
         }
     }
 
