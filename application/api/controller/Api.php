@@ -389,7 +389,7 @@ class Api extends Base
                 //判断订单金额
                 if ($payData['total_fee'] == $arr['total_fee']) {
                     //修改订单状态
-                    $res = Db::name('pay_logs')->where('id',$payData['id'])->update(array('status' => 2));
+                    $res = Db::name('pay_logs')->where('id',$payData['id'])->update(array('state' => 2));
                     if ($res) {
                         $prepay_id = $payData['package'];  //prepay_id要在统一下单的时候做保存
                         $money = $arr['total_fee'] / 100;
@@ -398,6 +398,8 @@ class Api extends Base
                     }
                 }
             }
+        }else {
+            Db::name('test')->insert(array('content'=>json_encode($arr)));
         }
     }
 
