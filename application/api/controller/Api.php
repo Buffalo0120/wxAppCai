@@ -185,16 +185,16 @@ class Api extends Base
             $infos = json_decode(file_get_contents($url), true);
             $openid = $infos['openid'];
         }
-        //$fee = I("post.total_fee");
-        $fee = 0.01;//举例支付0.01
+        $fee = input('fee');
+        //$fee = 0.01;//举例支付0.01
         $appid = 'wx28676bd439d7943c';//appid.如果是公众号 就是公众号的appid
         $body = '标题';
         $mch_id = '1529263091'; //商户号
         $nonce_str = $this->nonce_str();//随机字符串
         $notify_url = 'https://shop.hzjudao.cn/api/api/payReturn'; //回调的url【自己填写】
         $openid = $openid;
-        //$out_trade_no = $this->order_number();//商户订单号
-        $out_trade_no = 'test001';//商户订单号
+        $out_trade_no = $this->order_number($openid);//商户订单号
+        //$out_trade_no = 'test001';//商户订单号
         $spbill_create_ip = '47.99.160.245';//服务器的ip【自己填写】;
         $total_fee = $fee * 100;// 微信支付单位是分，所以这里需要*100
         $trade_type = 'JSAPI';//交易类型 默认
@@ -248,14 +248,19 @@ class Api extends Base
 
 
             $data['state'] = 200;
-            $data['timeStamp'] = "$time";//时间戳
-            $data['nonceStr'] = $nonce_str;//随机字符串
-            $data['signType'] = 'MD5';//签名算法，暂支持 MD5
+            $data['time_stamp'] = "$time";//时间戳
+            $data['nonce_str'] = $nonce_str;//随机字符串
+            $data['sign_type'] = 'MD5';//签名算法，暂支持 MD5
             $data['package'] = 'prepay_id=' . $array['PREPAY_ID'];//统一下单接口返回的 prepay_id 参数值，提交格式如：prepay_id=*
-            $data['paySign'] = $this->sign($tmp);//签名,具体签名方案参见微信公众号支付帮助文档;
-            $data['out_trade_no'] = $out_trade_no;
-            // 将数据存一份
+            $data['pay_sign'] = $this->sign($tmp);//签名,具体签名方案参见微信公众号支付帮助文档;
 
+
+            // 将数据存一份
+            $payData = $data;
+            $payData['state'] = 1; // 待支付
+            $payData['out_trade_no'] = $out_trade_no; // 订单号
+            $payData['total_fee'] = $total_fee; // 费用 （分）
+            Db::name('pay_logs')->insert($payData);
 
         } else {
             $data['state'] = 0;
@@ -280,12 +285,10 @@ class Api extends Base
     }
 
 
-//生成订单号
+//生成订单号 $openid + date + rand(10,99)
     private function order_number($openid = '')
     {
-        $openid = empty($openid) ? date('Ymd') : $openid;
-        //date('Ymd',time()).time().rand(10,99);//18位
-        return md5($openid . time() . rand(10, 99));//32位
+        return $openid . date('Ymd') . rand(10, 99);
     }
 
 
@@ -350,24 +353,47 @@ class Api extends Base
 
     public function payReturn()
     {
+        /*
+         * <xml>
+              <appid><![CDATA[wx24123c4370ec43b]]></appid>
+              <attach><![CDATA[测试测试]]></attach>
+              <bank_type><![CDATA[CFT]]></bank_type>
+              <fee_type><![CDATA[CNY]]></fee_type>
+              <is_subscribe><![CDATA[Y]]></is_subscribe>
+              <mch_id><![CDATA[10000100]]></mch_id>
+              <nonce_str><![CDATA[5d2b634f23F23da20af46e531c]]></nonce_str>
+              <openid><![CDATA[oUpF8uMEb4q23FEWG4Q23R268TekukE]]></openid>
+              <out_trade_no><![CDATA[140123153]]></out_trade_no>
+              <result_code><![CDATA[SUCCESS]]></result_code>
+              <sign><![CDATA[B552EDFW23G423G5DD0D78AB241]]></sign>
+              <sub_mch_id><![CDATA[10000100]]></sub_mch_id>
+              <time_end><![CDATA[20140903131540]]></time_end>
+              <total_fee>1</total_fee>
+                <coupon_fee><![CDATA[10]]></coupon_fee>
+                <coupon_count><![CDATA[1]]></coupon_count>
+                <coupon_type><![CDATA[CASH]]></coupon_type>
+                <coupon_id><![CDATA[10000]]></coupon_id>
+                <coupon_fee><![CDATA[100]]></coupon_fee>
+              <trade_type><![CDATA[JSAPI]]></trade_type>
+              <transaction_id><![CDATA[1004400740212312353532168]]></transaction_id>
+         </xml>
+        */
         $data = file_get_contents('php://input');
         $arr = $this->xmlToArray($data);
-        DB::table('test')->insert(array('content' => json_encode($arr)));die;
-        $sign = $this->getSign($arr);
-        if ($sign == $arr['sign']) {
+
+        // 根据微信支付回调接口，用订单号查询签名，验证签名和金额是否一致
+        $payData = Db::name('pay_logs')->where('out_trade_no', $arr['out_trade_no'])->find();
+        if ($payData && $payData['sign'] == $arr['sign']) {
             //判断返回状态
             if ($arr['return_code'] == 'SUCCESS' || $arr['result_code'] == 'SUCCESS') {
-                $data = DB::table('mobai_order')->where('rtime', $arr['out_trade_no'])->where('status', 1)->first();
                 //判断订单金额
-                if ($data->money == $arr['total_fee']) {
+                if ($payData['total_fee'] == $arr['total_fee']) {
                     //修改订单状态
-                    $res = DB::table('mobai_order')->where('rtime', $arr['out_trade_no'])->where('status', 1)->update(['status' => 2]);
+                    $res = Db::name('pay_logs')->where('id',$payData['id'])->update(array('status' => 2));
                     if ($res) {
-                        $redis = new \Redis();
-                        $redis->connect('127.0.0.1', 6379);
-                        $prepay_id = $redis->get($arr['out_trade_no']);  //prepay_id要在统一下单的时候做保存
+                        $prepay_id = $payData['package'];  //prepay_id要在统一下单的时候做保存
                         $money = $arr['total_fee'] / 100;
-                        $this->sendTemplateMessage($prepay_id, $arr['out_trade_no'], $money, $arr['openid']); //发送模板消息
+                        //$this->sendTemplateMessage($prepay_id, $arr['out_trade_no'], $money, $arr['openid']); //发送模板消息
                         echo '<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>';//给微信正常相应（如果没有正常相应微信会根据自己的机制多次请求）
                     }
                 }
