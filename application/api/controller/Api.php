@@ -285,10 +285,10 @@ class Api extends Base
     }
 
 
-//生成订单号 $openid + date + rand(10,99)
-    private function order_number($openid = '')
+//生成订单号  date + rand(10,99)
+    private function order_number()
     {
-        return $openid . date('Ymd') . rand(10, 99);
+        return date('Ymd') . rand(1000, 9999);
     }
 
 
