@@ -30,7 +30,6 @@ class Base extends Controller
             header('Location: ' . $root . '/?s=install');
             exit;
         }
-        wxpayNoisLogintify();
         $admin = getAdmin();
         if (empty($admin)) {
             $this->redirect(url('admin/Login/index'));
