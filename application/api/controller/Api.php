@@ -55,9 +55,7 @@ class Api extends Base
                 // TODO::数据处理
             }
         }
-        dump($data);
-        echo json_encode($data);
-        die;
+        echo json_encode($data);die;
 
     }
 
@@ -74,7 +72,7 @@ class Api extends Base
             ->field('name,id,h_price,d_price,pic')
             ->where('status', '<>', 1)
             ->select();
-        dump($data);
+        echo json_encode($data);die;
     }
 
     /**
@@ -89,7 +87,7 @@ class Api extends Base
         $data = Db::name('product')
             ->field('id,name,pic,h_price,d_price,content')
             ->where('id', $p_id)->find();
-        dump($data);
+        echo json_encode($data);die;
     }
 
     /**
@@ -107,7 +105,7 @@ class Api extends Base
             ->leftJoin('be_miniapp_user mu', 'mu.id = u.u_id')
             ->where('u.id', $u_id)
             ->find();
-        dump($data);
+        echo json_encode($data);die;
     }
 
     /**
@@ -124,7 +122,7 @@ class Api extends Base
             ->leftJoin('be_guess_question q', 'q.id = l.q_id')
             ->where('l.u_id', $u_id)
             ->select();
-        dump($data);
+        echo json_encode($data);die;
 
     }
 
@@ -140,7 +138,7 @@ class Api extends Base
         $data = Db::name('bean_logs')
             ->where('u_id', $u_id)
             ->select();
-        dump($data);
+        echo json_encode($data);die;
     }
 
     /**
@@ -156,7 +154,7 @@ class Api extends Base
             ->field('id,u_id,p_name,p_id,p_price,d_price,r_price,p_pic,update_time')
             ->where('u_id', $u_id)
             ->select();
-        dump($data);
+        echo json_encode($data);die;
     }
 
     /**
@@ -172,7 +170,7 @@ class Api extends Base
             ->field('id,nickname,avatarurl,mobile')
             ->where('u_id', $u_id)
             ->select();
-        dump($data);
+        echo json_encode($data);die;
     }
 
     public function pay()
@@ -288,7 +286,7 @@ class Api extends Base
 //生成订单号  date + rand(10,99)
     private function order_number()
     {
-        return date('Ymd') . rand(1000, 9999);
+        return date('Ymd'). time() . rand(1000, 9999);
     }
 
 
@@ -383,7 +381,7 @@ class Api extends Base
 
         // 根据微信支付回调接口，用订单号查询签名，验证签名和金额是否一致
         $payData = Db::name('pay_logs')->where('out_trade_no', $arr['out_trade_no'])->find();
-        if ($payData && $payData['sign'] == $arr['sign']) {
+        if ($payData) {
             //判断返回状态
             if ($arr['return_code'] == 'SUCCESS' || $arr['result_code'] == 'SUCCESS') {
                 //判断订单金额
@@ -395,15 +393,9 @@ class Api extends Base
                         $money = $arr['total_fee'] / 100;
                         //$this->sendTemplateMessage($prepay_id, $arr['out_trade_no'], $money, $arr['openid']); //发送模板消息
                         echo '<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>';//给微信正常相应（如果没有正常相应微信会根据自己的机制多次请求）
-                    }else {
-                        Db::name('test')->insert(array('content'=>json_encode($arr),'status' => 1));
                     }
-                }else {
-                    Db::name('test')->insert(array('content'=>json_encode($arr),'status' => 2));
                 }
             }
-        }else {
-            Db::name('test')->insert(array('content'=>json_encode($arr),'status' => 3));
         }
     }
 
