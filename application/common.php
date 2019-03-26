@@ -1456,7 +1456,7 @@ function getStrings($array = [])
  */
 function getHttpType()
 {
-    return \think\facade\Request::scheme().'://';
+    return \think\facade\Request::scheme() . '://';
 }
 
 /**
@@ -2375,5 +2375,15 @@ function getRuleTypeName($type)
             break;
         default:
             return '未知';
+    }
+
+    function subtext($text, $length)
+    {
+
+        if (mb_strlen($text, ‘utf8’) > $length){
+            return mb_substr($text, 0, $length, ’utf8′) . ’…’;
+        }
+        return $text;
+
     }
 }

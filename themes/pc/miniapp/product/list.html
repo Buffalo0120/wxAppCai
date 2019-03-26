@@ -28,7 +28,7 @@
             <colgroup>
                 <col width="240px;">
                 <col>
-                <col>
+                <col width="240px">
                 <col>
                 <col>
                 <col>
@@ -49,13 +49,13 @@
             <tbody>
             {volist name="data" id="v"}
             <tr>
-                <td>{$v.name}</td>
+                <td title="{$v['name']}">{$v.name|mb_substr=0,24,'utf-8'}</td>
                 <td>
                     <div  style="padding: 1px; border: #e6e6e6 solid 1px; width:35px; float: left; ">
                         <img class="form_logo" src="{$v.pic}" width="35" height="35">
                     </div>
                 </td>
-                <td>{$v.description}</td>
+                <td title="{$v['description']}">{$v['description']|mb_substr=0,24,'utf-8'}</td>
                 <td>{$v.h_price}</td>
                 <td>{$v.discount}</td>
                 <!--<td>{$v.n_price}</td>-->
