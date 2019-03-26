@@ -42,6 +42,7 @@ class Api extends Base
         $data = $model->field('id,title,pic,coin_pool,
         from_unixtime(start_time,"%Y-%m-%d %H:%i:%s") start_time,
         from_unixtime(stop_time,"%Y-%m-%d %H:%i:%s") stop_time,
+        from_unixtime(open_time,"%Y-%m-%d %H:%i:%s") open_time,
         right_option')
             ->where('status', '<>', '1')->select();
         if (!empty($data)) {
