@@ -48,7 +48,7 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">预测时间</label>
+        <label class="layui-form-label">预测开始时间</label>
         <div class="layui-input-inline">
             <input name="start_time"
                    id="time1"
@@ -59,11 +59,22 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">开奖时间</label>
+        <label class="layui-form-label">预测截至时间</label>
         <div class="layui-input-inline">
             <input name="stop_time" id="time2"
                    value="{if isset($data)}{$data['stop_time']|date='Y-m-d H:i:s'}{/if}"
                    class="layui-input" placeholder="请输入预测时间" lay-key="18" type="text">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">开奖时间</label>
+        <div class="layui-input-inline">
+            <input name="open_time"
+                   id="time3"
+                   value="{if isset($data)}{$data['open_time']|date='Y-m-d H:i:s'}{/if}"
+                   class="layui-input"
+                   placeholder="请输入预测时间"
+                   lay-key="16" type="text">
         </div>
     </div>
     <div class="layui-form-item">
@@ -144,6 +155,11 @@
         });
         laydate.render({
             elem: '#time2'
+            ,type: 'datetime'
+            ,format: 'yyyy-MM-dd HH:mm:ss'
+        });
+        laydate.render({
+            elem: '#time3'
             ,type: 'datetime'
             ,format: 'yyyy-MM-dd HH:mm:ss'
         });
