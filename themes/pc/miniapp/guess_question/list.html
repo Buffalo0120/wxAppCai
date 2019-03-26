@@ -50,7 +50,7 @@
             <tbody>
             {volist name="data" id="v"}
             <tr>
-                <td title="{$v['title']}">{$v.title|mb_substr=0,24,'utf-8'}</td>
+                <td title="{$v['title']}">{$v.title|mb_substr=0,30,'utf-8'}</td>
                 <td>
                     <div  style="padding: 1px; border: #e6e6e6 solid 1px; width:35px; float: left; ">
                         <img class="form_logo" src="{$v.pic}" width="35" height="35">
