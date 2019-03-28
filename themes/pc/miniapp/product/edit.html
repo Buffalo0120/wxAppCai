@@ -58,12 +58,24 @@
         </div>
     </div>
     <div class="layui-form-item">
+        <label class="layui-form-label">售价</label>
+        <div class="layui-input-inline">
+            <input name="n_price"
+                   min="0"
+                   required
+                   lay-verify="required"
+                   placeholder="请输入售价"
+                   autocomplete="off"
+                   class="layui-input"
+                   value="{if isset($data)}{$data['n_price']}{/if}"
+                   type="number">
+        </div>
+    </div>
+    <div class="layui-form-item">
         <label class="layui-form-label">折扣</label>
         <div class="layui-input-inline">
             <input name="discount"
                    min="0"
-                   required
-                   lay-verify="required"
                    placeholder="请输入折扣"
                    autocomplete="off"
                    class="layui-input"
@@ -76,12 +88,22 @@
         <div class="layui-input-inline">
             <input name="d_price"
                    min="0"
-                   required
-                   lay-verify="required"
                    placeholder="请输入所需响豆数"
                    autocomplete="off"
                    class="layui-input"
                    value="{if isset($data)}{$data['d_price']}{/if}"
+                   type="number">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">运费</label>
+        <div class="layui-input-inline">
+            <input name="freight"
+                   min="0"
+                   placeholder="请输入运费"
+                   autocomplete="off"
+                   class="layui-input"
+                   value="{if isset($data)}{$data['freight']}{/if}"
                    type="number">
         </div>
     </div>

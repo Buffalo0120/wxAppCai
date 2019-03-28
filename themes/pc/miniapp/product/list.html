@@ -32,6 +32,8 @@
                 <col>
                 <col>
                 <col>
+                <col>
+                <col>
                 <col width="140px;">
             </colgroup>
             <thead>
@@ -40,9 +42,11 @@
                 <th>图片</th>
                 <th>描述</th>
                 <th>原价</th>
+                <th>售价</th>
                 <th>折扣</th>
                 <!--<th>响豆价</th>-->
                 <th>所需响豆数</th>
+                <th>运费</th>
                 <th>操作</th>
             </tr>
             </thead>
@@ -57,9 +61,11 @@
                 </td>
                 <td title="{$v['description']}">{$v['description']|mb_substr=0,30,'utf-8'}</td>
                 <td>{$v.h_price}</td>
+                <td>{$v.n_price}</td>
                 <td>{$v.discount}</td>
                 <!--<td>{$v.n_price}</td>-->
                 <td>{$v.d_price}</td>
+                <td>{$v.freight}</td>
                 <td>
                     <a href="{:url('product/edit',['id'=>$v.id])}"
                        class="layui-btn layui-btn-sm layui-btn-normal">修改</a>

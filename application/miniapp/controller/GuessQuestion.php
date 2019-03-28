@@ -78,6 +78,9 @@ class GuessQuestion extends Base
             if (!empty($_data['stop_time'])) {
                 $_data['stop_time'] = strtotime($_data['stop_time']);
             }
+            if (!empty($_data['open_time'])) {
+                $_data['open_time'] = strtotime($_data['open_time']);
+            }
             $id = $_data['id'];
             unset($_data['id']);
             if (isset($_data['image'])) {

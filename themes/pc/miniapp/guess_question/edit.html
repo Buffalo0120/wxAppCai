@@ -27,6 +27,28 @@
         </div>
     </div>
     <div class="layui-form-item">
+        <label class="layui-form-label">投票类型</label>
+        <div class="layui-input-block">
+            <input type="radio" name="vote_type" value="1" title="少数派"
+                   lay-filter="ad_type"
+                   {if empty($data['vote_type']) || $data['vote_type'] == 1}checked{/if}>
+            <input type="radio" name="vote_type" value="2" title="多数派"
+                   lay-filter="ad_type"
+                   {if isset($data) && $data['vote_type'] == 2}checked{/if}>
+            <input type="radio" name="vote_type" value="3" title="预言帝"
+                   lay-filter="ad_type"
+                   {if isset($data) && $data['vote_type'] == 3}checked{/if}>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">描述</label>
+        <div class="layui-input-block">
+            <textarea style="width:100%;" name="description"
+                      placeholder="请输入描述"
+                      autocomplete="off">{if isset($data)}{$data['description']}{/if}</textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
         <label class="layui-form-label">焦点图片</label>
         <div class="layui-input-block">
             {:hook('Upload',['type'=>'image','name'=>'pic','value'=>isset($data.pic) ? $data.pic : ''])}

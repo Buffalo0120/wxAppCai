@@ -39,7 +39,7 @@ class Api extends Base
         $model = new GuessQuestionModel();
         $option = new GuessOptionModel();
         // TODO::查询时，需查询出该用户有没有进行猜测，猜测答案是多少
-        $data = $model->field('id,title,pic,coin_pool,
+        $data = $model->field('id,title,pic,coin_pool,type,vote_type,description,
         from_unixtime(start_time,"%Y-%m-%d %H:%i:%s") start_time,
         from_unixtime(stop_time,"%Y-%m-%d %H:%i:%s") stop_time,
         from_unixtime(open_time,"%Y-%m-%d %H:%i:%s") open_time,
@@ -60,6 +60,35 @@ class Api extends Base
 
     }
 
+    /** 猜测题详细数据
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function getGuessQuestionDetail()
+    {
+        $model = new GuessQuestionModel();
+        $option = new GuessOptionModel();
+        $question_id = input('id');
+        // 猜测题数据
+        $data = $model->field('id,title,pic,coin_pool,type,vote_type,description,
+        from_unixtime(start_time,"%Y-%m-%d %H:%i:%s") start_time,
+        from_unixtime(stop_time,"%Y-%m-%d %H:%i:%s") stop_time,
+        from_unixtime(open_time,"%Y-%m-%d %H:%i:%s") open_time,
+        right_option')
+            ->where('id', $question_id)->find();
+
+        // 选项数据
+        $optionData = $option
+            ->field('id,name,q_id')
+            ->where('status', '<>', '1')
+            ->where('q_id', $question_id)
+            ->select();
+
+        $data['optionData'] = $optionData;
+        echo json_encode($data);die;
+    }
+
     /**
      * 商品列表
      * @throws \think\db\exception\DataNotFoundException
@@ -70,7 +99,7 @@ class Api extends Base
     {
         $model = new ProductnModel();
         $data = $model
-            ->field('name,id,h_price,d_price,pic')
+            ->field('name,id,h_price,n_price,description,d_price,pic')
             ->where('status', '<>', 1)
             ->select();
         echo json_encode($data);die;
@@ -86,7 +115,7 @@ class Api extends Base
     {
         $p_id = input('p_id');
         $data = Db::name('product')
-            ->field('id,name,pic,h_price,d_price,content')
+            ->field('id,name,pic,h_price,n_price,freight,description,d_price,content')
             ->where('id', $p_id)->find();
         echo json_encode($data);die;
     }
@@ -101,7 +130,7 @@ class Api extends Base
     {
         $u_id = $this->u_id;
         $data = Db::name('miniapp_user')
-            ->field('u.id,u.nickname,u.avatarurl')
+            ->field('u.id,u.nickname,u.avatarurl,u.mobile')
             ->alias('u')
             ->leftJoin('be_miniapp_user mu', 'mu.id = u.u_id')
             ->where('u.id', $u_id)
@@ -169,6 +198,21 @@ class Api extends Base
         $u_id = $this->u_id;
         $data = Db::name('miniapp_user')
             ->field('id,nickname,avatarurl,mobile')
+            ->where('u_id', $u_id)
+            ->select();
+        echo json_encode($data);die;
+    }
+
+    /** 获取用户收货地址
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function getMemberAddress()
+    {
+        $u_id = $this->u_id;
+        $data = Db::name('address')
+            ->field('id,u_id,name,phone,address')
             ->where('u_id', $u_id)
             ->select();
         echo json_encode($data);die;
