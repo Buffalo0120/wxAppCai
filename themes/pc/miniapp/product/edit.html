@@ -44,6 +44,13 @@
     </div>
 
     <div class="layui-form-item">
+        <label class="layui-form-label">多图</label>
+        <div class="layui-input-block">
+            {:hook('Upload',['type'=>'images','name'=>'pics','value'=>isset($data.pics) ? $data.pics : '', 'number' => 3])}
+        </div>
+    </div>
+
+    <div class="layui-form-item">
         <label class="layui-form-label">原价</label>
         <div class="layui-input-inline">
             <input name="h_price"

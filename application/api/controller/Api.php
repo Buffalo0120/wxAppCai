@@ -115,8 +115,10 @@ class Api extends Base
     {
         $p_id = input('p_id');
         $data = Db::name('product')
-            ->field('id,name,pic,h_price,n_price,freight,description,d_price,content')
+            ->field('id,name,pic,pics,h_price,n_price,freight,description,d_price,content')
             ->where('id', $p_id)->find();
+        // 多图处理
+        $data['pics'] = explode(',', $data['pics']);
         echo json_encode($data);die;
     }
 
@@ -218,6 +220,9 @@ class Api extends Base
         echo json_encode($data);die;
     }
 
+    /**
+     * 微信支付
+     */
     public function pay()
     {
         if (input('code')) {   //用code获取openid

@@ -66,6 +66,9 @@ class Product extends Base
         $this->assign('uploadImg', getHostDomain() . \url('uploadMediaNewsImage'));
         $id = input('id');
         $data = Db::name('product')->where('id',$id)->find();
+        // 多图处理
+        $data['pics'] = explode(',', $data['pics']);
+
         $this->assign('data',$data);
         return view('edit');
     }
@@ -82,6 +85,11 @@ class Product extends Base
             if (isset($_data['editorValue'])) {
                 $_data['content'] = $_data['editorValue'];
                 unset($_data['editorValue']);
+            }
+            if (!empty($_data['pics']) && is_array($_data['pics'])) {
+                $_data['pics'] = implode(',', $_data['pics']);
+            } else {
+                $_data['pics'] = '';
             }
 
             if ($id) {
