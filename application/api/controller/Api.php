@@ -13,6 +13,7 @@ namespace app\api\controller;
 use app\common\model\GuessQuestion as GuessQuestionModel;
 use app\common\model\GuessOption as GuessOptionModel;
 use app\common\model\Product as ProductnModel;
+use think\console\Table;
 use think\Db;
 use think\facade\Request;
 use think\facade\Url;
@@ -22,10 +23,271 @@ class Api extends Base
     // 当前请求的用户id
     public $u_id = '';
 
+    // 定义返回数据格式
+    public $return = array(
+        'retCode' => 1,
+        'retMsg' => '',
+        'retData' => array()
+    );
+
+    /**
+     * 初始化函数
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
     public function initialize()
     {
-        $this->u_id = input('u_id');
+        if (!empty(input('u_id'))) {
+            $this->u_id = input('u_id');
+
+        } elseif (!empty(input('code'))) {
+            $this->u_id = $this->getUserId(input('code'));
+        }
     }
+
+    /**
+     * 设置返回数据
+     * @param $retCode
+     * @param $retMsg
+     * @param array $data
+     */
+    protected function setReturnInfo($retCode, $retMsg, $data = array())
+    {
+        $this->return = array(
+            'retCode' => $retCode,
+            'retMsg' => $retMsg,
+            'retData' => $data
+        );
+    }
+
+    /**
+     * 获取open_id
+     * @param $code
+     * @return mixed
+     */
+    private function getOpenId($code)
+    {
+        $WX_APPID = 'wx28676bd439d7943c';//appid
+        $WX_SECRET = 'ba00da09293d6ccdd3aa2a177ad2bcdf';//AppSecret
+        $url = "https://api.weixin.qq.com/sns/jscode2session?appid=" . $WX_APPID . "&secret=" . $WX_SECRET . "&js_code=" . $code . "&grant_type=authorization_code";
+        $infos = json_decode(file_get_contents($url), true);
+        return $infos['openid'];
+    }
+
+    /**
+     * 根据code 或 open_id 获取用户id
+     * @param $code
+     * @param null $openId
+     * @return int|mixed
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    private function getUserId($code, $openId = null)
+    {
+        if (!$openId) {
+            $openId = $this->getOpenId($code);
+        }
+        $userData = Db::name('miniapp_user')->field('id')->where('openid', $openId)->find();
+        return $userData ? $userData['id'] : 0;
+    }
+
+    /*----------------保存数据------------------*/
+
+    /**
+     * 保存用户信息
+     */
+    public function saveUserInfo()
+    {
+        $_data = input('post.');
+
+        if (!empty($_data['u_id'])) {
+            // 判断数据中是否有id，如果id存在，则修改数据
+            if (isset($_data['code'])) {
+                unset($_data['code']);
+            }
+            $ret = Db::name('miniapp_user')->where('id', $_data['u_id'])->update($_data);
+            $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
+
+        } elseif (!empty($_data['code'])) {
+            // 判断数据中是否有code
+            // 根据code去查是否存在该用户
+            $id = $this->getUserId($_data['code']);
+            // 去除数据中的code
+            unset($_data['code']);
+
+            if ($id) {
+                // 如果数据存在，则执行修改
+                $ret = Db::name('miniapp_user')->where('id', $id)->update($_data);
+                $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！', array('u_id' => $id));
+            } else {
+                // 如果数据不存在，则执行添加
+                $_data['create_time'] = time();
+                $ret = Db::name('miniapp_user')->insert($_data);
+                $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！', array('u_id' => $ret));
+            }
+        } else {
+            $this->setReturnInfo(100, '数据异常，用户id和code都为空！');
+        }
+
+        // 返回数据
+        echo json_encode($this->return);die;
+    }
+
+    /**
+     * 保存投票信息
+     */
+    public function saveVoteInfo()
+    {
+        $_data = input('post.');
+        // 数据验证
+        if (empty($_data['q_id'])) {
+            $this->setReturnInfo(100, '数据异常，题目id为空！');
+            // 返回数据
+            echo json_encode($this->return);die;
+        }
+        if (empty($_data['o_id'])) {
+            $this->setReturnInfo(100, '数据异常，选项id为空！');
+            // 返回数据
+            echo json_encode($this->return);die;
+        }
+        if (empty($_data['d_price'])) {
+            $this->setReturnInfo(100, '数据异常，响豆数量为空！');
+            // 返回数据
+            echo json_encode($this->return);die;
+        }
+        if (empty($_data['u_id']) && empty($_data['code'])) {
+            $this->setReturnInfo(100, '数据异常，用户id和code都为空！');
+            // 返回数据
+            echo json_encode($this->return);die;
+        }
+        // 获取用户id
+        if (empty($_data['u_id'])) {
+            $_data['u_id'] = $this->getUserId($_data['code']);
+            if (empty($_data['u_id'])) {
+                $this->setReturnInfo(100, '数据异常，code无效或用户不存在！');
+                // 返回数据
+                echo json_encode($this->return);die;
+            }
+        }
+        if (isset($_data['code'])) {
+            unset($_data['code']);
+        }
+
+        // 根据用户id和题目id，验证该用户是否已提交过投票
+        $guestData = Db::name('guest_list')
+            ->field('id')
+            ->where(array('u_id' => $_data['u_id'], 'q_id' => $_data['q_id']))
+            ->find();
+        if ($guestData) {
+            $this->setReturnInfo(1, '该用户已对该题目投过票了！');
+            // 返回数据
+            echo json_encode($this->return);die;
+        }
+
+        $_data['add_time'] = time();
+        // 保存数据
+        $ret = Db::name('guest_list')->insert($_data);
+        $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
+
+        // 返回数据
+        echo json_encode($this->return);die;
+    }
+
+    /**
+     * 保存下单信息
+     */
+    public function saveShopInfo()
+    {
+        $_data = input('post.');
+        // 数据验证
+        if (empty($_data['p_id'])) {
+            $this->setReturnInfo(100, '数据异常，商品id为空！');
+            // 返回数据
+            echo json_encode($this->return);die;
+        }
+        // 根据产品id，获取产品信息
+        $proData = Db::name('product')->where('id', $_data['p_id'])->find();
+        if (!$proData) {
+            $this->setReturnInfo(100, '商品不存在！');
+            // 返回数据
+            echo json_encode($this->return);die;
+        }
+
+        // 数量
+        $_data['num'] = empty($_data['num']) ? 1 : $_data['num'];
+
+        // 获取用户id
+        if (empty($_data['u_id'])) {
+            $_data['u_id'] = $this->getUserId($_data['code']);
+            if (empty($_data['u_id'])) {
+                $this->setReturnInfo(100, '数据异常，code无效或用户不存在！');
+                // 返回数据
+                echo json_encode($this->return);die;
+            }
+        }
+        if (isset($_data['code'])) {
+            unset($_data['code']);
+        }
+        // 保存商品信息
+        $_data['p_name'] = $proData['name'];
+        $_data['p_price'] = $proData['n_price'];
+        $_data['d_price'] = $proData['d_price'];
+        $_data['p_pic'] = $proData['d_pic'];
+        $_data['p_freight'] = $proData['freight'];
+        $_data['status'] = 0; // 购物车状态
+        $_data['add_time'] = time();
+
+        $ret = Db::name('order_list')->insert($_data);
+
+        $this->setReturnInfo($ret ? 0 : 1,
+            $ret ? '保存成功！' : '保存失败！',
+            $ret ? array('o_id' => $ret) : array());
+        // 返回数据
+        echo json_encode($this->return);die;
+    }
+
+    /**
+     * 保存收货信息
+     */
+    public function saveAddressInfo()
+    {
+        // 获取用户id
+        if (empty($_data['u_id'])) {
+            $_data['u_id'] = $this->getUserId($_data['code']);
+            if (empty($_data['u_id'])) {
+                $this->setReturnInfo(100, '数据异常，code无效或用户不存在！');
+                // 返回数据
+                echo json_encode($this->return);die;
+            }
+        }
+        if (isset($_data['code'])) {
+            unset($_data['code']);
+        }
+
+        // 判断是修改还是添加
+        if (empty($_data['a_id'])) {
+            $_data['add_time'] = time();
+            $ret = $_data['a_id'] = Db::name('address')->insert($_data);
+            $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！', array('a_id' => $ret));
+        } else {
+            $ret = Db::name('address')->where('id', $_data['a_id'])->update($_data);
+            $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
+        }
+
+        // 验证status，如果不为空，则把其他收货地址置为非默认
+        if ($ret && !empty($_data['status'])) {
+            Db::name('address')
+                ->where('u_id', $_data['u_id'])
+                ->where('id', '<>',  $_data['a_id'])
+                ->update(array('status' => 0));
+        }
+        // 返回数据
+        echo json_encode($this->return);die;
+    }
+
+    /*----------------请求数据------------------*/
 
     /**
      * 猜测题列表页数据
@@ -214,7 +476,7 @@ class Api extends Base
     {
         $u_id = $this->u_id;
         $data = Db::name('address')
-            ->field('id,u_id,name,phone,address')
+            ->field('id,u_id,name,mobile,address')
             ->where('u_id', $u_id)
             ->select();
         echo json_encode($data);die;
@@ -227,11 +489,7 @@ class Api extends Base
     {
         if (input('code')) {   //用code获取openid
             $code = input('code');
-            $WX_APPID = 'wx28676bd439d7943c';//appid
-            $WX_SECRET = 'ba00da09293d6ccdd3aa2a177ad2bcdf';//AppSecret
-            $url = "https://api.weixin.qq.com/sns/jscode2session?appid=" . $WX_APPID . "&secret=" . $WX_SECRET . "&js_code=" . $code . "&grant_type=authorization_code";
-            $infos = json_decode(file_get_contents($url), true);
-            $openid = $infos['openid'];
+            $openid = $this->getOpenId($code);
         }
         $fee = input('fee');
         //$fee = 0.01;//举例支付0.01
