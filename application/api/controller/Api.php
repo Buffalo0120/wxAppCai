@@ -112,6 +112,7 @@ class Api extends Base
 
         } elseif (!empty($_data['code'])) {
             // 判断数据中是否有code
+            $openId = $this->getOpenId($_data['code']);
             // 根据code去查是否存在该用户
             $id = $this->getUserId($_data['code']);
             // 去除数据中的code
@@ -123,6 +124,7 @@ class Api extends Base
                 $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！', array('u_id' => $id));
             } else {
                 // 如果数据不存在，则执行添加
+                $_data['openid'] = $openId;
                 $_data['create_time'] = time();
                 $ret = Db::name('miniapp_user')->insert($_data);
                 $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！', array('u_id' => $ret));
@@ -413,10 +415,34 @@ class Api extends Base
         $u_id = $this->u_id;
         $data = Db::name('guess_list')
             ->alias('l')
+            ->field('l.o_id,l.update_time,q.title,q.stop_time,q.open_time,q.right_option')
             ->leftJoin('be_guess_question q', 'q.id = l.q_id')
             ->where('l.u_id', $u_id)
             ->select();
-        echo json_encode($data);die;
+
+        // 数据统计
+        $count['sum'] = count($data);
+        $count['win_num'] = 0;
+
+        // 数据处理
+        foreach ($data as &$row) {
+            // 判断当前时间是否处于猜测中
+            if ($row['stop_time'] < time()) {
+                $row['state'] = '剩余预测时间 '. date('H:i:s', time() - $row['stop_time']);
+            } elseif (time() < $row['open_time']) {
+                $row['state'] = '开奖中，请耐心等待';
+            } elseif ($row['o_id'] == $row['right_option']) {
+                $row['state'] = '已结束，预言正确';
+                $count['win_num'] ++;
+            } else {
+                $row['state'] = '已结束，预言错误';
+            }
+        }
+
+        // 计算胜率
+        $count['win_rate'] = $count['sum'] ? ceil($count['win_num'] / $count['sum'] * 100) . '%' : '0%';
+
+        echo json_encode(array('guess_logs' => $data, 'guess_count' => $count));die;
 
     }
 
