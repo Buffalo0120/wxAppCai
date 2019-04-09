@@ -458,7 +458,10 @@ class Api extends Base
         $data = Db::name('bean_logs')
             ->where('u_id', $u_id)
             ->select();
-        echo json_encode($data);die;
+        // 获取用户响豆总数
+        $userBeanSum = Db::name('miniapp_user')->field('score')->where('id', $u_id)->find();
+
+        echo json_encode(array('bean_logs' => $data, 'bean_sum' => $userBeanSum['score']));die;
     }
 
     /**
