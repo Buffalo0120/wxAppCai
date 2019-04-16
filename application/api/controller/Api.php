@@ -72,7 +72,6 @@ class Api extends Base
         $WX_SECRET = 'ba00da09293d6ccdd3aa2a177ad2bcdf';//AppSecret
         $url = "https://api.weixin.qq.com/sns/jscode2session?appid=" . $WX_APPID . "&secret=" . $WX_SECRET . "&js_code=" . $code . "&grant_type=authorization_code";
         $infos = json_decode(file_get_contents($url), true);
-        var_dump($infos);die;
         return isset($infos['openid']) ? $infos['openid'] : '';
     }
 
@@ -119,6 +118,7 @@ class Api extends Base
             } else {
                 // 根据code去查是否存在该用户
                 $id = $this->getUserId($_data['code'], $openId);
+//                $id = $this->getUserId($_data['code'], $openId);
                 // 去除数据中的code
                 unset($_data['code']);
 
