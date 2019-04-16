@@ -72,7 +72,7 @@ class Api extends Base
         $WX_SECRET = 'ba00da09293d6ccdd3aa2a177ad2bcdf';//AppSecret
         $url = "https://api.weixin.qq.com/sns/jscode2session?appid=" . $WX_APPID . "&secret=" . $WX_SECRET . "&js_code=" . $code . "&grant_type=authorization_code";
         $infos = json_decode(file_get_contents($url), true);
-        return $infos['openid'];
+        return isset($infos['openid']) ? $infos['openid'] : '';
     }
 
     /**
@@ -113,22 +113,27 @@ class Api extends Base
         } elseif (!empty($_data['code'])) {
             // 判断数据中是否有code
             $openId = $this->getOpenId($_data['code']);
-            // 根据code去查是否存在该用户
-            $id = $this->getUserId($_data['code']);
-            // 去除数据中的code
-            unset($_data['code']);
-
-            if ($id) {
-                // 如果数据存在，则执行修改
-                $ret = Db::name('miniapp_user')->where('id', $id)->update($_data);
-                $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！', array('u_id' => $id));
+            if (empty($openId)) {
+                $this->setReturnInfo(400, '获取用户open_id失败！');
             } else {
-                // 如果数据不存在，则执行添加
-                $_data['openid'] = $openId;
-                $_data['create_time'] = time();
-                $ret = Db::name('miniapp_user')->insert($_data);
-                $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！', array('u_id' => $ret));
+                // 根据code去查是否存在该用户
+                $id = $this->getUserId($_data['code']);
+                // 去除数据中的code
+                unset($_data['code']);
+
+                if ($id) {
+                    // 如果数据存在，则执行修改
+                    $ret = Db::name('miniapp_user')->where('id', $id)->update($_data);
+                    $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！', array('u_id' => $id));
+                } else {
+                    // 如果数据不存在，则执行添加
+                    $_data['openid'] = $openId;
+                    $_data['create_time'] = time();
+                    $ret = Db::name('miniapp_user')->insert($_data);
+                    $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！', array('u_id' => $ret));
+                }
             }
+
         } else {
             $this->setReturnInfo(100, '数据异常，用户id和code都为空！');
         }
