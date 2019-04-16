@@ -41,9 +41,10 @@ class Api extends Base
         if (!empty(input('u_id'))) {
             $this->u_id = input('u_id');
 
-        } elseif (!empty(input('code'))) {
-            $this->u_id = $this->getUserId(input('code'));
         }
+        /*elseif (!empty(input('code'))) {
+            $this->u_id = $this->getUserId(input('code'));
+        }*/
     }
 
     /**
