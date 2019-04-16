@@ -131,7 +131,7 @@ class Api extends Base
                     // 如果数据不存在，则执行添加
                     $_data['openid'] = $openId;
                     $_data['create_time'] = time();
-                    $ret = Db::name('miniapp_user')->insert($_data);
+                    $ret = Db::name('miniapp_user')->insertGetId($_data);
                     $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！', array('u_id' => $ret));
                 }
             }
