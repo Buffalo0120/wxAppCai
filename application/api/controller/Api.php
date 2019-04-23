@@ -279,7 +279,7 @@ class Api extends Base
         // 判断是修改还是添加
         if (empty($_data['a_id'])) {
             $_data['add_time'] = time();
-            $ret = $_data['a_id'] = Db::name('address')->insert($_data);
+            $ret = $_data['a_id'] = Db::name('address')->insertGetId($_data);
             $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！', array('a_id' => $ret));
         } else {
             $ret = Db::name('address')->where('id', $_data['a_id'])->update($_data);
