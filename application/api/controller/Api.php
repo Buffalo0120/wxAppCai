@@ -327,15 +327,18 @@ class Api extends Base
                     ->select();
                 $data[$key]['optionData'] = $optionData;
                 // 投票截至后，根据选项，获取每个选项的参与人数
-                if (time() > strtotime($value['stop_time'])) {
-                    foreach ($optionData as $k => $v) {
+                foreach ($optionData as $k => $v) {
+                    if (time() > strtotime($value['stop_time'])) {
                         $guessCount = Db::name('guess_list')
                             ->where('o_id', '=', $v['id'])
                             ->where('q_id', '=', $value['id'])
                             ->count();
                         $data[$key]['optionData'][$k]['countNum'] = $guessCount;
+                    } else {
+                        $data[$key]['optionData'][$k]['countNum'] = 0;
                     }
                 }
+
                 // 根据用户id和猜测题id，查询猜测记录
                 $guessData = Db::name('guess_list')
                     ->where('u_id', '=', $u_id)
