@@ -325,7 +325,13 @@ class Api extends Base
                     ->where('q_id', $value['id'])
                     ->select();
                 $data[$key]['optionData'] = $optionData;
-                // TODO::数据处理
+                // 根据用户id和猜测题id，查询猜测列表
+                $guessData = Db::name('guess_list')
+                    ->where('u_id', '=', $u_id)
+                    ->where('q_id', '=', $value['id'])
+                    ->field('o_id, d_price')
+                    ->find();
+                $data[$key]['guessData'] = $guessData;
             }
         }
         echo json_encode($data);die;
