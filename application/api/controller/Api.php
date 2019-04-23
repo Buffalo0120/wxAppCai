@@ -262,6 +262,7 @@ class Api extends Base
      */
     public function saveAddressInfo()
     {
+        $_data = input('post.');
         // 获取用户id
         if (empty($_data['u_id'])) {
             $_data['u_id'] = $this->getUserId($_data['code']);
