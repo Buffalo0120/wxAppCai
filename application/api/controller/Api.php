@@ -319,13 +319,24 @@ class Api extends Base
             ->where('status', '<>', '1')->select();
         if (!empty($data)) {
             foreach ($data as $key => $value) {
+                // 获取猜测题的选项
                 $optionData = $option
                     ->field('id,name,q_id')
                     ->where('status', '<>', '1')
                     ->where('q_id', $value['id'])
                     ->select();
                 $data[$key]['optionData'] = $optionData;
-                // 根据用户id和猜测题id，查询猜测列表
+                // 投票截至后，根据选项，获取每个选项的参与人数
+                if (time() > strtotime($value['stop_time'])) {
+                    foreach ($optionData as $k => $v) {
+                        $guessCount = Db::name('guess_list')
+                            ->where('o_id', '=', $v['id'])
+                            ->where('q_id', '=', $value['id'])
+                            ->count();
+                        $data[$key]['optionData'][$k]['countNum'] = $guessCount;
+                    }
+                }
+                // 根据用户id和猜测题id，查询猜测记录
                 $guessData = Db::name('guess_list')
                     ->where('u_id', '=', $u_id)
                     ->where('q_id', '=', $value['id'])
