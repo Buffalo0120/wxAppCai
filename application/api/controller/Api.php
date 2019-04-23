@@ -276,13 +276,18 @@ class Api extends Base
             unset($_data['code']);
         }
 
+        $a_id = '';
+        if (isset($_data['a_id'])) {
+            $a_id = $_data['a_id'];
+            unset($_data['a_id']);
+        }
         // 判断是修改还是添加
-        if (empty($_data['a_id'])) {
+        if (empty($a_id)) {
             $_data['add_time'] = time();
-            $ret = $_data['a_id'] = Db::name('address')->insertGetId($_data);
+            $ret = $a_id = Db::name('address')->insertGetId($_data);
             $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！', array('a_id' => $ret));
         } else {
-            $ret = Db::name('address')->where('id', $_data['a_id'])->update($_data);
+            $ret = Db::name('address')->where('id', $a_id)->update($_data);
             $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
         }
 
@@ -290,7 +295,7 @@ class Api extends Base
         if ($ret && !empty($_data['status'])) {
             Db::name('address')
                 ->where('u_id', $_data['u_id'])
-                ->where('id', '<>',  $_data['a_id'])
+                ->where('id', '<>',  $a_id)
                 ->update(array('status' => 0));
         }
         // 返回数据
