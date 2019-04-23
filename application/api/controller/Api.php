@@ -185,7 +185,7 @@ class Api extends Base
         }
 
         // 根据用户id和题目id，验证该用户是否已提交过投票
-        $guestData = Db::name('guest_list')
+        $guestData = Db::name('guess_list')
             ->field('id')
             ->where(array('u_id' => $_data['u_id'], 'q_id' => $_data['q_id']))
             ->find();
@@ -197,7 +197,7 @@ class Api extends Base
 
         $_data['add_time'] = time();
         // 保存数据
-        $ret = Db::name('guest_list')->insert($_data);
+        $ret = Db::name('guess_list')->insert($_data);
         $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
 
         // 返回数据
