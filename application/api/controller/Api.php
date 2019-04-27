@@ -166,19 +166,9 @@ class Api extends Base
             // 返回数据
             echo json_encode($this->return);die;
         }
-        if (empty($_data['u_id']) && empty($_data['code'])) {
-            $this->setReturnInfo(100, '数据异常，用户id和code都为空！');
-            // 返回数据
-            echo json_encode($this->return);die;
-        }
         // 获取用户id
         if (empty($_data['u_id'])) {
-            $_data['u_id'] = $this->getUserId($_data['code']);
-            if (empty($_data['u_id'])) {
-                $this->setReturnInfo(100, '数据异常，code无效或用户不存在！');
-                // 返回数据
-                echo json_encode($this->return);die;
-            }
+            $this->setReturnInfo(100, '数据异常，未获取到用户id！');
         }
         if (isset($_data['code'])) {
             unset($_data['code']);
@@ -229,12 +219,7 @@ class Api extends Base
 
         // 获取用户id
         if (empty($_data['u_id'])) {
-            $_data['u_id'] = $this->getUserId($_data['code']);
-            if (empty($_data['u_id'])) {
-                $this->setReturnInfo(100, '数据异常，code无效或用户不存在！');
-                // 返回数据
-                echo json_encode($this->return);die;
-            }
+            $this->setReturnInfo(100, '数据异常，未获取到用户id！');
         }
         if (isset($_data['code'])) {
             unset($_data['code']);
@@ -265,12 +250,7 @@ class Api extends Base
         $_data = input('post.');
         // 获取用户id
         if (empty($_data['u_id'])) {
-            $_data['u_id'] = $this->getUserId($_data['code']);
-            if (empty($_data['u_id'])) {
-                $this->setReturnInfo(100, '数据异常，code无效或用户不存在！');
-                // 返回数据
-                echo json_encode($this->return);die;
-            }
+            $this->setReturnInfo(100, '数据异常，未获取到用户id！');
         }
         if (isset($_data['code'])) {
             unset($_data['code']);
@@ -302,6 +282,60 @@ class Api extends Base
         echo json_encode($this->return);die;
     }
 
+    /**
+     * 保存评论信息
+     */
+    public function saveComment()
+    {
+        $_data = input('post.');
+        // 数据验证
+        if (empty($_data['u_id'])) {
+            $this->setReturnInfo(100, '数据异常，未获取到用户id！');
+        }
+        if (empty($_data['q_id'])) {
+            $this->setReturnInfo(100, '数据异常，未获取到猜测题id！');
+        }
+        if (empty($_data['content'])) {
+            $this->setReturnInfo(100, '数据异常，未获取到评论内容！');
+        }
+        // 组装需要获取的数据
+        $data['u_id'] = $_data['u_id'];
+        $data['q_id'] = $_data['q_id'];
+        $data['content'] = $_data['content'];
+        // 保存数据
+        $ret = Db::name('comment')->insertGetId($data);
+        $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
+    }
+
+    /**
+     * 点赞
+     */
+    public function saveLike()
+    {
+        $_data = input('post.');
+        // 数据验证
+        if (empty($_data['u_id'])) {
+            $this->setReturnInfo(100, '数据异常，未获取到用户id！');
+        }
+        if (empty($_data['m_id'])) {
+            $this->setReturnInfo(100, '数据异常，未获取到评论id！');
+        }
+        // 验证是否已经点过赞了
+        $comment = Db::name('like')
+            ->where('u_id', $_data['u_id'])
+            ->where('m_id', $_data['m_id'])
+            ->find();
+        if ($comment) {
+            $this->setReturnInfo(100, '已经点过赞了！');
+        }
+        // 组装需要获取的数据
+        $data['u_id'] = $_data['u_id'];
+        $data['m_id'] = $_data['m_id'];
+        // 保存数据
+        $ret = Db::name('like')->insertGetId($data);
+        $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
+    }
+
     /*----------------请求数据------------------*/
 
     /**
@@ -315,11 +349,11 @@ class Api extends Base
         $u_id = $this->u_id;
         $model = new GuessQuestionModel();
         $option = new GuessOptionModel();
-        // TODO::查询时，需查询出该用户有没有进行猜测，猜测答案是多少
+        // 查询时，需查询出该用户有没有进行猜测，猜测答案是多少
         $data = $model->field('id,title,pic,coin_pool,type,vote_type,description,
-        from_unixtime(start_time,"%Y-%m-%d %H:%i:%s") start_time,
-        from_unixtime(stop_time,"%Y-%m-%d %H:%i:%s") stop_time,
-        from_unixtime(open_time,"%Y-%m-%d %H:%i:%s") open_time,
+        from_unixtime(start_time,"%Y/%m/%d %H:%i:%s") start_time,
+        from_unixtime(stop_time,"%Y/%m/%d %H:%i:%s") stop_time,
+        from_unixtime(open_time,"%Y/%m/%d %H:%i:%s") open_time,
         right_option')
             ->where('status', '<>', '1')->select();
         if (!empty($data)) {
@@ -364,14 +398,15 @@ class Api extends Base
      */
     public function getGuessQuestionDetail()
     {
+        $u_id = $this->u_id;
         $model = new GuessQuestionModel();
         $option = new GuessOptionModel();
         $question_id = input('id');
         // 猜测题数据
         $data = $model->field('id,title,pic,coin_pool,type,vote_type,description,
-        from_unixtime(start_time,"%Y-%m-%d %H:%i:%s") start_time,
-        from_unixtime(stop_time,"%Y-%m-%d %H:%i:%s") stop_time,
-        from_unixtime(open_time,"%Y-%m-%d %H:%i:%s") open_time,
+        from_unixtime(start_time,"%Y/%m/%d %H:%i:%s") start_time,
+        from_unixtime(stop_time,"%Y/%m/%d %H:%i:%s") stop_time,
+        from_unixtime(open_time,"%Y/%m/%d %H:%i:%s") open_time,
         right_option')
             ->where('id', $question_id)->find();
 
@@ -382,7 +417,21 @@ class Api extends Base
             ->where('q_id', $question_id)
             ->select();
 
+        // 根据猜测题id，获取评论信息以及点赞信息
+        $commentData = Db::name('comment')
+            ->where('q_id', $data['id'])
+            ->select();
+        foreach ($commentData as &$row) {
+            $likeData = Db::name('like')->field('u_id')->where('m_id', $row['id'])->select();
+            $row['likeCount'] = count($likeData);
+            $row['have_like']= false;
+            if (!empty($u_id) && in_array($u_id, $likeData)) {
+                $row['have_like'] = true;
+            }
+        }
+
         $data['optionData'] = $optionData;
+        $data['commentData'] = $commentData;
         echo json_encode($data);die;
     }
 
