@@ -27,6 +27,16 @@
         </div>
     </div>
     <div class="layui-form-item">
+        <label class="layui-form-label">类别</label>
+        <div class="layui-input-block">
+            <select name="cate_id">
+                {volist name="cateData" id="v"}
+                <option value="{$v.id}" {if isset($data) && $data['cate_id'] == $v['id']}selected{/if}>{$v.name}</option>
+                {/volist}
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
         <label class="layui-form-label">描述</label>
         <div class="layui-input-block">
             <textarea
@@ -34,6 +44,13 @@
                    placeholder="请输入商品描述"
                    autocomplete="off"
                       class="layui-input">{if isset($data)}{$data['description']}{/if}</textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">境外商品</label>
+        <div class="layui-input-block">
+            <input type="radio" name="is_overseas" value="0" title="否" {if empty($data) || empty($data['is_overseas'])}checked{/if}>
+            <input type="radio" name="is_overseas" value="1" title="是" {if isset($data) && $data['is_overseas']}checked{/if}>
         </div>
     </div>
     <div class="layui-form-item">

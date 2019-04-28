@@ -9,6 +9,17 @@
             </div>
         </div>
         <div class="layui-inline">
+            <label class="layui-form-label">类别：</label>
+            <div class="layui-input-block">
+                <select name="cate_id">
+                    <option value="">不限</option>
+                    {volist name="cateData" id="v"}
+                        <option value="{$v.id}" {if $v.id == $post.cate_id}selected{/if}>{$v.name}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+        <div class="layui-inline">
             <div class="layui-input-block">
                 <button type="submit" class="layui-btn layui-btn-sm layui-btn-normal">
                     <i class="layui-icon">&#xe615;</i>
@@ -20,6 +31,13 @@
                 <a href="{:url('product/add')}" class="layui-btn layui-btn-sm layui-btn-normal"  >添加</a>
             </div>
         </div>
+        <!--<div class="layui-inline">
+            <div class="layui-input-block">
+                <button type="button" class="layui-btn layui-btn-normal" id="test1">
+                    <i class="layui-icon">&#xe67c;</i>导入
+                </button>
+            </div>
+        </div>-->
     </div>
 </form>
 <div>
@@ -33,11 +51,13 @@
                 <col>
                 <col>
                 <col>
+                <col>
                 <col width="140px;">
             </colgroup>
             <thead>
             <tr>
                 <th>商品名称</th>
+                <th>类别</th>
                 <th>图片</th>
                 <th>原价</th>
                 <th>售价</th>
@@ -52,6 +72,7 @@
             {volist name="data" id="v"}
             <tr>
                 <td title="{$v['name']}">{$v.name|mb_substr=0,30,'utf-8'}</td>
+                <td>{$v.cate}</td>
                 <td>
                     <div  style="padding: 1px; border: #e6e6e6 solid 1px; width:35px; float: left; ">
                         <img class="form_logo" src="{$v.pic}" width="35" height="35">
@@ -107,5 +128,24 @@
 
     }
     //删除
+
+    // 导入
+    layui.use('upload', function(){
+        var upload = layui.upload;
+
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#test1' //绑定元素
+            ,accept : 'file'
+            ,url: '/miniapp/product/import' //上传接口
+            ,done: function(res){
+                //上传完毕回调
+                console.log(res)
+            }
+            ,error: function(){
+                //请求异常回调
+            }
+        });
+    });
 </script>
 {/block}
