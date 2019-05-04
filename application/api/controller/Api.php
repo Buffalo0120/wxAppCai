@@ -214,7 +214,7 @@ class Api extends Base
             ->where(array('u_id' => $_data['u_id'], 'q_id' => $_data['q_id']))
             ->find();
         if ($guestData) {
-            $this->setReturnInfo(1, '该用户已对该题目投过票了！');
+            $this->setReturnInfo(1, '您已对该题目投过票了！');
             // 返回数据
             echo json_encode($this->return);die;
         }
@@ -545,6 +545,18 @@ class Api extends Base
     }
 
     /**
+     * 获取产品分类
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function getProductCate()
+    {
+        $data = Db::name('cate')->field('id,name,p_id')->where('is_del', 0)->select();
+        echo json_encode($data);die;
+    }
+
+    /**
      * 商品列表
      * @throws \think\db\exception\DataNotFoundException
      * @throws \think\db\exception\ModelNotFoundException
@@ -552,10 +564,19 @@ class Api extends Base
      */
     public function getProductList()
     {
+        $_data = input('post.');
+
         $model = new ProductnModel();
+        $where[] = array('status', '<>', 1);
+        // 分类id
+        if (!empty($_data['cate_id'])) {
+            $where[] = array('cate_id', '=', $_data['cate_id']);
+        }
         $data = $model
-            ->field('name,id,h_price,n_price,description,d_price,pic,is_overseas')
-            ->where('status', '<>', 1)
+            ->alias('p')
+            ->field('p.name,p.id,p.h_price,p.n_price,p.description,p.d_price,p.pic,p.is_overseas,p.cate_id,c.name cate_name')
+            ->where($where)
+            ->leftJoin('cate c', 'c.id = p.cate_id')
             ->select();
         echo json_encode($data);die;
     }
@@ -570,8 +591,11 @@ class Api extends Base
     {
         $p_id = input('p_id');
         $data = Db::name('product')
-            ->field('id,name,pic,pics,h_price,n_price,freight,weight,r_price,description,d_price,content,is_overseas')
-            ->where('id', $p_id)->find();
+            ->alias('p')
+            ->field('p.id,p.name,p.pic,p.pics,p.h_price,p.n_price,p.freight,p.weight,p.r_price,p.description,p.d_price,p.content,p.is_overseas,p.cate_id,c.name cate_name')
+            ->where('p.id', $p_id)
+            ->leftJoin('cate c', 'c.id = p.cate_id')
+            ->find();
         // 多图处理
         $data['pics'] = explode(',', $data['pics']);
         echo json_encode($data);die;
