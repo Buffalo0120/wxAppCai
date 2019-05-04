@@ -528,10 +528,16 @@ class Api extends Base
 
         // 根据猜测题id，获取评论信息以及点赞信息
         $commentData = Db::name('comment')
-            ->where('q_id', $data['id'])
+            ->alias('c')
+            ->field('c.id,c.u_id,c.q_id,c.update_time,u.avatarurl,u.nickname')
+            ->where('c.q_id', $data['id'])
+            ->leftJoin('miniapp_user u', 'u.id = c.u_id')
             ->select();
         foreach ($commentData as &$row) {
-            $likeData = Db::name('like')->field('u_id')->where('m_id', $row['id'])->select();
+            $likeData = Db::name('like')
+                ->field('u_id')
+                ->where('m_id', $row['id'])
+                ->select();
             $row['likeCount'] = count($likeData);
             $row['have_like']= false;
             if (!empty($u_id) && in_array($u_id, $likeData)) {
