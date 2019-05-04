@@ -529,7 +529,7 @@ class Api extends Base
         // 根据猜测题id，获取评论信息以及点赞信息
         $commentData = Db::name('comment')
             ->alias('c')
-            ->field('c.id,c.u_id,c.q_id,c.update_time,u.avatarurl,u.nickname')
+            ->field('c.id,c.u_id,c.q_id,c.content,c.update_time,u.avatarurl,u.nickname')
             ->where('c.q_id', $data['id'])
             ->leftJoin('miniapp_user u', 'u.id = c.u_id')
             ->select();
