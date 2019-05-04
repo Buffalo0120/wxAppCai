@@ -479,6 +479,9 @@ class Api extends Base
                         $data[$key]['optionData'][$k]['countNum'] = 0;
                     }
                 }
+                // 统计参与猜测题的总响豆数+后台设置的基础响豆数
+                $userCoins = Db::name('guess_list')->where('q_id', $value['id'])->sum('d_price');
+                $data[$key]['coin_pool'] += $userCoins;
 
                 // 根据用户id和猜测题id，查询猜测记录
                 $guessData = Db::name('guess_list')
