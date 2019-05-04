@@ -30,6 +30,21 @@ class Api extends Base
         'retData' => array()
     );
 
+    // 响豆日志中的响豆类型
+    public $beanLogsType = array(
+        1 => '支出',
+        2 => '收入',
+    );
+
+    // 响豆日志中的类型
+    public $beanLogsStatus = array(
+        1 => '参与猜测',
+        2 => '预测成功奖励',
+        3 => '商品兑换',
+        4 => '活动奖励',
+        5 => '其他',
+    );
+
     /**
      * 初始化函数
      * @throws \think\db\exception\DataNotFoundException
@@ -92,6 +107,25 @@ class Api extends Base
         }
         $userData = Db::name('miniapp_user')->field('id')->where('openid', $openId)->find();
         return $userData ? $userData['id'] : 0;
+    }
+
+    /**
+     * 设置响豆记录数据
+     * @param $u_id
+     * @param $num
+     * @param int $type
+     * @param int $status
+     * @return array
+     */
+    private function setBeanData($u_id, $num, $type = 1, $status = 1)
+    {
+        return array(
+            'u_id' => $u_id,
+            'type' => $type,
+            'status' => $status,
+            'd_price' => $num,
+            'add_time' => time()
+        );
     }
 
     /*----------------保存数据------------------*/
@@ -186,9 +220,14 @@ class Api extends Base
         }
 
         $_data['add_time'] = time();
+
         // 保存数据
         $ret = Db::name('guess_list')->insert($_data);
         $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
+
+        // 记录响豆记录
+        $beanData = $this->setBeanData($_data['u_id'], $_data['d_price']);
+        Db::name('bean_logs')->insert($beanData);
 
         // 返回数据
         echo json_encode($this->return);die;
@@ -283,6 +322,24 @@ class Api extends Base
     }
 
     /**
+     * 删除收货地址
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
+    public function delAddressInfo()
+    {
+        $_data = input('post.');
+        if (empty($_data['a_id'])) {
+            $this->setReturnInfo(100, '数据异常，未获取到地址id！');
+        } else {
+            $ret = Db::name('address')->where('id', $_data['a_id'])->delete();
+            $this->setReturnInfo($ret ? 0 : 1,$ret ? '删除成功！' : '删除失败！');
+        }
+        // 返回数据
+        echo json_encode($this->return);die;
+    }
+
+    /**
      * 保存评论信息
      */
     public function saveComment()
@@ -334,6 +391,51 @@ class Api extends Base
         // 保存数据
         $ret = Db::name('like')->insertGetId($data);
         $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
+    }
+
+    /**
+     * 签到
+     */
+    public function checkIn()
+    {
+        $_data = input('post.');
+        // 数据验证
+        if (empty($_data['u_id'])) {
+            $this->setReturnInfo(100, '数据异常，未获取到用户id！');
+        }
+        // 验证是否已经签到
+        $checkInData = Db::name('check_in_logs')
+            ->where('u_id', $_data['u_id'])
+            ->whereLike('update_time', '%' .date('Y-m-d') . '%')
+            ->find();
+        if (!empty($checkInData)) {
+            $this->setReturnInfo(100, '已签到！');
+        } else {
+            $systemInfo = Db::name('setting')
+                ->field('value')
+                ->where('name', '=', 'systemconf')
+                ->find();
+            $check_in = json_decode($systemInfo['value'], true)['check_in'];
+
+            // 更新用户响豆总数
+            $sql = "update be_miniapp_user set score = score + " . $check_in . " where id = ?";
+            Db::name('miniapp_user')->query($sql, array($_data['u_id']));
+
+            // 记录用户响豆记录
+            $beanData = $this->setBeanData($_data['u_id'], $check_in, 2, 5);
+            Db::name('bean_logs')->insert($beanData);
+
+            // 记录签到日志
+            $check_in_data = array(
+                'u_id' => $_data['u_id'],
+                'd_price' => $check_in
+            );
+            Db::name('check_in_logs')->insert($check_in_data);
+
+            $this->setReturnInfo(0, '签到成功！');
+        }
+
+        echo json_encode($this->return);die;
     }
 
     /*----------------请求数据------------------*/
@@ -409,6 +511,10 @@ class Api extends Base
         from_unixtime(open_time,"%Y/%m/%d %H:%i:%s") open_time,
         right_option')
             ->where('id', $question_id)->find();
+        // 统计参与猜测题的总响豆数+后台设置的基础响豆数
+        $userCoins = Db::name('guess_list')->where('q_id', $question_id)->sum('d_price');
+
+        $data['coin_pool'] = empty($data['coin_pool']) ? $userCoins : $data['coin_pool'] + $userCoins;
 
         // 选项数据
         $optionData = $option
@@ -445,7 +551,7 @@ class Api extends Base
     {
         $model = new ProductnModel();
         $data = $model
-            ->field('name,id,h_price,n_price,description,d_price,pic')
+            ->field('name,id,h_price,n_price,description,d_price,pic,is_overseas')
             ->where('status', '<>', 1)
             ->select();
         echo json_encode($data);die;
@@ -461,7 +567,7 @@ class Api extends Base
     {
         $p_id = input('p_id');
         $data = Db::name('product')
-            ->field('id,name,pic,pics,h_price,n_price,freight,description,d_price,content')
+            ->field('id,name,pic,pics,h_price,n_price,freight,weight,r_price,description,d_price,content,is_overseas')
             ->where('id', $p_id)->find();
         // 多图处理
         $data['pics'] = explode(',', $data['pics']);
@@ -478,7 +584,7 @@ class Api extends Base
     {
         $u_id = $this->u_id;
         $data = Db::name('miniapp_user')
-            ->field('u.id,u.nickname,u.avatarurl,u.mobile')
+            ->field('u.id,u.nickname,u.avatarurl,u.mobile,u.score,u.m_score')
             ->alias('u')
             ->leftJoin('be_miniapp_user mu', 'mu.id = u.u_id')
             ->where('u.id', $u_id)
@@ -591,6 +697,22 @@ class Api extends Base
             ->where('u_id', $u_id)
             ->select();
         echo json_encode($data);die;
+    }
+
+    /**
+     * 获取系统配置信息
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function getSystemInfo()
+    {
+        $data = Db::name('setting')
+            ->field('value')
+            ->where('name', '=', 'systemconf')
+            ->find();
+
+        echo $data['value'];die;
     }
 
     /**

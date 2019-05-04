@@ -19,6 +19,12 @@
                     <input type="text" name="rate" value="{$config.rate}" autocomplete="off" class="layui-input">
                 </div>
             </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">签到得响豆</label>
+                <div class="layui-input-block">
+                    <input type="text" name="check_in" value="<?php echo isset($config['check_in']) ? $config['check_in'] : ''?>" autocomplete="off" class="layui-input">
+                </div>
+            </div>
 
             <div class="layui-form-item">
                 <div class="layui-input-block">

@@ -95,7 +95,7 @@
                    type="number">
         </div>
     </div>
-    <div class="layui-form-item">
+<!--    <div class="layui-form-item">
         <label class="layui-form-label">折扣</label>
         <div class="layui-input-inline">
             <input name="discount"
@@ -106,7 +106,7 @@
                    value="{if isset($data)}{$data['discount']}{/if}"
                    type="number">
         </div>
-    </div>
+    </div>-->
     <div class="layui-form-item">
         <label class="layui-form-label">所需响豆数</label>
         <div class="layui-input-inline">
@@ -128,6 +128,30 @@
                    autocomplete="off"
                    class="layui-input"
                    value="{if isset($data)}{$data['freight']}{/if}"
+                   type="number">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">彩贝</label>
+        <div class="layui-input-inline">
+            <input name="r_price"
+                   min="0"
+                   placeholder="请输入彩贝"
+                   autocomplete="off"
+                   class="layui-input"
+                   value="{if isset($data)}{$data['r_price']}{/if}"
+                   type="number">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">重量(Kg)</label>
+        <div class="layui-input-inline">
+            <input name="weight"
+                   min="0"
+                   placeholder="请输入重量"
+                   autocomplete="off"
+                   class="layui-input"
+                   value="{if isset($data)}{$data['weight']}{/if}"
                    type="number">
         </div>
     </div>

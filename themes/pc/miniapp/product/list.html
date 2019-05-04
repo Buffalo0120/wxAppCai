@@ -26,6 +26,8 @@
                     搜索</button>
             </div>
         </div>
+    </div>
+    <div class="layui-form-item">
         <div class="layui-inline">
             <div class="layui-input-block">
                 <a href="{:url('product/add')}" class="layui-btn layui-btn-sm layui-btn-normal"  >添加</a>
@@ -51,7 +53,6 @@
                 <col>
                 <col>
                 <col>
-                <col>
                 <col width="140px;">
             </colgroup>
             <thead>
@@ -61,7 +62,7 @@
                 <th>图片</th>
                 <th>原价</th>
                 <th>售价</th>
-                <th>折扣</th>
+                <!--<th>折扣</th>-->
                 <!--<th>响豆价</th>-->
                 <th>所需响豆数</th>
                 <th>运费</th>
@@ -81,7 +82,7 @@
                 <!--<td title="{$v['description']}">{$v['description']|mb_substr=0,30,'utf-8'}</td>-->
                 <td>{$v.h_price}</td>
                 <td>{$v.n_price}</td>
-                <td>{$v.discount}</td>
+                <!--<td>{$v.discount}</td>-->
                 <!--<td>{$v.n_price}</td>-->
                 <td>{$v.d_price}</td>
                 <td>{$v.freight}</td>
