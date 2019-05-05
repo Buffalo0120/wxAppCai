@@ -525,6 +525,18 @@ class Api extends Base
             ->where('status', '<>', '1')
             ->where('q_id', $question_id)
             ->select();
+        // 投票截至后，根据选项，获取每个选项的参与人数
+        foreach ($optionData as $k => $v) {
+            if (time() > strtotime($data['stop_time'])) {
+                $guessCount = Db::name('guess_list')
+                    ->where('o_id', '=', $v['id'])
+                    ->where('q_id', '=', $data['id'])
+                    ->count();
+                $optionData[$k]['countNum'] = $guessCount;
+            } else {
+                $optionData[$k]['countNum'] = 0;
+            }
+        }
 
         // 根据猜测题id，获取评论信息以及点赞信息
         $commentData = Db::name('comment')
