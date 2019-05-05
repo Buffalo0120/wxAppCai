@@ -9,6 +9,17 @@
             </div>
         </div>
         <div class="layui-inline">
+            <label class="layui-form-label">类别：</label>
+            <div class="layui-input-block">
+                <select name="vote_type">
+                    <option value="">不限</option>
+                    <option value="1" {if $post.vote_type == 1}selected{/if}>少数派</option>
+                    <option value="2" {if $post.vote_type == 2}selected{/if}>多数派</option>
+                    <option value="3" {if $post.vote_type == 3}selected{/if}>预言帝</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-inline">
             <div class="layui-input-block">
                 <button type="submit" class="layui-btn layui-btn-sm layui-btn-normal">
                     <i class="layui-icon">&#xe615;</i>

@@ -40,9 +40,13 @@ class GuessQuestion extends Base
             if (isset($_data['title'])) {
                 $where[] = ['title', 'like', "%{$_data['title']}%"];
             }
+            if (!empty($_data['vote_type'])) {
+                $where[] = ['vote_type', '=', $_data['vote_type']];
+            }
 
         }
         $post['title'] = $title;
+        $post['vote_type'] = isset($_data['vote_type']) ? $_data['vote_type'] : '';
         $model = new GuessQuestionModel();
         $data = $model->where('status', '<>', 1)
             ->where($where)

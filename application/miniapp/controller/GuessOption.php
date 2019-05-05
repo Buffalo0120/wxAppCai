@@ -77,6 +77,10 @@ class GuessOption extends Base
             $_data = input('post.');
             $id = $_data['id'];
             unset($_data['id']);
+            // 去除首位空格
+            if (isset($_data['name'])) {
+                $_data['name'] = trim($_data['name']);
+            }
             if ($id) {
                 if (Db::name('guess_option')->where(['id'=>$id])->update($_data)) {
                     ajaxMsg(1, '修改成功');
