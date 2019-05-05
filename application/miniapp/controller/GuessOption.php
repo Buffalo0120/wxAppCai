@@ -85,8 +85,8 @@ class GuessOption extends Base
                 }
             } else {
                 $_data['add_time'] = time();
-                if (Db::name('guess_option')->insert($_data)) {
-                    ajaxMsg(1, '增加成功');
+                if ($id = Db::name('guess_option')->insertGetId($_data)) {
+                    ajaxMsg(1, '增加成功', array('id' => $id));
                 } else {
                     ajaxMsg(0, '增加失败');
                 }

@@ -2,7 +2,7 @@
 {block name="body"}
 <form action="" class="layui-form" method="get">
     <label class="layui-form-label">
-        <a href="{:url('guess_option/add',['q_id' => $q_id])}" class="layui-btn layui-btn-sm layui-btn-normal"  >添加</a>
+        <a href="javascript:;" class="layui-btn layui-btn-sm layui-btn-normal" onclick="add('{$q_id}')">添加</a>
     </label>
 </form>
 <div>
@@ -17,18 +17,20 @@
             </thead>
             <tbody>
             {volist name="data" id="v"}
-                <tr>
-                    <td>{$v.name}</td>
+                <tr class="tr_{$v.id}">
+                    <td>
+                        <input class="layui-input name" type="text" value="{$v.name}">
+                    </td>
                     <td>
                         {if $v.right_option == $v.id}
                         是
                         {else}
                         <a class="layui-btn layui-btn-sm layui-btn-normal"
-                            href="{:url('guess_option/set',['id'=>$v.id,'q_id'=>$q_id])}">设为正确答案</a>
+                           href="{:url('guess_option/set',['id'=>$v.id,'q_id'=>$q_id])}">设为正确答案</a>
                         {/if}
                     </td>
                     <td>
-                        <a href="{:url('guess_option/edit',['id'=>$v.id,'q_id'=>$q_id])}"
+                        <a href="javascript:;" onclick="edit('tr_{$v.id}')"
                            class="layui-btn layui-btn-sm layui-btn-normal">修改</a>
                         <a href="javascript:;"
                            class="layui-btn layui-btn-sm layui-btn-danger" onclick="aa('{$v.id}')">删除</a>
@@ -53,6 +55,26 @@
     layui.use('form', function(){
         var $ = layui.jquery, form = layui.form;
     });
+    function add(q_id)
+    {
+        $.post("{:url('guess_option/save')}",{q_id:q_id, id: 0},function (res) {
+            location.reload();
+        })
+    }
+    function edit(row)
+    {
+        var name = $('.' + row + ' .name').val();
+        var id = row.substr(3);
+        console.log(name + '--' + id)
+        $.post("{:url('guess_option/save')}",{name:name, id: id},function (res) {
+            if(res.status=='0'){
+                layer.msg(res.msg);
+            }
+            if(res.status=='1'){
+                layer.msg(res.msg,{time:1000});
+            }
+        })
+    }
     function aa(id)
     {
         layer.confirm('确定删除吗？',{btn:['确定','取消']},function(res){

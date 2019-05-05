@@ -48,6 +48,9 @@ class GuessQuestion extends Base
             ->where($where)
             ->paginate(15);
         $page = $data->render();
+        foreach ($data as &$row) {
+            $row['vote_type_desc'] = $row['vote_type'] == 1 ? '少数派' : ($row['vote_type'] == 2 ? '多数派' : ($row['vote_type'] == 3 ? '预言帝' : ''));
+        }
         $this->assign('data', $data);
         $this->assign('post', $post);
         $this->assign('page', $page);

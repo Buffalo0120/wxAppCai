@@ -26,9 +26,10 @@
     <form class="layui-form" action="" style="padding: 0px 10px 0px 10px;">
         <table class="layui-table" lay-skin="line">
             <colgroup>
-                <col width="240px;">
-                <col>
                 <col width="80px;">
+                <col width="280px;">
+                <col>
+                <!--<col width="80px;">-->
                 <col>
                 <col>
                 <col>
@@ -37,9 +38,10 @@
             </colgroup>
             <thead>
             <tr>
+                <th>类型</th>
                 <th>标题</th>
                 <th>图片</th>
-                <th>金币池</th>
+                <!--<th>金币池</th>-->
                 <th>开始时间</th>
                 <th>结束时间</th>
                 <th>开奖时间</th>
@@ -50,13 +52,14 @@
             <tbody>
             {volist name="data" id="v"}
             <tr>
+                <td>{$v.vote_type_desc}</td>
                 <td title="{$v['title']}">{$v.title|mb_substr=0,30,'utf-8'}</td>
                 <td>
                     <div  style="padding: 1px; border: #e6e6e6 solid 1px; width:35px; float: left; ">
                         <img class="form_logo" src="{$v.pic}" width="35" height="35">
                     </div>
                 </td>
-                <td>{$v.coin_pool}</td>
+                <!--<td>{$v.coin_pool}</td>-->
                 <td>{$v.start_time|date="Y-m-d H:i:s"}</td>
                 <td>{$v.stop_time|date="Y-m-d H:i:s"}</td>
                 <td>{$v.open_time|date="Y-m-d H:i:s"}</td>
