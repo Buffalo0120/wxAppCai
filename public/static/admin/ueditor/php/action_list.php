@@ -43,6 +43,7 @@ if (!count($files)) {
 
 /* 获取指定范围的列表 */
 $len = count($files);
+rsort($list);
 for ($i = min($end, $len) - 1, $list = array(); $i < $len && $i >= 0 && $i >= $start; $i--){
     $list[] = $files[$i];
 }
@@ -50,7 +51,6 @@ for ($i = min($end, $len) - 1, $list = array(); $i < $len && $i >= 0 && $i >= $s
 //for ($i = $end, $list = array(); $i < $len && $i < $end; $i++){
 //    $list[] = $files[$i];
 //}
-rsort($list);
 /* 返回数据 */
 $result = json_encode(array(
     "state" => "SUCCESS",
