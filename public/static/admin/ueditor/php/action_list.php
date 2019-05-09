@@ -40,10 +40,11 @@ if (!count($files)) {
         "total" => count($files)
     ));
 }
-
+// 排序
+array_multisort(array_column($files,'mtime'),SORT_DESC,$files);
 /* 获取指定范围的列表 */
 $len = count($files);
-rsort($list);
+
 for ($i = min($end, $len) - 1, $list = array(); $i < $len && $i >= 0 && $i >= $start; $i--){
     $list[] = $files[$i];
 }
