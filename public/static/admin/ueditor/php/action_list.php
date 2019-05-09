@@ -47,10 +47,10 @@ for ($i = min($end, $len) - 1, $list = array(); $i < $len && $i >= 0 && $i >= $s
     $list[] = $files[$i];
 }
 //倒序
-for ($i = $end, $list = array(); $i < $len && $i < $end; $i++) {
-    $list[] = $files[$i];
-}
-
+//for ($i = $end, $list = array(); $i < $len && $i < $end; $i++){
+//    $list[] = $files[$i];
+//}
+rsort($list);
 /* 返回数据 */
 $result = json_encode(array(
     "state" => "SUCCESS",
