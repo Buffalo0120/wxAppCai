@@ -528,8 +528,19 @@ class Api extends Base
         right_option')
             ->where('id', $question_id)->find();
         // 统计参与猜测题的总响豆数+后台设置的基础响豆数
-        $userCoins = Db::name('guess_list')->where('q_id', $question_id)->sum('d_price');
+        $guessList = Db::name('guess_list')->field('u_id,o_id')->where('q_id', $question_id)->select();
+        $userCoins = count($guessList);
+        // 当前用户是否有参与猜测
+        $currentUserGuess = '';
+        if ($userCoins > 0) {
+            foreach ($guessList as $row) {
+                if ($row['u_id'] == $u_id) {
+                    $currentUserGuess = $row['o_id'];
+                }
+            }
+        }
 
+        $data['my_option'] = $currentUserGuess;
         $data['coin_pool'] = empty($data['coin_pool']) ? $userCoins : $data['coin_pool'] + $userCoins;
 
         // 选项数据
