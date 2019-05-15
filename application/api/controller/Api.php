@@ -203,6 +203,8 @@ class Api extends Base
         // 获取用户id
         if (empty($_data['u_id'])) {
             $this->setReturnInfo(100, '数据异常，未获取到用户id！');
+            // 返回数据
+            echo json_encode($this->return);die;
         }
         if (isset($_data['code'])) {
             unset($_data['code']);
@@ -259,6 +261,8 @@ class Api extends Base
         // 获取用户id
         if (empty($_data['u_id'])) {
             $this->setReturnInfo(100, '数据异常，未获取到用户id！');
+            // 返回数据
+            echo json_encode($this->return);die;
         }
         if (isset($_data['code'])) {
             unset($_data['code']);
@@ -290,33 +294,35 @@ class Api extends Base
         // 获取用户id
         if (empty($_data['u_id'])) {
             $this->setReturnInfo(100, '数据异常，未获取到用户id！');
-        }
-        if (isset($_data['code'])) {
-            unset($_data['code']);
-        }
-
-        $a_id = '';
-        if (isset($_data['a_id'])) {
-            $a_id = $_data['a_id'];
-            unset($_data['a_id']);
-        }
-        // 判断是修改还是添加
-        if (empty($a_id)) {
-            $_data['add_time'] = time();
-            $ret = $a_id = Db::name('address')->insertGetId($_data);
-            $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！', array('a_id' => $ret));
         } else {
-            $ret = Db::name('address')->where('id', $a_id)->update($_data);
-            $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
+            if (isset($_data['code'])) {
+                unset($_data['code']);
+            }
+
+            $a_id = '';
+            if (isset($_data['a_id'])) {
+                $a_id = $_data['a_id'];
+                unset($_data['a_id']);
+            }
+            // 判断是修改还是添加
+            if (empty($a_id)) {
+                $_data['add_time'] = time();
+                $ret = $a_id = Db::name('address')->insertGetId($_data);
+                $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！', array('a_id' => $ret));
+            } else {
+                $ret = Db::name('address')->where('id', $a_id)->update($_data);
+                $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
+            }
+
+            // 验证status，如果不为空，则把其他收货地址置为非默认
+            if ($ret && !empty($_data['status'])) {
+                Db::name('address')
+                    ->where('u_id', $_data['u_id'])
+                    ->where('id', '<>',  $a_id)
+                    ->update(array('status' => 0));
+            }
         }
 
-        // 验证status，如果不为空，则把其他收货地址置为非默认
-        if ($ret && !empty($_data['status'])) {
-            Db::name('address')
-                ->where('u_id', $_data['u_id'])
-                ->where('id', '<>',  $a_id)
-                ->update(array('status' => 0));
-        }
         // 返回数据
         echo json_encode($this->return);die;
     }
@@ -348,20 +354,22 @@ class Api extends Base
         // 数据验证
         if (empty($_data['u_id'])) {
             $this->setReturnInfo(100, '数据异常，未获取到用户id！');
-        }
-        if (empty($_data['q_id'])) {
+        } elseif (empty($_data['q_id'])) {
             $this->setReturnInfo(100, '数据异常，未获取到猜测题id！');
-        }
-        if (empty($_data['content'])) {
+        } elseif (empty($_data['content'])) {
             $this->setReturnInfo(100, '数据异常，未获取到评论内容！');
+        } else {
+            // 组装需要获取的数据
+            $data['u_id'] = $_data['u_id'];
+            $data['q_id'] = $_data['q_id'];
+            $data['content'] = $_data['content'];
+            // 保存数据
+            $ret = Db::name('comment')->insertGetId($data);
+            $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
         }
-        // 组装需要获取的数据
-        $data['u_id'] = $_data['u_id'];
-        $data['q_id'] = $_data['q_id'];
-        $data['content'] = $_data['content'];
-        // 保存数据
-        $ret = Db::name('comment')->insertGetId($data);
-        $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
+
+        // 返回数据
+        echo json_encode($this->return);die;
     }
 
     /**
@@ -373,24 +381,27 @@ class Api extends Base
         // 数据验证
         if (empty($_data['u_id'])) {
             $this->setReturnInfo(100, '数据异常，未获取到用户id！');
-        }
-        if (empty($_data['m_id'])) {
+        } elseif (empty($_data['m_id'])) {
             $this->setReturnInfo(100, '数据异常，未获取到评论id！');
+        } else {
+            // 验证是否已经点过赞了
+            $comment = Db::name('like')
+                ->where('u_id', $_data['u_id'])
+                ->where('m_id', $_data['m_id'])
+                ->find();
+            if ($comment) {
+                $this->setReturnInfo(100, '已经点过赞了！');
+            }
+            // 组装需要获取的数据
+            $data['u_id'] = $_data['u_id'];
+            $data['m_id'] = $_data['m_id'];
+            // 保存数据
+            $ret = Db::name('like')->insertGetId($data);
+            $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
         }
-        // 验证是否已经点过赞了
-        $comment = Db::name('like')
-            ->where('u_id', $_data['u_id'])
-            ->where('m_id', $_data['m_id'])
-            ->find();
-        if ($comment) {
-            $this->setReturnInfo(100, '已经点过赞了！');
-        }
-        // 组装需要获取的数据
-        $data['u_id'] = $_data['u_id'];
-        $data['m_id'] = $_data['m_id'];
-        // 保存数据
-        $ret = Db::name('like')->insertGetId($data);
-        $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
+
+        // 返回数据
+        echo json_encode($this->return);die;
     }
 
     /**
@@ -402,38 +413,40 @@ class Api extends Base
         // 数据验证
         if (empty($_data['u_id'])) {
             $this->setReturnInfo(100, '数据异常，未获取到用户id！');
-        }
-        // 验证是否已经签到
-        $checkInData = Db::name('check_in_logs')
-            ->where('u_id', $_data['u_id'])
-            ->whereLike('update_time', '%' .date('Y-m-d') . '%')
-            ->find();
-        if (!empty($checkInData)) {
-            $this->setReturnInfo(100, '已签到！');
         } else {
-            $systemInfo = Db::name('setting')
-                ->field('value')
-                ->where('name', '=', 'systemconf')
+            // 验证是否已经签到
+            $checkInData = Db::name('check_in_logs')
+                ->where('u_id', $_data['u_id'])
+                ->whereLike('update_time', '%' .date('Y-m-d') . '%')
                 ->find();
-            $check_in = json_decode($systemInfo['value'], true)['check_in'];
+            if (!empty($checkInData)) {
+                $this->setReturnInfo(100, '已签到！');
+            } else {
+                $systemInfo = Db::name('setting')
+                    ->field('value')
+                    ->where('name', '=', 'systemconf')
+                    ->find();
+                $check_in = json_decode($systemInfo['value'], true)['check_in'];
 
-            // 更新用户响豆总数
-            $sql = "update be_miniapp_user set score = score + " . $check_in . " where id = ?";
-            Db::name('miniapp_user')->query($sql, array($_data['u_id']));
+                // 更新用户响豆总数
+                $sql = "update be_miniapp_user set score = score + " . $check_in . " where id = ?";
+                Db::name('miniapp_user')->query($sql, array($_data['u_id']));
 
-            // 记录用户响豆记录
-            $beanData = $this->setBeanData($_data['u_id'], $check_in, 2, 5);
-            Db::name('bean_logs')->insert($beanData);
+                // 记录用户响豆记录
+                $beanData = $this->setBeanData($_data['u_id'], $check_in, 2, 5);
+                Db::name('bean_logs')->insert($beanData);
 
-            // 记录签到日志
-            $check_in_data = array(
-                'u_id' => $_data['u_id'],
-                'd_price' => $check_in
-            );
-            Db::name('check_in_logs')->insert($check_in_data);
+                // 记录签到日志
+                $check_in_data = array(
+                    'u_id' => $_data['u_id'],
+                    'd_price' => $check_in
+                );
+                Db::name('check_in_logs')->insert($check_in_data);
 
-            $this->setReturnInfo(0, '签到成功！');
+                $this->setReturnInfo(0, '签到成功！');
+            }
         }
+
 
         echo json_encode($this->return);die;
     }
