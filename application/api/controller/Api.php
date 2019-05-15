@@ -521,7 +521,7 @@ class Api extends Base
         $option = new GuessOptionModel();
         $question_id = input('id');
         // 猜测题数据
-        $data = $model->field('id,title,pic,coin_pool,type,vote_type,description,ad_type,ad_title,ad_pic,ad_link,ad_content,
+        $data = $model->field('id,title,pic,coin_pool,type,vote_type,description,ad_type,ad_title,ad_pic,ad_link,ad_content,q_pic,
         from_unixtime(start_time,"%Y/%m/%d %H:%i:%s") start_time,
         from_unixtime(stop_time,"%Y/%m/%d %H:%i:%s") stop_time,
         from_unixtime(open_time,"%Y/%m/%d %H:%i:%s") open_time,

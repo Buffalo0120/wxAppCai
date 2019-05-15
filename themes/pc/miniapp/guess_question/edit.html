@@ -54,6 +54,12 @@
             {:hook('Upload',['type'=>'image','name'=>'pic','value'=>isset($data.pic) ? $data.pic : ''])}
         </div>
     </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">猜测题图片</label>
+        <div class="layui-input-block">
+            {:hook('Upload',['type'=>'image','name'=>'q_pic','value'=>isset($data.q_pic) ? $data.q_pic : ''])}
+        </div>
+    </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label">金币池</label>
