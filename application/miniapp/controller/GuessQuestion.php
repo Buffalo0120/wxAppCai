@@ -43,13 +43,33 @@ class GuessQuestion extends Base
             if (!empty($_data['vote_type'])) {
                 $where[] = ['vote_type', '=', $_data['vote_type']];
             }
+            if (!empty($_data['vote_status'])) {
+                switch ($_data['vote_status']) {
+                    case 1 :
+                        $where[] = ['start_time', '>', time()];
+                        break;
+                    case 2 :
+                        $where[] = ['start_time', '<=', time()];
+                        $where[] = ['stop_time', '>', time()];
+                        break;
+                    case 3 :
+                        $where[] = ['stop_time', '<=', time()];
+                        $where[] = ['open_time', '>', time()];
+                        break;
+                    case 4 :
+                        $where[] = ['open_time', '<', time()];
+                        break;
+                }
+            }
 
         }
         $post['title'] = $title;
         $post['vote_type'] = isset($_data['vote_type']) ? $_data['vote_type'] : '';
+        $post['vote_status'] = isset($_data['vote_status']) ? $_data['vote_status'] : '';
         $model = new GuessQuestionModel();
         $data = $model->where('status', '<>', 1)
             ->where($where)
+            ->order('order_id', 'desc')
             ->paginate(15);
         $page = $data->render();
         foreach ($data as &$row) {
@@ -88,6 +108,13 @@ class GuessQuestion extends Base
             if (!empty($_data['open_time'])) {
                 $_data['open_time'] = strtotime($_data['open_time']);
             }
+            // 时间验证
+            if ($_data['stop_time'] < $_data['start_time']) {
+                ajaxMsg(0, '结束时间需大于开始时间！');
+            }
+            if ($_data['open_time'] < $_data['stop_time']) {
+                ajaxMsg(0, '开奖时间需大于结束时间！');
+            }
             $id = $_data['id'];
             unset($_data['id']);
             if (isset($_data['image'])) {
@@ -103,7 +130,9 @@ class GuessQuestion extends Base
                 }
             } else {
                 $_data['add_time'] = time();
-                if (Db::name('guess_question')->insert($_data)) {
+                if ($id = Db::name('guess_question')->insertGetId($_data)) {
+                    // 将id更新到order_id上
+                    Db::name('guess_question')->where('id', $id)->update(['order_id' => $id]);
                     ajaxMsg(1, '增加成功');
                 } else {
                     ajaxMsg(0, '增加失败');
@@ -121,6 +150,26 @@ class GuessQuestion extends Base
                     ajaxMsg(1, '删除成功');
                 } else {
                     ajaxMsg(0, '删除失败');
+                }
+            }
+        }
+    }
+
+    /**
+     * 修改排序
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
+    public function saveOrderId()
+    {
+        if (Request::isPost()) {
+            $id = input('post.id');
+            $order_id = input('post.order_id');
+            if ($id) {
+                if (Db::name('guess_question')->where(['id'=>$id])->update(array('order_id'=>$order_id))) {
+                    ajaxMsg(1, '修改成功');
+                } else {
+                    ajaxMsg(0, '修改失败');
                 }
             }
         }

@@ -391,13 +391,14 @@ class Api extends Base
                 ->find();
             if ($comment) {
                 $this->setReturnInfo(100, '已经点过赞了！');
+            } else {
+                // 组装需要获取的数据
+                $data['u_id'] = $_data['u_id'];
+                $data['m_id'] = $_data['m_id'];
+                // 保存数据
+                $ret = Db::name('like')->insertGetId($data);
+                $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
             }
-            // 组装需要获取的数据
-            $data['u_id'] = $_data['u_id'];
-            $data['m_id'] = $_data['m_id'];
-            // 保存数据
-            $ret = Db::name('like')->insertGetId($data);
-            $this->setReturnInfo($ret ? 0 : 1,$ret ? '保存成功！' : '保存失败！');
         }
 
         // 返回数据
@@ -470,7 +471,9 @@ class Api extends Base
         from_unixtime(stop_time,"%Y/%m/%d %H:%i:%s") stop_time,
         from_unixtime(open_time,"%Y/%m/%d %H:%i:%s") open_time,
         right_option')
-            ->where('status', '<>', '1')->select();
+            ->where('status', '<>', '1')
+            ->order('order_id', 'desc')
+            ->select();
         if (!empty($data)) {
             foreach ($data as $key => $value) {
                 // 获取猜测题的选项
