@@ -15,6 +15,7 @@ define('DS',DIRECTORY_SEPARATOR);
 define('APP_PATH', __DIR__ . '/application/');
 define('ADDON_PATH', __DIR__ . '/addons/');
 define('MINIAPP_PATH', __DIR__ . '/miniapp/');
+define('CLI_PATH', __DIR__ . '/cli/');
 define('ADDON_ROUTE','/app/');
 define('EXTEND_PATH',ROOT_PATH . 'extend/');
 require __DIR__ . '/thinkphp/base.php';

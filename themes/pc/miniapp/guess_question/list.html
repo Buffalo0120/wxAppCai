@@ -82,7 +82,11 @@
             <tbody>
             {volist name="data" id="v"}
             <tr>
-                <td><input class="order-input" format-id="{$v.id}" format-order-id="{$v.order_id}" type="text" value="{$v.order_id}"></td>
+                <td><input class="order-input"
+                           format-id="{$v.id}"
+                           format-order-id="{$v.order_id}"
+                           type="text"
+                           value="{$v.order_id}"></td>
                 <td>{$v.vote_type_desc}</td>
                 <td title="{$v['title']}">{$v.title|mb_substr=0,30,'utf-8'}</td>
                 <td>

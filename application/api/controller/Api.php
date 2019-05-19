@@ -622,6 +622,7 @@ class Api extends Base
             ->field('p.name,p.id,p.h_price,p.n_price,p.description,p.d_price,p.pic,p.is_overseas,p.cate_id,c.name cate_name')
             ->where($where)
             ->leftJoin('cate c', 'c.id = p.cate_id')
+            ->order('order_id', 'desc')
             ->select();
         echo json_encode($data);die;
     }

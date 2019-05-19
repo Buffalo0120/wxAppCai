@@ -53,6 +53,7 @@ class Product extends Base
         $model = new ProductModel();
         $data = $model->where('status', '<>', 1)
             ->where($where)
+            ->order('order_id', 'desc')
             ->paginate(15);
         $page = $data->render();
         // 获取商品分类
@@ -130,7 +131,9 @@ class Product extends Base
                 }
             } else {
                 $_data['add_time'] = time();
-                if (Db::name('product')->insert($_data)) {
+                if ($id = Db::name('product')->insertGetId($_data)) {
+                    // 将id更新到order_id上
+                    Db::name('product')->where('id', $id)->update(['order_id' => $id]);
                     ajaxMsg(1, '增加成功');
                 } else {
                     ajaxMsg(0, '增加失败');
@@ -194,6 +197,26 @@ class Product extends Base
             }else{
                 // 上传失败获取错误信息
                 ajaxMsg('1', $file->getError());
+            }
+        }
+    }
+
+    /**
+     * 修改排序
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
+    public function saveOrderId()
+    {
+        if (Request::isPost()) {
+            $id = input('post.id');
+            $order_id = input('post.order_id');
+            if ($id) {
+                if (Db::name('product')->where(['id'=>$id])->update(array('order_id'=>$order_id))) {
+                    ajaxMsg(1, '修改成功');
+                } else {
+                    ajaxMsg(0, '修改失败');
+                }
             }
         }
     }

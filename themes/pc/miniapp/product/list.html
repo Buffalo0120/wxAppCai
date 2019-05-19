@@ -1,5 +1,8 @@
 {extend name="common/base" /}
 {block name="body"}
+<style>
+    .order-input{width:30px;text-align:center;}
+</style>
 <form action="" class="layui-form" method="get">
     <div class="layui-form-item">
         <div class="layui-inline">
@@ -46,7 +49,8 @@
     <form class="layui-form" action="" style="padding: 0px 10px 0px 10px;">
         <table class="layui-table" lay-skin="line">
             <colgroup>
-                <col width="240px;">
+                <col width="30px;">
+                <col width="200px;">
                 <col>
                 <col>
                 <col>
@@ -57,6 +61,7 @@
             </colgroup>
             <thead>
             <tr>
+                <th>序号</th>
                 <th>商品名称</th>
                 <th>类别</th>
                 <th>图片</th>
@@ -72,6 +77,11 @@
             <tbody>
             {volist name="data" id="v"}
             <tr>
+                <td><input class="order-input"
+                           format-id="{$v.id}"
+                           format-order-id="{$v.order_id}"
+                           type="text"
+                           value="{$v.order_id}"></td>
                 <td title="{$v['name']}">{$v.name|mb_substr=0,30,'utf-8'}</td>
                 <td>{$v.cate}</td>
                 <td>
@@ -111,6 +121,23 @@
     })
     layui.use('form', function(){
         var $ = layui.jquery, form = layui.form;
+    });
+    // 排序
+    $('.order-input').blur(function(){
+        var id = $(this).attr('format-id');
+        var order_id = $(this).val();
+        var old_order_id = $(this).attr('format-order-id');
+        if (old_order_id != order_id) {
+            $.post("{:url('product/saveOrderId')}",{id: id, order_id: order_id},function (res) {
+                if(res.status=='0'){
+                    layer.msg(res.msg);
+                }
+                if(res.status=='1'){
+                    layer.msg(res.msg);
+                }
+            })
+        }
+
     });
     function aa(id)
     {
