@@ -570,12 +570,14 @@ class Api extends Base
             ->alias('c')
             ->field('c.id,c.u_id,c.q_id,c.content,c.update_time,u.avatarurl,u.nickname')
             ->where('c.q_id', $data['id'])
+            ->where('c.type', '=', 'question')
             ->leftJoin('miniapp_user u', 'u.id = c.u_id')
             ->select();
         foreach ($commentData as &$row) {
             $likeData = Db::name('like')
                 ->field('u_id')
                 ->where('m_id', $row['id'])
+                ->where('type', '=', 'question')
                 ->select();
             $row['likeCount'] = count($likeData);
             $row['have_like']= false;
@@ -786,6 +788,35 @@ class Api extends Base
             ->find();
 
         echo $data['value'];die;
+    }
+
+    /**
+     * 获取新闻列表
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function getNewsList()
+    {
+        $data = Db::name('news')
+            ->field('id,title,pic,update_time')
+            ->where('is_del', '=', 0)
+            ->order('order_id', 'desc')
+            ->select();
+        echo json_encode($data);die;
+    }
+
+    /**
+     * 获取新闻详情
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function getNewsDetail()
+    {
+        $n_id = input('n_id');
+        $data = Db::name('news')->where('id', $n_id)->find();
+        echo json_encode($data);die;
     }
 
     /**
