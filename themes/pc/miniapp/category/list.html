@@ -15,12 +15,6 @@
             <colgroup>
                 <col width="240px;">
                 <col>
-                <col>
-                <col>
-                <col>
-                <col>
-                <col>
-                <col>
                 <col width="140px;">
             </colgroup>
             <thead>
@@ -34,7 +28,7 @@
             {volist name="data" id="v"}
             <tr>
                 <td>{$v.name}</td>
-                <td>{$v.p_id}</td>
+                <td>{$v.c_name ? $v.c_name : '顶级分类'}</td>
                 <td>
                     <a href="{:url('category/edit',['id'=>$v.id])}"
                        class="layui-btn layui-btn-sm layui-btn-normal">修改</a>

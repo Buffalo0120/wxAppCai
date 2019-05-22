@@ -16,7 +16,12 @@ class Category extends Base
 
     public function index()
     {
-        $data = Db::name('cate')->where('is_del', 0)->paginate();
+        $data = Db::name('cate')
+            ->alias('c')
+            ->field('c.name,c.id,cate.name c_name')
+            ->where('c.is_del', 0)
+            ->leftJoin('cate', 'c.p_id = cate.id')
+            ->paginate();
         $page = $data->render();
 
         $this->assign('data', $data);
