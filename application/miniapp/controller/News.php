@@ -64,8 +64,6 @@ class News extends Base
 
     public function add()
     {
-        $cateData = $this->getCateList();
-        $this->assign('cateData', $cateData);
         $this->assign('uploadImg', getHostDomain() . \url('uploadMediaNewsImage'));
         return view('edit');
     }
