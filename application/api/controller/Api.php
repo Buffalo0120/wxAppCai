@@ -270,11 +270,13 @@ class Api extends Base
         // 保存商品信息
         $_data['p_name'] = $proData['name'];
         $_data['p_price'] = $proData['n_price'];
-        $_data['d_price'] = $proData['d_price'];
+//        $_data['d_price'] = $proData['d_price']; // 从前端获取
         $_data['p_pic'] = $proData['d_pic'];
         $_data['p_freight'] = $proData['freight'];
         $_data['status'] = 0; // 购物车状态
         $_data['add_time'] = time();
+        // 订单号
+        $_data['order_num'] = $this->order_number();
 
         $ret = Db::name('order_list')->insert($_data);
 
@@ -462,6 +464,10 @@ class Api extends Base
      */
     public function getGuessQuestionList()
     {
+        $_data = input('post.');
+        // 当前页码
+        $pageSize = empty($_data['page_size']) ? 1 : $_data['page_size'];
+
         $u_id = $this->u_id;
         $model = new GuessQuestionModel();
         $option = new GuessOptionModel();
@@ -473,7 +479,7 @@ class Api extends Base
         right_option')
             ->where('status', '<>', '1')
             ->order('order_id', 'desc')
-            ->select();
+            ->paginate($pageSize);
         if (!empty($data)) {
             foreach ($data as $key => $value) {
                 // 获取猜测题的选项
@@ -612,6 +618,8 @@ class Api extends Base
     public function getProductList()
     {
         $_data = input('post.');
+        // 当前页码
+        $pageSize = empty($_data['page_size']) ? 1 : $_data['page_size'];
 
         $model = new ProductnModel();
         $where[] = array('status', '<>', 1);
@@ -625,7 +633,7 @@ class Api extends Base
             ->where($where)
             ->leftJoin('cate c', 'c.id = p.cate_id')
             ->order('order_id', 'desc')
-            ->select();
+            ->paginate($pageSize);
         echo json_encode($data);die;
     }
 
@@ -659,7 +667,7 @@ class Api extends Base
     {
         $u_id = $this->u_id;
         $data = Db::name('miniapp_user')
-            ->field('u.id,u.nickname,u.avatarurl,u.mobile,u.score,u.m_score')
+            ->field('u.id,u.nickname,u.openid,u.avatarurl,u.mobile,u.score,u.m_score')
             ->alias('u')
             ->leftJoin('be_miniapp_user mu', 'mu.id = u.u_id')
             ->where('u.id', $u_id)
@@ -735,11 +743,15 @@ class Api extends Base
      */
     public function getMemberOrderList()
     {
+        $_data = input('post.');
+        // 当前页码
+        $pageSize = empty($_data['page_size']) ? 1 : $_data['page_size'];
+
         $u_id = $this->u_id;
         $data = Db::name('order_list')
             ->field('id,u_id,p_name,p_id,p_price,d_price,r_price,p_pic,update_time')
             ->where('u_id', $u_id)
-            ->select();
+            ->paginate($pageSize);
         echo json_encode($data);die;
     }
 
@@ -820,26 +832,52 @@ class Api extends Base
     }
 
     /**
+     * 获取订单信息
+     * @param $orderId
+     * @return array|\PDOStatement|string|\think\Model|null
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function getOrderInfo($orderId)
+    {
+        $data = Db::name('order_list')->where('id', $orderId)->find();
+        return $data;
+    }
+
+    /**
      * 微信支付
      */
     public function pay()
     {
-        if (input('code')) {   //用code获取openid
-            $code = input('code');
-            $openid = $this->getOpenId($code);
+        $_data = input('post.');
+        // 获取用户的openid
+        $userInfo = $this->getMemberDetail();
+        if (empty($userInfo)) {
+            $this->setReturnInfo(100, '获取用户openid失败！');
+            // 返回数据
+            echo json_encode($this->return);die;
         }
-        $fee = input('fee');
+        if (empty($_data['o_id'])) {
+            $this->setReturnInfo(100, '获取订单id失败！');
+            // 返回数据
+            echo json_encode($this->return);die;
+        }
+        // 根据订单号，获取订单信息
+        $orderInfo = $this->getOrderInfo($_data['o_id']);
+
+        $fee = $orderInfo['r_price'];
         //$fee = 0.01;//举例支付0.01
         $appid = 'wx28676bd439d7943c';//appid.如果是公众号 就是公众号的appid
-        $body = '标题';
+        $body = '猜响商品购买--' . $orderInfo['p_name'];
         $mch_id = '1529263091'; //商户号
         $nonce_str = $this->nonce_str();//随机字符串
         $notify_url = 'https://shop.hzjudao.cn/api/api/payReturn'; //回调的url【自己填写】
-        $openid = $openid;
-        $out_trade_no = $this->order_number($openid);//商户订单号
+        $openid = $orderInfo['openid'];
+        $out_trade_no = $orderInfo['order_num'];//商户订单号
         //$out_trade_no = 'test001';//商户订单号
         $spbill_create_ip = '47.99.160.245';//服务器的ip【自己填写】;
-        $total_fee = $fee * 100;// 微信支付单位是分，所以这里需要*100
+        $total_fee = $fee;// 微信支付单位是分，所以这里需要*100
         $trade_type = 'JSAPI';//交易类型 默认
 
 
@@ -1033,6 +1071,7 @@ class Api extends Base
                 if ($payData['total_fee'] == $arr['total_fee']) {
                     //修改订单状态
                     $res = Db::name('pay_logs')->where('id',$payData['id'])->update(array('state' => 2));
+                    Db::name('order_list')->where('order_num', $arr['out_trade_no'])->update(['status' => 1]);
                     if ($res) {
                         $prepay_id = $payData['package'];  //prepay_id要在统一下单的时候做保存
                         $money = $arr['total_fee'] / 100;

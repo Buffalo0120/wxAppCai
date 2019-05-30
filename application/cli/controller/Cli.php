@@ -59,6 +59,7 @@ class Cli extends Base
                         // 统计正确答案的用户数据
                         $userData = $this->getRightOptionUser($guessList, $row['right_option']);
                         $userSum = count($userData);
+                        // 如果至少有一人答题正确，则进行结算
                         if ($userSum) {
                             // 计算每人可以得到的响豆数
                             $averageCoin = intval(($row['coin_pool'] + $row['sum_price']) / $userSum);
@@ -89,6 +90,23 @@ class Cli extends Base
                 default :
 
             }
+        }
+    }
+
+    /**
+     * 获取正确答案
+     * @param $data 猜测列表
+     * @param string $type 类型
+     * @return int
+     */
+    public function getRightOption($data, $type = '1')
+    {
+        if (empty($data)) {
+            return 0;
+        }
+        // 对所有的选项进行分组统计答题人数
+        foreach ($data as $row) {
+
         }
     }
 
