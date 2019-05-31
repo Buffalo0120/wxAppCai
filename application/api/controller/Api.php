@@ -622,7 +622,7 @@ class Api extends Base
         $pageSize = empty($_data['page_size']) ? 1 : $_data['page_size'];
 
         $model = new ProductnModel();
-        $where[] = array('status', '<>', 1);
+        $where[] = array('status', '=', 0);
         // 分类id
         if (!empty($_data['cate_id'])) {
             $where[] = array('cate_id', '=', $_data['cate_id']);
@@ -736,6 +736,24 @@ class Api extends Base
     }
 
     /**
+     * 用户彩贝记录
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function getMemberScoreLogs()
+    {
+        $u_id = $this->u_id;
+        $data = Db::name('score_logs')
+            ->where('u_id', $u_id)
+            ->select();
+        // 获取用户彩贝总数
+        $userScoreSum = Db::name('miniapp_user')->field('m_score')->where('id', $u_id)->find();
+
+        echo json_encode(array('score_logs' => $data, 'score_sum' => $userScoreSum['m_score']));die;
+    }
+
+    /**
      * 用户订单列表
      * @throws \think\db\exception\DataNotFoundException
      * @throws \think\db\exception\ModelNotFoundException
@@ -841,6 +859,7 @@ class Api extends Base
      */
     public function getOrderInfo($orderId)
     {
+        $orderId = isset($orderId) ? $orderId : input('get.o_id');
         $data = Db::name('order_list')->where('id', $orderId)->find();
         return $data;
     }

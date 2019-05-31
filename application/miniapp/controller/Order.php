@@ -33,20 +33,31 @@ class Order extends Base
     {
         $where = [];
         $p_name = '';
+        $track_num = '';
+        $status = '';
         if (Request::isGet()) {
             $_data = input('get.');
             $p_name = isset($_data['p_name']) ? $_data['p_name'] : '';
+            $status = isset($_data['status']) ? $_data['status'] : '';
+            $track_num = isset($_data['track_num']) ? $_data['track_num'] : '';
             $where = [];
+            if (isset($_data['track_num'])) {
+                $where[] = ['o.track_num', 'like', "%{$_data['track_num']}%"];
+            }
             if (isset($_data['p_name'])) {
                 $where[] = ['o.p_name', 'like', "%{$_data['p_name']}%"];
             }
+            if (isset($_data['status']) && $_data['status'] !== '') {
+                $where[] = ['status', '=', $_data['status']];
+            }
 
         }
+        $post['status'] = $status;
+        $post['track_num'] = $track_num;
         $post['p_name'] = $p_name;
         $model = new OrderModel();
         $data = $model
             ->alias('o')
-            ->field('o.p_name,o.p_price,o.p_pic,o.num,o.status,o.add_time,u.nickname,o.mem_account')
             ->leftJoin('be_miniapp_user u','u.id = o.u_id')
             ->where($where)
             ->paginate(15);
@@ -58,5 +69,30 @@ class Order extends Base
         return view('list');
     }
 
+    public function edit()
+    {
+        $id = input('id');
+        $data = Db::name('order_list')->where('id', $id)->find();
 
+        $this->assign('data', $data);
+        return view('edit');
+    }
+
+    public function save()
+    {
+        if (Request::isPost()) {
+            $_data = input('post.');
+            $id = $_data['id'];
+            unset($_data['id']);
+
+            if ($id) {
+                if (Db::name('order_list')->where(['id' => $id])->update($_data)) {
+                    ajaxMsg(1, '修改成功');
+                } else {
+                    ajaxMsg(0, '修改失败，没有做任何修改！');
+                }
+            }
+            ajaxMsg(0, '提交有误！');
+        }
+    }
 }

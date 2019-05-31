@@ -35,10 +35,12 @@ class Product extends Base
         $where = [];
         $name = '';
         $cate_id = '';
+        $status = '';
         if (Request::isGet()) {
             $_data = input('get.');
             $name = isset($_data['name']) ? $_data['name'] : '';
             $cate_id = isset($_data['cate_id']) ? $_data['cate_id'] : '';
+            $status = isset($_data['status']) ? $_data['status'] : '';
             $where = [];
             if (!empty($_data['name'])) {
                 $where[] = ['name', 'like', "%{$_data['name']}%"];
@@ -46,13 +48,19 @@ class Product extends Base
             if (!empty($_data['cate_id'])) {
                 $where[] = ['cate_id', '=', $_data['cate_id']];
             }
+            if (isset($_data['status']) && $_data['status'] !== '') {
+                $_data['status'] = $_data['status'] == 't' ? 1 : 0;
+                $where[] = ['status', '=', $_data['status']];
+            } else {
+                $where[] = ['status', '<>', 99];
+            }
 
         }
         $post['name'] = $name;
         $post['cate_id'] = $cate_id;
+        $post['status'] = $status;
         $model = new ProductModel();
-        $data = $model->where('status', '<>', 1)
-            ->where($where)
+        $data = $model->where($where)
             ->order('order_id', 'desc')
             ->paginate(15);
         $page = $data->render();
@@ -147,10 +155,25 @@ class Product extends Base
         if (Request::isPost()) {
             $id = input('post.id');
             if ($id) {
-                if (Db::name('product')->where(['id' => $id])->update(array('status' => 1))) {
+                if (Db::name('product')->where(['id' => $id])->update(array('status' => 99))) {
                     ajaxMsg(1, '删除成功');
                 } else {
                     ajaxMsg(0, '删除失败');
+                }
+            }
+        }
+    }
+
+    public function setStatus()
+    {
+        if (Request::isPost()) {
+            $id = input('post.id');
+            $status = input('post.status');
+            if ($id) {
+                if (Db::name('product')->where(['id' => $id])->update(array('status' => $status))) {
+                    ajaxMsg(1, ($status ? '下架' : '上架') . '成功');
+                } else {
+                    ajaxMsg(0, ($status ? '下架' : '上架') . '失败');
                 }
             }
         }

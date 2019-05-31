@@ -5,9 +5,29 @@
         <div class="layui-inline">
             <label class="layui-form-label">产品名称：</label>
             <div class="layui-input-block">
-                <input type="text" name="title" value="{$post.p_name}" placeholder="请输入产品名称" autocomplete="off" class="layui-input">
+                <input type="text" name="p_name" value="{$post.p_name}" placeholder="请输入产品名称" autocomplete="off" class="layui-input">
             </div>
         </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">订单号：</label>
+            <div class="layui-input-block">
+                <input type="text" name="track_num" value="{$post.track_num}" placeholder="请输入订单号" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">状态：</label>
+            <div class="layui-input-block">
+                <select name="status">
+                    <option value="">不限</option>
+                    <option value="1" {if $post.status == '1'}selected{/if}>待付款</option>
+                    <option value="2" {if $post.status == '2'}selected{/if}>待发货</option>
+                    <option value="3" {if $post.status == '3'}selected{/if}>待收货</option>
+                    <option value="4" {if $post.status == '4'}selected{/if}>已完成</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
         <div class="layui-inline">
             <div class="layui-input-block">
                 <button type="submit" class="layui-btn layui-btn-sm layui-btn-normal">
@@ -20,15 +40,27 @@
 <div>
     <form class="layui-form" action="" style="padding: 0px 10px 0px 10px;">
         <table class="layui-table" lay-skin="line">
+            <colgroup>
+                <col width="100px;">
+                <col width="200px;">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+            </colgroup>
             <thead>
             <tr>
                 <th>用户</th>
                 <th>产品名称</th>
                 <th>图片</th>
-                <th>价格</th>
+                <th>金额</th>
                 <th>需要充值的账号</th>
+                <th>订单号</th>
                 <th>状态</th>
                 <th>下单时间</th>
+                <th>操作</th>
             </tr>
             </thead>
             <tbody>
@@ -41,13 +73,18 @@
                         <img class="form_logo" src="{$v.p_pic}" width="35" height="35">
                     </div>
                 </td>
-                <td>{$v.p_price}</td>
+                <td>{$v.r_price}</td>
                 <td>{$v.mem_account}</td>
+                <td>{$v.track_num}</td>
                 <td>{$v.status == 0 ? '购物车' :
-                    ($v.status == 1 ? '待支付' :
-                    ($v.status == 2 ? '已取消' :
-                    ($v.status == 3 ? '发货中' : '已完成')))}</td>
+                    ($v.status == 1 ? '待付款' :
+                    ($v.status == 2 ? '待发货' :
+                    ($v.status == 3 ? '待发货' : '已完成')))}</td>
                 <td>{$v.add_time|date="Y-m-d H:i:s"}</td>
+                <td>
+                    <a href="{:url('order/edit',['id'=>$v.id])}"
+                       class="layui-btn layui-btn-sm layui-btn-normal">编辑</a>
+                </td>
             </tr>
             {/volist}
             </tbody>
