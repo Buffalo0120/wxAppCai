@@ -270,10 +270,11 @@ class Api extends Base
         // 保存商品信息
         $_data['p_name'] = $proData['name'];
         $_data['p_price'] = $proData['n_price'];
+        $_data['p_r_price'] = $proData['r_price'];
 //        $_data['d_price'] = $proData['d_price']; // 从前端获取
         $_data['p_pic'] = $proData['d_pic'];
         $_data['p_freight'] = $proData['freight'];
-        $_data['status'] = 0; // 购物车状态
+        $_data['status'] = 0; // 待支付状态
         $_data['add_time'] = time();
         // 订单号
         $_data['order_num'] = $this->order_number();
