@@ -76,10 +76,10 @@
                 <td>{$v.r_price}</td>
                 <td>{$v.mem_account}</td>
                 <td>{$v.track_num}</td>
-                <td>{$v.status == 0 ? '购物车' :
-                    ($v.status == 1 ? '待付款' :
+                <td>{$v.status == 0 ? '待付款' :
+                    ($v.status == 1 ? '待发货' :
                     ($v.status == 2 ? '待发货' :
-                    ($v.status == 3 ? '待发货' : '已完成')))}</td>
+                    ($v.status == 3 ? '已完成' : '')))}</td>
                 <td>{$v.add_time|date="Y-m-d H:i:s"}</td>
                 <td>
                     <a href="{:url('order/edit',['id'=>$v.id])}"

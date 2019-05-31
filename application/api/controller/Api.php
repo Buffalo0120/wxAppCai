@@ -288,6 +288,72 @@ class Api extends Base
     }
 
     /**
+     * 订单支付成功后，进行结算
+     */
+    public function orderSettlement()
+    {
+        $_data = input('post.');
+        if (empty($_data['o_id'])) {
+            $this->setReturnInfo(100, '数据异常，未获取到订单id！');
+            // 返回数据
+            echo json_encode($this->return);die;
+        }
+        $orderInfo = $this->getOrderInfo($_data['o_id']);
+        // 如果订单中的彩贝 s_price 存在，则扣除用户的彩贝并记录
+        if (!empty($orderInfo['s_price'])) {
+            $ret = Db::name('miniapp_user')->where('id', $orderInfo['u_id'])->dec('m_score', $orderInfo['s_price']);
+            if (!$ret) {
+                $this->setReturnInfo(100, '用户彩贝扣除失败！');
+                // 返回数据
+                echo json_encode($this->return);die;
+            }
+            // 日志记录
+            $logs = [
+                'u_id' => $orderInfo['u_id'],
+                'type' => 1, // 支出
+                'score' => $orderInfo['s_price'],
+                'status' => 2, // 商品购买抵扣
+            ];
+            Db::name('score_logs')->insert($logs);
+        }
+        // 如果订单中的响豆 d_price 存在，则扣除用户的响豆并记录
+        if (!empty($orderInfo['d_price'])) {
+            $ret = Db::name('miniapp_user')->where('id', $orderInfo['u_id'])->dec('score', $orderInfo['d_price']);
+            if (!$ret) {
+                $this->setReturnInfo(100, '用户响豆扣除失败！');
+                // 返回数据
+                echo json_encode($this->return);die;
+            }
+            // 日志记录
+            $logs = [
+                'u_id' => $orderInfo['u_id'],
+                'type' => 1, // 支出
+                'd_price' => $orderInfo['d_price'],
+                'status' => 3, // 商品购买抵扣
+            ];
+            Db::name('score_logs')->insert($logs);
+        }
+        // 如果订单中商品购买后的彩贝 p_r_price 返还数存在，则给用户添加彩贝并记录
+        if (!empty($orderInfo['p_r_price'])) {
+            Db::name('miniapp_user')->where('id', $orderInfo['u_id'])->inc('m_score', $orderInfo['p_r_price']);
+            // 日志记录
+            $logs = [
+                'u_id' => $orderInfo['u_id'],
+                'type' => 2, // 收入
+                'score' => $orderInfo['p_r_price'],
+                'status' => 1, // 商品购买所得
+            ];
+            Db::name('score_logs')->insert($logs);
+        }
+        // 修改订单状态为1（待发货）
+        Db::name('order_list')->where('id', $_data['o_id'])->update(['status' => 1]);
+
+        $this->setReturnInfo(0, '成功！');
+        // 返回数据
+        echo json_encode($this->return);die;
+    }
+
+    /**
      * 保存收货信息
      */
     public function saveAddressInfo()
@@ -1090,7 +1156,6 @@ class Api extends Base
                 if ($payData['total_fee'] == $arr['total_fee']) {
                     //修改订单状态
                     $res = Db::name('pay_logs')->where('id',$payData['id'])->update(array('state' => 2));
-                    Db::name('order_list')->where('order_num', $arr['out_trade_no'])->update(['status' => 1]);
                     if ($res) {
                         $prepay_id = $payData['package'];  //prepay_id要在统一下单的时候做保存
                         $money = $arr['total_fee'] / 100;

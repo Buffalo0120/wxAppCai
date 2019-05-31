@@ -60,6 +60,7 @@ class Order extends Base
             ->alias('o')
             ->leftJoin('be_miniapp_user u','u.id = o.u_id')
             ->where($where)
+            ->order('o.id', 'desc')
             ->paginate(15);
         $page = $data->render();
         $this->assign('data', $data);

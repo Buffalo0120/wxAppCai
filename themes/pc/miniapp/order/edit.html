@@ -27,18 +27,18 @@
     <div class="layui-form-item">
         <label class="layui-form-label">订单状态</label>
         <div class="layui-input-block">
-            <input type="radio" name="status" value="1" title="待付款"
+            <input type="radio" name="status" value="0" title="待付款"
+                   lay-filter="status"
+                   {if empty($data['status']) || $data['status'] == 0}checked{/if}>
+            <input type="radio" name="status" value="1" title="待发货"
                    lay-filter="status"
                    {if empty($data['status']) || $data['status'] == 1}checked{/if}>
-            <input type="radio" name="status" value="2" title="待发货"
+            <input type="radio" name="status" value="2" title="待收货"
                    lay-filter="status"
                    {if empty($data['status']) || $data['status'] == 2}checked{/if}>
-            <input type="radio" name="status" value="3" title="待收货"
+            <input type="radio" name="status" value="3" title="已完成"
                    lay-filter="status"
                    {if empty($data['status']) || $data['status'] == 3}checked{/if}>
-            <input type="radio" name="status" value="4" title="已完成"
-                   lay-filter="status"
-                   {if empty($data['status']) || $data['status'] == 4}checked{/if}>
         </div>
     </div>
 
