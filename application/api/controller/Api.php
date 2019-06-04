@@ -274,16 +274,22 @@ class Api extends Base
 //        $_data['d_price'] = $proData['d_price']; // 从前端获取
         $_data['p_pic'] = $proData['d_pic'];
         $_data['p_freight'] = $proData['freight'];
-        $_data['status'] = 0; // 待支付状态
-        $_data['add_time'] = time();
-        // 订单号
-        $_data['order_num'] = $this->order_number();
+        // 判断订单id是否存在
+        if (!empty($_data['o_id'])) {
+            $o_id = $_data['o_id'];
+            Db::name('order_list')->where('id', $o_id)->update($_data);
+        } else {
+            $_data['status'] = 0; // 待支付状态
+            $_data['add_time'] = time();
+            // 订单号
+            $_data['order_num'] = $this->order_number();
 
-        $ret = Db::name('order_list')->insert($_data);
+            $o_id = Db::name('order_list')->insert($_data);
+        }
 
-        $this->setReturnInfo($ret ? 0 : 1,
-            $ret ? '保存成功！' : '保存失败！',
-            $ret ? array('o_id' => $ret) : array());
+        $this->setReturnInfo($o_id ? 0 : 1,
+            $o_id ? '保存成功！' : '保存失败！',
+            $o_id ? array('o_id' => $o_id) : array());
         // 返回数据
         echo json_encode($this->return);die;
     }
