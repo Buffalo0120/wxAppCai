@@ -413,7 +413,7 @@ class Api extends Base
         if (empty($_data['a_id'])) {
             $this->setReturnInfo(100, '数据异常，未获取到地址id！');
         } else {
-            $ret = Db::name('address')->where('id', $_data['a_id'])->delete();
+            $ret = Db::name('address')->where('id', $_data['a_id'])->update(['is_del' => 1]);
             $this->setReturnInfo($ret ? 0 : 1,$ret ? '删除成功！' : '删除失败！');
         }
         // 返回数据
@@ -879,6 +879,7 @@ class Api extends Base
         $data = Db::name('address')
             ->field('id,u_id,name,mobile,address')
             ->where('u_id', $u_id)
+            ->where('is_del', '=', 0)
             ->select();
         echo json_encode($data);die;
     }
