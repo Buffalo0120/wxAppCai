@@ -272,7 +272,7 @@ class Api extends Base
         $_data['p_price'] = $proData['n_price'];
         $_data['p_r_price'] = $proData['r_price'];
 //        $_data['d_price'] = $proData['d_price']; // 从前端获取
-        $_data['p_pic'] = $proData['d_pic'];
+        $_data['p_pic'] = $proData['pic'];
         $_data['p_freight'] = $proData['freight'];
         // 判断订单id是否存在
         if (!empty($_data['o_id'])) {
