@@ -259,7 +259,7 @@ class Api extends Base
         $_data['num'] = empty($_data['num']) ? 1 : $_data['num'];
 
         // 获取用户id
-        if (!empty($_data['u_id'])) {
+        if (empty($_data['u_id'])) {
             $this->setReturnInfo(100, '数据异常，未获取到用户id！');
             // 返回数据
             echo json_encode($this->return);die;
