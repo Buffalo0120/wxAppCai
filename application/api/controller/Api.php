@@ -831,11 +831,17 @@ class Api extends Base
         $_data = input('post.');
         // 当前页码
         $pageSize = empty($_data['page_size']) ? 1 : $_data['page_size'];
-
+        // 根据状态来请求数据
+        if (isset($_data['status'])) {
+            $where[] = ['status', $_data['status']];
+        }
         $u_id = $this->u_id;
+        if ($u_id) {
+            $where[] = ['u_id', $u_id];
+        }
         $data = Db::name('order_list')
-            ->field('id,u_id,p_name,p_id,p_price,d_price,r_price,p_pic,update_time')
-            ->where('u_id', $u_id)
+            ->field('id,u_id,p_name,p_id,p_price,d_price,r_price,s_price,p_pic,update_time,status,num')
+            ->where($where)
             ->paginate($pageSize);
         echo json_encode($data);die;
     }
