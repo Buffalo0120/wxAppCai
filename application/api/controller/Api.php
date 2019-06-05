@@ -284,7 +284,7 @@ class Api extends Base
             // 订单号
             $_data['order_num'] = $this->order_number();
 
-            $o_id = Db::name('order_list')->insert($_data);
+            $o_id = Db::name('order_list')->insertGetId($_data);
         }
 
         $this->setReturnInfo($o_id ? 0 : 1,
