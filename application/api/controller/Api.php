@@ -961,8 +961,7 @@ class Api extends Base
         }
         $data = Db::name('check_in_logs')
             ->where('u_id', $_data['u_id'])
-            ->where('update_time', '>=', date('Y-m-d') . '00:00:00')
-            ->where('update_time', '<=', date('Y-m-d') . '23:59:59')
+            ->whereLike('update_time', '%' .date('Y-m-d') . '%')
             ->find();
         $this->setReturnInfo($data ? 1 : 0, $data ? '已签到' : '未签到');
         // 返回数据
