@@ -948,6 +948,27 @@ class Api extends Base
         return $data;
     }
 
+    /*
+     * 获取用户签到数据
+     */
+    public function checkCheckIn()
+    {
+        $_data = input('post.');
+        if (empty($_data['u_id'])) {
+            $this->setReturnInfo(100, '获取用户id失败！');
+            // 返回数据
+            echo json_encode($this->return);die;
+        }
+        $data = Db::name('check_in_logs')
+            ->where('u_id', $_data['u_id'])
+            ->where('update_time', '>=', date('Y-m-d') . '00:00:00')
+            ->where('update_time', '<=', date('Y-m-d') . '23:59:59')
+            ->find();
+        $this->setReturnInfo($data ? 1 : 0, $data ? '已签到' : '未签到');
+        // 返回数据
+        echo json_encode($this->return);die;
+    }
+
     /**
      * 微信支付
      */
