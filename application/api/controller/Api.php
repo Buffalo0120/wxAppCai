@@ -736,7 +736,7 @@ class Api extends Base
      * @throws \think\db\exception\ModelNotFoundException
      * @throws \think\exception\DbException
      */
-    public function getMemberDetail()
+    public function getMemberDetail($type = 'echo')
     {
         $u_id = $this->u_id;
         $data = Db::name('miniapp_user')
@@ -745,7 +745,10 @@ class Api extends Base
             ->leftJoin('be_miniapp_user mu', 'mu.id = u.u_id')
             ->where('u.id', $u_id)
             ->find();
-        echo json_encode($data);die;
+        if ($type == 'echo') {
+            echo json_encode($data);die;
+        }
+        return $data;
     }
 
     /**
@@ -837,13 +840,14 @@ class Api extends Base
         $_data = input('post.');
         // 当前页码
         $pageSize = empty($_data['page_size']) ? 1 : $_data['page_size'];
+        $where = [];
         // 根据状态来请求数据
         if (isset($_data['status'])) {
-            $where[] = ['status', $_data['status']];
+            $where[] = ['status', '=', $_data['status']];
         }
         $u_id = $this->u_id;
         if ($u_id) {
-            $where[] = ['u_id', $u_id];
+            $where[] = ['u_id', '=',  $u_id];
         }
         $data = Db::name('order_list')
             ->field('id,u_id,p_name,p_id,p_price,d_price,r_price,s_price,p_pic,update_time,status,num')
@@ -951,7 +955,7 @@ class Api extends Base
     {
         $_data = input('post.');
         // 获取用户的openid
-        $userInfo = $this->getMemberDetail();
+        $userInfo = $this->getMemberDetail('return');
         if (empty($userInfo)) {
             $this->setReturnInfo(100, '获取用户openid失败！');
             // 返回数据
@@ -964,6 +968,11 @@ class Api extends Base
         }
         // 根据订单号，获取订单信息
         $orderInfo = $this->getOrderInfo($_data['o_id']);
+        if (empty($orderInfo)) {
+            $this->setReturnInfo(100, '获取订单失败！');
+            // 返回数据
+            echo json_encode($this->return);die;
+        }
 
         $fee = $orderInfo['r_price'];
         //$fee = 0.01;//举例支付0.01
@@ -972,7 +981,7 @@ class Api extends Base
         $mch_id = '1529263091'; //商户号
         $nonce_str = $this->nonce_str();//随机字符串
         $notify_url = 'https://shop.hzjudao.cn/api/api/payReturn'; //回调的url【自己填写】
-        $openid = $orderInfo['openid'];
+        $openid = $userInfo['openid'];
         $out_trade_no = $orderInfo['order_num'];//商户订单号
         //$out_trade_no = 'test001';//商户订单号
         $spbill_create_ip = '47.99.160.245';//服务器的ip【自己填写】;
@@ -1005,7 +1014,7 @@ class Api extends Base
      <trade_type>' . $trade_type . '</trade_type>
      <sign>' . $sign . '</sign>
     </xml> ';
-
+//var_dump($post);die;
 
         //print_r($post_xml);die;
         //统一接口prepay_id
