@@ -56,12 +56,13 @@
             <colgroup>
                 <col width="30px;">
                 <col width="80px;">
-                <col width="230px;">
+                <col width="150px;">
                 <col>
                 <!--<col width="80px;">-->
                 <col>
                 <col>
                 <col>
+                <col width="60px;">
                 <col width="60px;">
                 <col width="140px;">
             </colgroup>
@@ -75,6 +76,7 @@
                 <th>开始时间</th>
                 <th>结束时间</th>
                 <th>开奖时间</th>
+                <th>评论</th>
                 <th>选项</th>
                 <th>操作</th>
             </tr>
@@ -98,6 +100,10 @@
                 <td>{$v.start_time|date="Y-m-d H:i:s"}</td>
                 <td>{$v.stop_time|date="Y-m-d H:i:s"}</td>
                 <td>{$v.open_time|date="Y-m-d H:i:s"}</td>
+                <td>
+                    <a href="{:url('comment/index',['type'=>'question','id'=>$v.id])}"
+                       class="layui-btn layui-btn-sm layui-btn-normal">查看</a>
+                </td>
                 <td>
                     <a href="{:url('guess_option/index',['q_id'=>$v.id])}"
                        class="layui-btn layui-btn-sm layui-btn-normal">查看</a>

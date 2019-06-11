@@ -12,40 +12,42 @@
 {/block}
 {block name="body"}
 <form class="layui-form" action="" style="padding-right: 10px;">
-    <input type="hidden" name="id" value="{if isset($data)}{$data['id']}{/if}">
+    <input type="hidden" name="m_id" value="{if isset($data)}{$data['id']}{/if}">
     <div class="layui-form-item">
-        <label class="layui-form-label">快递单号</label>
+        <label class="layui-form-label">评论</label>
         <div class="layui-input-block">
-            <input type="text"
-                   name="track_num"
-                   placeholder="请输入订单号"
-                   autocomplete="off"
-                   value="{if isset($data)}{$data['track_num']}{/if}"
-                   class="layui-input">
+            <span style="line-height:38px;">{$data.content}</span>
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">订单状态</label>
+        <label class="layui-form-label">用户</label>
         <div class="layui-input-block">
-            <input type="radio" name="status" value="0" title="待付款"
-                   lay-filter="status"
-                   {if empty($data['status'])}checked{/if}>
-            <input type="radio" name="status" value="1" title="待发货"
-                   lay-filter="status"
-                   {if !empty($data['status']) && $data['status'] == 1}checked{/if}>
-            <input type="radio" name="status" value="2" title="待收货"
-                   lay-filter="status"
-                   {if !empty($data['status']) && $data['status'] == 2}checked{/if}>
-            <input type="radio" name="status" value="3" title="已完成"
-                   lay-filter="status"
-                   {if !empty($data['status']) && $data['status'] == 3}checked{/if}>
+            <select name="u_id">
+                {volist name="userData" id="v"}
+                <option value="{$v.id}">{$v.nickname}</option>
+                {/volist}
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">点赞数</label>
+        <div class="layui-input-inline">
+            <input name="num"
+                   min="1"
+                   required
+                   lay-verify="required"
+                   placeholder="请输入点赞数"
+                   autocomplete="off"
+                   class="layui-input"
+                   value=""
+                   type="number">
         </div>
     </div>
 
     <div class="layui-form-item">
         <div class="layui-input-block">
             <button class="layui-btn" lay-submit lay-filter="ADM">立即提交</button>
-            <a href="{:url('order/index')}" class="layui-btn layui-btn-primary">返回</a>
+            <a href="{:url('comment/index', ['id'=>$data['q_id'],'type'=>$data['type']])}" class="layui-btn layui-btn-primary">返回</a>
         </div>
     </div>
 </form>
@@ -79,13 +81,13 @@
         var form = layui.form;
         var $ = layui.jquery;
         form.on('submit(ADM)', function(data){
-            $.post("{:url('order/save')}",data.field,function (res) {
+            $.post("{:url('comment/addLike')}",data.field,function (res) {
                 if(res.status=='0'){
                     layer.msg(res.msg);
                 }
                 if(res.status=='1'){
                     layer.msg(res.msg,{time:1000},function () {
-                        location.href="{:url('order/index')}";
+                        location.href="{:url('comment/index', ['id'=>$data['q_id'],'type'=>$data['type']])}";
                     });
                 }
             })

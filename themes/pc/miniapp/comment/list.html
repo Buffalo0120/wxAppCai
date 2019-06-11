@@ -1,0 +1,149 @@
+{extend name="common/base" /}
+{block name="body"}
+<style>
+    .order-input{width:30px;text-align:center;}
+</style>
+<form action="" class="layui-form" method="get">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">标题：</label>
+            <div class="layui-input-block">
+                <span style="line-height:38px;">{$newsData.title}</span>
+            </div>
+        </div>
+        <div class="layui-inline">
+            <div class="layui-input-block">
+                <a href="{:url('comment/add', $post)}" class="layui-btn layui-btn-sm layui-btn-normal"  >添加评论</a>
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+    <form class="layui-form" action="" style="padding: 0px 10px 0px 10px;">
+        <table class="layui-table" lay-skin="line">
+            <colgroup>
+                <col width="80px;">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>用户</th>
+                <th>头像</th>
+                <th>评论内容</th>
+                <th>时间</th>
+                <th>点赞数</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {volist name="data" id="v"}
+            <tr id="list_{$v.id}">
+                <td>{$i}</td>
+                <td title="{$v['nickname']}">{$v.nickname}</td>
+                <td>
+                    <div  style="padding: 1px; border: #e6e6e6 solid 1px; width:35px; float: left; ">
+                        <img class="form_logo" src="{$v.avatarurl}" width="35" height="35">
+                    </div>
+                </td>
+                <td>{$v.content}</td>
+                <td>{$v.update_time}</td>
+                <td>{$v.like_num}</td>
+                <td>
+                    <a href="{:url('comment/addLike',['id'=>$v.id])}"
+                       class="layui-btn layui-btn-sm layui-btn-normal">点赞</a>
+                    <a href="javascript:;"
+                       class="layui-btn layui-btn-sm layui-btn-danger" onclick="aa('{$v.id}')">删除</a>
+                </td>
+            </tr>
+            {/volist}
+            </tbody>
+        </table>
+    </form>
+    {$page|raw}
+</div>
+<script>
+    layui.use('laydate', function() {
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#rhaphp-time1'
+            ,type: 'datetime'
+            ,range: '到'
+            ,format: 'yyyy-M-d'
+        });
+    })
+    layui.use('form', function(){
+        var $ = layui.jquery, form = layui.form;
+    });
+    // 排序
+    $('.order-input').blur(function(){
+        var id = $(this).attr('format-id');
+        var order_id = $(this).val();
+        var old_order_id = $(this).attr('format-order-id');
+        if (old_order_id != order_id) {
+            $.post("{:url('product/saveOrderId')}",{id: id, order_id: order_id},function (res) {
+                if(res.status=='0'){
+                    layer.msg(res.msg);
+                }
+                if(res.status=='1'){
+                    layer.msg(res.msg);
+                }
+            })
+        }
+
+    });
+    //删除
+    function aa(id)
+    {
+        layer.confirm('确定删除吗？',{btn:['确定','取消']},function(res){
+            $.post("{:url('comment/del')}",{id:id},function (res) {
+                if(res.status=='0'){
+                    layer.msg(res.msg);
+                }
+                if(res.status=='1'){
+                    layer.msg(res.msg,{time:1000},function () {
+                        $('#list_' + id).hide();
+                        //location.href="{:url('product/index')}";
+                    });
+                }
+            })
+        })
+    }
+    function setStatus(id)
+    {
+        var status = $('#set_status_' + id).attr('data-id');
+        status = status == 1 ? 0 : 1;
+        var statusDesc = status ? '上架' : '下架';
+        $.post("{:url('product/setStatus')}",{id:id, status: status},function (res) {
+            if(res.status=='0'){
+                layer.msg(res.msg);
+            }
+            if(res.status=='1'){
+                layer.msg(res.msg,{time:1000},function () {
+                    $('#set_status_' + id).attr("data-id", status);
+                    $('#set_status_' + id).text(statusDesc);
+                });
+            }
+        })
+    }
+
+    // 导入
+    layui.use('upload', function(){
+        var upload = layui.upload;
+
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#test1' //绑定元素
+            ,accept : 'file'
+            ,url: '/miniapp/product/import' //上传接口
+            ,done: function(res){
+                //上传完毕回调
+                console.log(res)
+            }
+            ,error: function(){
+                //请求异常回调
+            }
+        });
+    });
+</script>
+{/block}

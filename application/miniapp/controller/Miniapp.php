@@ -83,6 +83,29 @@ class Miniapp extends Base
     }
 
     /**
+     * 新增虚拟用户
+     */
+    public function userAdd()
+    {
+        if (Request::isPost()) {
+            $_data = input('post.');
+            /**
+             * mpid,openid,nickname,avatarurl,gender(1/2),realname,mobile,create_time
+             */
+            if (isset($_data['image'])) {
+                unset($_data['image']);
+            }
+            $_data['create_time'] = time();
+            $_data['mpid'] = 1;
+            $ret = Db::name('miniapp_user')->insert($_data);
+            ajaxMsg($ret ? 1: 0, $ret ? '保存成功！' : '保存失败！');
+        } else {
+            $this->assign('menu_title', '新增虚拟用户');
+            return view('user_add');
+        }
+    }
+
+    /**
      * 功能配置
      * @param string $type
      * @return \think\response\View

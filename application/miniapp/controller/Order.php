@@ -58,6 +58,7 @@ class Order extends Base
         $model = new OrderModel();
         $data = $model
             ->alias('o')
+            ->field('o.p_name,o.id,o.p_pic,o.r_price,o.mem_account,o.track_num,o.order_num,o.status,o.update_time,u.nickname,o.add_time')
             ->leftJoin('be_miniapp_user u','u.id = o.u_id')
             ->where($where)
             ->order('o.id', 'desc')
@@ -74,7 +75,7 @@ class Order extends Base
     {
         $id = input('id');
         $data = Db::name('order_list')->where('id', $id)->find();
-
+var_dump($data['status']);
         $this->assign('data', $data);
         return view('edit');
     }

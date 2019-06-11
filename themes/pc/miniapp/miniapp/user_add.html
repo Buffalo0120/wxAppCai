@@ -1,0 +1,93 @@
+{extend name="common/base" /}
+{block name="jscss"}
+{CSS href="__STATIC__/admin/css/media_news.css" /}
+{js href='__STATIC__/admin/ueditor/ueditor.config.js' /}
+{js href='__STATIC__/admin/ueditor/ueditor.all.js' /}
+{js href='__STATIC__/js/ajax_file_upload.js' /}
+<style>
+    #edui1_iframeholder img{ width: 100%;}
+    #edui1_iframeholder{
+        height: 450px !important;}
+</style>
+{/block}
+{block name="body"}
+<form class="layui-form" action="" style="padding-right: 10px;">
+    <input type="hidden" name="id" value="{if isset($data)}{$data['id']}{/if}">
+    <div class="layui-form-item">
+        <label class="layui-form-label">姓名</label>
+        <div class="layui-input-block">
+            <input type="text"
+                   name="nickname"
+                   required
+                   lay-verify="required"
+                   placeholder="请输入姓名"
+                   autocomplete="off"
+                   value="{if isset($data)}{$data['nickname']}{/if}"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">性别</label>
+        <div class="layui-input-block">
+            <input type="radio" name="gender" value="1" title="男"
+                   lay-filter="gender"
+                   {if isset($data) && $data['gender'] == 1}checked{/if}>
+            <input type="radio" name="gender" value="2" title="女"
+                   lay-filter="gender"
+                   {if isset($data) && $data['gender'] == 2}checked{/if}>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">头像</label>
+        <div class="layui-input-block">
+            {:hook('Upload',['type'=>'image','name'=>'avatarurl','value'=>isset($data.avatarurl) ? $data.avatarurl : ''])}
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">手机</label>
+        <div class="layui-input-block">
+            <input type="text"
+                   name="mobile"
+                   placeholder="请输入手机"
+                   autocomplete="off"
+                   value="{if isset($data)}{$data['mobile']}{/if}"
+                   class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item" style="margin-top:100px;">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="ADM">立即提交</button>
+            <a href="{:url('/')}" class="layui-btn layui-btn-primary">返回</a>
+        </div>
+    </div>
+</form>
+
+<script>
+    function changeElement(name) {
+        if (name == 'content') {
+            var content = UE.getEditor('editor1').getContent();
+            $("#" + name).val(content);
+        }
+    }
+    layui.use('form', function(){
+        var form = layui.form;
+        var $ = layui.jquery;
+        form.on('submit(ADM)', function(data){
+            $.post("{:url('miniapp/userAdd')}",data.field,function (res) {
+                if(res.status=='0'){
+                    layer.msg(res.msg);
+                }
+                if(res.status=='1'){
+                    layer.msg(res.msg);
+                    // 返回列表
+                    layer.msg(res.msg,{time:1000},function () {
+                        location.href="{:url('/')}";
+                    });
+                }
+            })
+            return false;
+        });
+    });
+</script>
+{/block}

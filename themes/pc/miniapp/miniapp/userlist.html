@@ -22,11 +22,18 @@
                 <input name="sex" {eq name="$post.sex" value="0" } checked {/eq} value="0" title="不限" type="radio">
             </div>
         </div>
+    </div>
+    <div class="layui-form-item">
         <div class="layui-inline">
             <div class="layui-input-block">
                 <button type="submit" class="layui-btn layui-btn-sm layui-btn-normal">
                     <i class="layui-icon">&#xe615;</i>
                     搜索</button>
+            </div>
+        </div>
+        <div class="layui-inline">
+            <div class="layui-input-block">
+                <a href="{:url('miniapp/userAdd')}" class="layui-btn layui-btn-sm layui-btn-normal" >新增虚拟用户</a>
             </div>
         </div>
     </div>
