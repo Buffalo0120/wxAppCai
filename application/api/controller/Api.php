@@ -949,11 +949,15 @@ class Api extends Base
      * @throws \think\db\exception\ModelNotFoundException
      * @throws \think\exception\DbException
      */
-    public function getOrderInfo($orderId)
+    public function getOrderInfo($orderId = '')
     {
-        $orderId = isset($orderId) ? $orderId : input('get.o_id');
-        $data = Db::name('order_list')->where('id', $orderId)->find();
-        return $data;
+        $orderId = !empty($orderId) ? $orderId : input('get.o_id');
+        $data = Db::name('order_list')->where('id', '=', $orderId)->find();
+        if (empty(input('get.o_id'))) {
+            return $data;
+        } else {
+            echo json_encode($data);
+        }
     }
 
     /*
