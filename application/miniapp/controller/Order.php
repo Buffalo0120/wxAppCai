@@ -75,7 +75,7 @@ class Order extends Base
     {
         $id = input('id');
         $data = Db::name('order_list')->where('id', $id)->find();
-var_dump($data['status']);
+
         $this->assign('data', $data);
         return view('edit');
     }

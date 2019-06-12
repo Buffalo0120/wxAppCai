@@ -54,15 +54,6 @@
             <h1 class="main-logo"><a href="{:url('mp/mp/index')}">猜响</a></h1>
             <div class="sub-logo"></div>
         </div>
-        <div class="nav">
-            <ul>
-                {volist name="t_menu" id="t"}
-                {if $t.name eq '小程序'}
-                <li class="{eq name="topNode" value="$t['url']"}selected{/eq}"><a href="{:url($t['url'])}">{$t.name}</a></li>
-                {/if}
-                {/volist}
-            </ul>
-        </div>
     </div>
 </div>
 <div class="container_body wrap">
@@ -72,7 +63,7 @@
             <dl>
                 <dt><i class="type-ico ico-trade rha-icon {eq name="t['shows']" value="1"}{/eq}">{$t.icon|raw}</i>{$t.name}</dt>
                 {volist name="$t['child']" id="c"}
-                <dd class="{eq name="c['shows']" value="1"}selected{/eq}"><a href="{:url($c['url'])}">{$c.name}</a></dd>
+                <dd class="{eq name="c['shows']" value="1"}selected{/eq}">{if $c.name == '评论列表'}<a href="javascript:;">{$c.name}</a>{else}<a href="{:url($c['url'])}">{$c.name}</a>{/if}</dd>
                 {/volist}
             </dl>
             {/volist}
