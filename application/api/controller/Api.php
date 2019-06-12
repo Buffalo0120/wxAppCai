@@ -608,10 +608,13 @@ class Api extends Base
         from_unixtime(stop_time,"%Y/%m/%d %H:%i:%s") stop_time,
         from_unixtime(open_time,"%Y/%m/%d %H:%i:%s") open_time,
         right_option')
-            ->where('id', $question_id)->find();
+            ->where('id', $question_id)
+            ->find();
         if ($data) {
             // 统计参与猜测题的总响豆数+后台设置的基础响豆数
-            $guessList = Db::name('guess_list')->field('u_id,o_id')->where('q_id', $question_id)->select();
+            $guessList = Db::name('guess_list')->field('u_id,o_id')
+                ->where('q_id', $question_id)
+                ->select();
             $userCoins = count($guessList);
             // 当前用户是否有参与猜测
             $currentUserGuess = '';
@@ -658,7 +661,6 @@ class Api extends Base
                 $likeData = Db::name('like')
                     ->field('u_id')
                     ->where('m_id', $row['id'])
-                    ->where('type', '=', 'question')
                     ->select();
                 $row['likeCount'] = count($likeData);
                 $row['have_like']= false;
