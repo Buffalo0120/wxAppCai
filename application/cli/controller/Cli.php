@@ -25,6 +25,7 @@ class Cli extends Base
 
     public function queue()
     {
+        echo '结算开始！' . date('Y-m-d H:i:s');
         // 查询未结算且已到开奖时间的猜测题
         $guessQuestionList = Db::name('guess_question')
             ->alias('q')
@@ -49,9 +50,65 @@ class Cli extends Base
             switch ($row['vote_type']) {
                 case 1:
                     // 少数派
+                    $rightOption = $this->getRightOptionUser($guessList, 1);
+                    if ($rightOption) {
+                        // 统计正确答案的用户数据
+                        $userData = $this->getRightOptionUser($guessList, $rightOption);
+                        $userSum = count($userData);
+                        // 如果至少有一人答题正确，则进行结算
+                        if ($userSum) {
+                            // 计算每人可以得到的响豆数
+                            $averageCoin = intval(($row['coin_pool'] + $row['sum_price']) / $userSum);
+                            // 结算
+                            $this->settlement($userData, $averageCoin);
+                        }
+                        // 记录日志
+                        $param = [
+                            'remark' => '猜测题-' . $row['title'] . '-为少数派类型，现已结算完成！',
+                            'action_id' => $row['id'],
+                            'model' => 'guess_question'
+                        ];
+                        $this->sys_log($param);
+                    } else {
+                        // 记录日志
+                        $param = [
+                            'remark' => '猜测题-' . $row['title'] . '到了开奖时间仍无人作答',
+                            'action_id' => $row['id'],
+                            'model' => 'guess_question'
+                        ];
+                        $this->sys_log($param);
+                    }
                     break;
                 case 2:
                     // 多少派
+                    $rightOption = $this->getRightOptionUser($guessList, 2);
+                    if ($rightOption) {
+                        // 统计正确答案的用户数据
+                        $userData = $this->getRightOptionUser($guessList, $rightOption);
+                        $userSum = count($userData);
+                        // 如果至少有一人答题正确，则进行结算
+                        if ($userSum) {
+                            // 计算每人可以得到的响豆数
+                            $averageCoin = intval(($row['coin_pool'] + $row['sum_price']) / $userSum);
+                            // 结算
+                            $this->settlement($userData, $averageCoin);
+                        }
+                        // 记录日志
+                        $param = [
+                            'remark' => '猜测题-' . $row['title'] . '-为多数派类型，现已结算完成！',
+                            'action_id' => $row['id'],
+                            'model' => 'guess_question'
+                        ];
+                        $this->sys_log($param);
+                    } else {
+                        // 记录日志
+                        $param = [
+                            'remark' => '猜测题-' . $row['title'] . '到了开奖时间仍无人作答',
+                            'action_id' => $row['id'],
+                            'model' => 'guess_question'
+                        ];
+                        $this->sys_log($param);
+                    }
                     break;
                 case 3:
                     // 预言帝
@@ -65,10 +122,6 @@ class Cli extends Base
                             $averageCoin = intval(($row['coin_pool'] + $row['sum_price']) / $userSum);
                             // 结算
                             $this->settlement($userData, $averageCoin);
-                            // 将题目状态改为已结算
-                            Db::name('guess_question')
-                                ->where('id', $row['id'])
-                                ->setField('is_settlement', 1);
                         }
                         // 记录日志
                         $param = [
@@ -80,7 +133,7 @@ class Cli extends Base
                     } else {
                         // 记录日志
                         $param = [
-                            'remark' => '到了开奖时间未设置正确答案',
+                            'remark' => '猜测题-' . $row['title'] . '到了开奖时间未设置正确答案',
                             'action_id' => $row['id'],
                             'model' => 'guess_question'
                         ];
@@ -90,7 +143,12 @@ class Cli extends Base
                 default :
 
             }
+            // 不管结算成功与否，将题目状态改为已结算
+            Db::name('guess_question')
+                ->where('id', $row['id'])
+                ->setField('is_settlement', 1);
         }
+        echo '结算结束！' . date('Y-m-d H:i:s');
     }
 
     /**
@@ -99,15 +157,25 @@ class Cli extends Base
      * @param string $type 类型
      * @return int
      */
-    public function getRightOption($data, $type = '1')
+    public function getRightOption($data = [], $type = '1')
     {
         if (empty($data)) {
             return 0;
         }
         // 对所有的选项进行分组统计答题人数
+        // 根据data中的o_id进行分组并统计
+        $optionArr = [];
         foreach ($data as $row) {
-
+            if (!isset($optionArr[$row['o_id']])) {
+                $optionArr[$row['o_id']] = 1;
+            } else {
+                $optionArr[$row['o_id']] ++;
+            }
         }
+        // 1：少数派，按升序排列，取第一个键；2：多数派，按降序排列，取第一个键
+        $type == 1 ? krsort($optionArr) : ksort($optionArr);
+
+        return $optionArr ? array_keys($optionArr)[0] : 0;
     }
 
     /**
