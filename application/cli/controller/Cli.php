@@ -34,6 +34,7 @@ class Cli extends Base
             ->where('q.status', 0)
             ->where('q.is_settlement', 0)
             ->where('q.open_time', '<=', time())
+            ->group('q.id')
             ->select();
         // var_dump($guessQuestionList);exit;
         // 根据投票类型
