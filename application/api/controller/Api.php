@@ -306,9 +306,16 @@ class Api extends Base
             echo json_encode($this->return);die;
         }
         $orderInfo = $this->getOrderInfo($_data['o_id']);
+        if (!empty($orderInfo['status'])) {
+            $this->setReturnInfo(100, '订单已结算，无需重复提交！');
+            // 返回数据
+            echo json_encode($this->return);die;
+        }
         // 如果订单中的彩贝 s_price 存在，则扣除用户的彩贝并记录
         if (!empty($orderInfo['s_price'])) {
-            $ret = Db::name('miniapp_user')->where('id', $orderInfo['u_id'])->dec('m_score', $orderInfo['s_price']);
+            $ret = Db::name('miniapp_user')
+                ->where('id', $orderInfo['u_id'])
+                ->dec('m_score', $orderInfo['s_price']);
             if (!$ret) {
                 $this->setReturnInfo(100, '用户彩贝扣除失败！');
                 // 返回数据
@@ -325,7 +332,9 @@ class Api extends Base
         }
         // 如果订单中的响豆 d_price 存在，则扣除用户的响豆并记录
         if (!empty($orderInfo['d_price'])) {
-            $ret = Db::name('miniapp_user')->where('id', $orderInfo['u_id'])->dec('score', $orderInfo['d_price']);
+            $ret = Db::name('miniapp_user')
+                ->where('id', $orderInfo['u_id'])
+                ->dec('score', $orderInfo['d_price']);
             if (!$ret) {
                 $this->setReturnInfo(100, '用户响豆扣除失败！');
                 // 返回数据
@@ -335,14 +344,16 @@ class Api extends Base
             $logs = [
                 'u_id' => $orderInfo['u_id'],
                 'type' => 1, // 支出
-                'd_price' => $orderInfo['d_price'],
+                'score' => $orderInfo['d_price'],
                 'status' => 3, // 商品购买抵扣
             ];
             Db::name('score_logs')->insert($logs);
         }
         // 如果订单中商品购买后的彩贝 p_r_price 返还数存在，则给用户添加彩贝并记录
         if (!empty($orderInfo['p_r_price'])) {
-            Db::name('miniapp_user')->where('id', $orderInfo['u_id'])->inc('m_score', $orderInfo['p_r_price']);
+            Db::name('miniapp_user')
+                ->where('id', $orderInfo['u_id'])
+                ->inc('m_score', $orderInfo['p_r_price']);
             // 日志记录
             $logs = [
                 'u_id' => $orderInfo['u_id'],
