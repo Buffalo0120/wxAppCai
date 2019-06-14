@@ -45,6 +45,9 @@ class GuessQuestion extends Base
             }
             if (!empty($_data['vote_status'])) {
                 switch ($_data['vote_status']) {
+                    case 5:
+                        $where[] = ['is_settlement', '=', 1];
+                        break;
                     case 1 :
                         $where[] = ['start_time', '>', time()];
                         break;
@@ -73,6 +76,20 @@ class GuessQuestion extends Base
             ->paginate(15);
         $page = $data->render();
         foreach ($data as &$row) {
+            // 处理猜测题状态
+            $time = time();
+            if ($row['is_settlement']) {
+                $row['is_settlement_desc'] = '已结算';
+            } elseif ($row['start_time'] > $time) {
+                $row['is_settlement_desc'] = '未开始';
+            } elseif ($row['stop_time'] > $time) {
+                $row['is_settlement_desc'] = '进行中';
+            } elseif ($row['open_time'] > $time) {
+                $row['is_settlement_desc'] = '待开奖';
+            } else {
+                $row['is_settlement_desc'] = '待结算';
+            }
+
             $row['vote_type_desc'] = $row['vote_type'] == 1 ? '少数派' : ($row['vote_type'] == 2 ? '多数派' : ($row['vote_type'] == 3 ? '预言帝' : ''));
         }
         $this->assign('data', $data);

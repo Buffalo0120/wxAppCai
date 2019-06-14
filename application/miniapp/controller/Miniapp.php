@@ -71,6 +71,7 @@ class Miniapp extends Base
             ->alias('mu')
             ->field('mu.*,u.nickname u_nickname')
             ->where($where)
+            ->order('u.id', 'desc')
             ->join('be_miniapp_user u','u.id = mu.u_id','left')
             ->paginate(15);
         $page = $users->render();
@@ -391,6 +392,7 @@ class Miniapp extends Base
             ->field('b.*,u.nickname')
             ->leftJoin('be_miniapp_user u','u.id = b.u_id')
             ->where('b.u_id',$uid)
+            ->order('id', 'desc')
             ->paginate(15);
         $page = $data->render();
         $this->assign('page', $page);

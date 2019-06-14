@@ -2,6 +2,10 @@
 {block name="body"}
 <style>
     .order-input{width:30px;text-align:center;}
+    .layui-table td, .layui-table th {
+        position: relative;
+        padding: 9px 7px;
+    }
 </style>
 <form action="" class="layui-form" method="get">
     <div class="layui-form-item">
@@ -30,7 +34,8 @@
                     <option value="1" {if $post.vote_status == 1}selected{/if}>未开始</option>
                     <option value="2" {if $post.vote_status == 2}selected{/if}>进行中</option>
                     <option value="3" {if $post.vote_status == 3}selected{/if}>待开奖</option>
-                    <option value="4" {if $post.vote_status == 4}selected{/if}>已结束</option>
+                    <option value="4" {if $post.vote_status == 4}selected{/if}>待结算</option>
+                    <option value="5" {if $post.vote_status == 5}selected{/if}>已结算</option>
                 </select>
             </div>
         </div>
@@ -56,12 +61,13 @@
             <colgroup>
                 <col width="30px;">
                 <col width="80px;">
-                <col width="150px;">
+                <col width="110px;">
                 <col>
                 <!--<col width="80px;">-->
                 <col>
                 <col>
                 <col>
+                <col width="60px;">
                 <col width="60px;">
                 <col width="60px;">
                 <col width="140px;">
@@ -76,6 +82,7 @@
                 <th>开始时间</th>
                 <th>结束时间</th>
                 <th>开奖时间</th>
+                <th>状态</th>
                 <th>评论</th>
                 <th>选项</th>
                 <th>操作</th>
@@ -100,6 +107,7 @@
                 <td>{$v.start_time|date="Y-m-d H:i:s"}</td>
                 <td>{$v.stop_time|date="Y-m-d H:i:s"}</td>
                 <td>{$v.open_time|date="Y-m-d H:i:s"}</td>
+                <td>{$v.is_settlement_desc}</td>
                 <td>
                     <a href="{:url('comment/index',['type'=>'question','id'=>$v.id])}"
                        class="layui-btn layui-btn-sm layui-btn-normal">查看</a>
