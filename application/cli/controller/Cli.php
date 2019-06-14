@@ -194,7 +194,7 @@ class Cli extends Base
                 // 在用户响豆基础上增加答题正确所得的响豆
                 Db::name('miniapp_user')
                     ->where('id', $row['u_id'])
-                    ->update(['score' => 'score + ' . $coin]);
+                    ->inc('score', $coin);
                 // 记录日志
                 $param = [
                     'remark' => '用户响豆数增加',
