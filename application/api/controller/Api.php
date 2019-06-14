@@ -871,6 +871,7 @@ class Api extends Base
         $data = Db::name('order_list')
             ->field('id,u_id,p_name,p_id,p_price,d_price,r_price,s_price,p_pic,update_time,status,num')
             ->where($where)
+            ->order('id', 'desc')
             ->paginate($pageSize);
         echo json_encode($data);die;
     }
