@@ -25,7 +25,7 @@ class Cli extends Base
 
     public function queue()
     {
-        echo '结算开始！' . date('Y-m-d H:i:s');
+        echo '结算开始！' . date('Y-m-d H:i:s') . "\n";
         // 查询未结算且已到开奖时间的猜测题
         $guessQuestionList = Db::name('guess_question')
             ->alias('q')
@@ -148,8 +148,9 @@ class Cli extends Base
             Db::name('guess_question')
                 ->where('id', $row['id'])
                 ->setField('is_settlement', 1);
+            echo '猜测题-' . $row['title'] . '已结算' . "\n";
         }
-        echo '结算结束！' . date('Y-m-d H:i:s');
+        echo '结算结束！' . date('Y-m-d H:i:s') . "\n";
     }
 
     /**
