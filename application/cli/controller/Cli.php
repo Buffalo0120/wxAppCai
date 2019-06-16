@@ -25,7 +25,6 @@ class Cli extends Base
 
     public function queue()
     {
-        echo '结算开始！' . date('Y-m-d H:i:s') . "\n";
         // 查询未结算且已到开奖时间的猜测题
         $guessQuestionList = Db::name('guess_question')
             ->alias('q')
@@ -36,6 +35,9 @@ class Cli extends Base
             ->where('q.open_time', '<=', time())
             ->group('q.id')
             ->select();
+        if (!empty($guessQuestionList)) {
+            echo '结算开始！' . date('Y-m-d H:i:s') . "\n";
+        }
         // var_dump($guessQuestionList);exit;
         // 根据投票类型
         // 1、少数派，统计答题人数，答题少的选项为正确答案
@@ -150,7 +152,9 @@ class Cli extends Base
                 ->setField('is_settlement', 1);
             echo '猜测题-' . $row['title'] . '已结算' . "\n";
         }
-        echo '结算结束！' . date('Y-m-d H:i:s') . "\n";
+        if (!empty($guessQuestionList)) {
+            echo '结算结束！' . date('Y-m-d H:i:s') . "\n";
+        }
     }
 
     /**
