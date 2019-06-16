@@ -40,7 +40,7 @@ class Comment extends Base
             $type = isset($_data['type']) ? $_data['type'] : '';
         }
         if (empty($id) || empty($type)) {
-            exit('123');
+            exit('参数错误！');
         }
         $post = ['id' => $id, 'type' => $type];
         $table = $type == 'question' ? 'guess_question' : 'news';
@@ -125,13 +125,6 @@ class Comment extends Base
         return view('edit');
     }
 
-    public function getUserList()
-    {
-        $userData = Db::name('miniapp_user')
-            ->field('id,nickname,openid')
-            ->select();
-        return $userData;
-    }
 
     public function save()
     {

@@ -67,4 +67,11 @@ class Base extends \app\admin\controller\Base
         Session::set('miniapp_options', $options);
     }
 
+    public function getUserList()
+    {
+        $userData = Db::name('miniapp_user')
+            ->field('id,nickname,openid')
+            ->select();
+        return $userData;
+    }
 }

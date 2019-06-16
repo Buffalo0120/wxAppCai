@@ -1,0 +1,133 @@
+{extend name="common/base" /}
+{block name="body"}
+<style>
+    .order-input{width:30px;text-align:center;}
+    .layui-table td, .layui-table th {
+        position: relative;
+        padding: 9px 7px;
+    }
+</style>
+<form action="" class="layui-form" method="get">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">标题：</label>
+            <div class="layui-input-block">
+                <span style="line-height:38px;">{$questionData.title}</span>
+            </div>
+        </div>
+        <div class="layui-inline">
+            <div class="layui-input-block">
+                <a href="{:url('guess_list/add',['q_id'=> $questionData.id])}" class="layui-btn layui-btn-sm layui-btn-normal"  >添加答题</a>
+            </div>
+        </div>
+    </div>
+</form>
+<form class="layui-form" action="" style="padding: 0px 10px 0px 10px;">
+<table class="layui-table" lay-skin="line">
+    <colgroup>
+        <col>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>选项</th>
+        <th>答题人数</th>
+        <th>响豆总数</th>
+    </tr>
+    </thead>
+    <tbody>
+    {volist name="optionGroup" id="v"}
+    <tr>
+        <td>{$v.name}</td>
+        <td>{$v.u_sum}</td>
+        <td>{$v.s_sum}</td>
+    </tr>
+    {/volist}
+    </tbody>
+</table>
+</form>
+<div>
+    <form class="layui-form" action="" style="padding: 0px 10px 0px 10px;">
+        <table class="layui-table" lay-skin="line">
+            <colgroup>
+                <col width="60px;">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>用户</th>
+                <th>头像</th>
+                <th>选项</th>
+                <th>响豆</th>
+                <th>时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            {volist name="data" id="v"}
+            <tr>
+                <td>{$i}</td>
+                <td>{$v.nickname}</td>
+                <td>
+                    <div  style="padding: 1px; border: #e6e6e6 solid 1px; width:35px; float: left; ">
+                        <img class="form_logo" src="{$v.avatarurl}" width="35" height="35">
+                    </div>
+                </td>
+                <td>{if isset($optionData[$v.o_id])}{$optionData[$v.o_id]}{else}无{/if}</td>
+                <td>{$v.d_price}</td>
+                <td>{$v.update_time}</td>
+            </tr>
+            {/volist}
+            </tbody>
+        </table>
+    </form>
+    {$page|raw}
+</div>
+<script>
+    layui.use('laydate', function() {
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#rhaphp-time1'
+            ,type: 'datetime'
+            ,range: '到'
+            ,format: 'yyyy-M-d'
+        });
+    })
+    layui.use('form', function(){
+        var $ = layui.jquery, form = layui.form;
+    });
+    // 排序
+    $('.order-input').blur(function(){
+        var id = $(this).attr('format-id');
+        var order_id = $(this).val();
+        var old_order_id = $(this).attr('format-order-id');
+        if (old_order_id != order_id) {
+            $.post("{:url('guess_question/saveOrderId')}",{id: id, order_id: order_id},function (res) {
+                if(res.status=='0'){
+                    layer.msg(res.msg);
+                }
+                if(res.status=='1'){
+                    layer.msg(res.msg);
+                }
+            })
+        }
+
+    });
+    function aa(id)
+    {
+        layer.confirm('确定删除吗？',{btn:['确定','取消']},function(res){
+            $.post("{:url('guess_question/del')}",{id:id},function (res) {
+                if(res.status=='0'){
+                    layer.msg(res.msg);
+                }
+                if(res.status=='1'){
+                    layer.msg(res.msg,{time:1000},function () {
+                        location.href="{:url('guess_question/index')}";
+                    });
+                }
+            })
+        })
+
+    }
+    //删除
+</script>
+{/block}

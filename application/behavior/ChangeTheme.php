@@ -19,11 +19,12 @@ class ChangeTheme
     {
         $root_path = Env::get('root_path');
         $model = Request::module();
-        if (Request::isMobile()) {
+        /*if (Request::isMobile()) {
             $view_path = $root_path . 'themes/mobile/' . $model . '/';
         } else {
             $view_path = $root_path . 'themes/pc/' . $model . '/';
-        }
+        }*/
+        $view_path = $root_path . 'themes/pc/' . $model . '/';
         View::config('view_path', $view_path);
     }
 }
